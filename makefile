@@ -1,19 +1,38 @@
 CXX = g++
 CXXFLAGS = -Wall -g
 RM = rm -f
-HDR = include/
-OBJ = object/
+INC = include/
+OUT = out/
 SRC = src/
+TST = test/
+BIN = bin/
 
-run :
-	./main
-build: Main
-cbuild: clean Main 
-Main: $(OBJ)main.o $(OBJ)channel.o $(OBJ)codes.o $(OBJ)functions.o $(OBJ)identification.o $(OBJ)simulate.o $(OBJ)transmission.o $(OBJ)rando.o 
-	$(CXX) $(CXXFLAGS)  $(OBJ)main.o $(OBJ)channel.o  $(OBJ)codes.o $(OBJ)functions.o $(OBJ)identification.o $(OBJ)simulate.o $(OBJ)transmission.o $(OBJ)rando.o -o main 
+SRC_MAINFUL = $(wildcard $(SRC)*.cpp)
+SRC_MAINLESS = $(filter-out $(SRC)main.cpp, $(wildcard $(SRC)*.cpp))
 
-$(OBJ)%.o: $(SRC)%.cpp
+SRC_OBJ = $(patsubst $(SRC)%.cpp, $(OUT)%.o ,$(SRC_MAINFUL))
+SRC_MAINLESS_OBJ = $(patsubst $(SRC)%.cpp, $(OUT)%.o ,$(SRC_MAINLESS))
+TST_OBJ = $(patsubst $(TST)%.cpp, $(OUT)$(TST)%.o ,$(wildcard $(TST)*.cpp))
+TST_EXE = $(patsubst $(TST)%.cpp, $(BIN)$(TST)% ,$(wildcard $(TST)*.cpp))
+run_main:
+	$(BIN)main
+
+runt_%: 
+	$(BIN)$(TST)$*
+
+main: $(SRC_OBJ) 
+	$(CXX) $(CXXFLAGS) $^ -o $(BIN)$@
+
+test: $(TST_EXE)
+
+$(BIN)$(TST)%: $(OUT)$(TST)%.o $(SRC_MAINLESS_OBJ)
+	$(CXX) $(CXXFLAGS) $^ -o  $@
+
+$(OUT)%.o: $(SRC)%.cpp 
+	$(CXX) $(CXXFLAGS) -c $^ -o $@
+
+$(OUT)$(TST)%.o: $(TST)%.cpp
 	$(CXX) $(CXXFLAGS) -c $^ -o $@
 
 clean:
-	$(RM) main $(OBJ)main.o $(OBJ)channel.o $(OBJ)codes.o $(OBJ)functions.o $(OBJ)identification.o $(OBJ)simulate.o $(OBJ)transmission.o $(OBJ)rando.o
+	$(RM) $(BIN)main $(SRC_OBJ) $(TST_OBJ) $(TST_EXE)
