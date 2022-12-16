@@ -1,0 +1,101 @@
+Creating the code!
+The keys are 59 5
+Code Created!
+-----------------------
+Message: 91
+Encoded: 001000
+Received: 001000
+The second kind error rate: 0.2
+-----------------------
+The average second kind error is 0.2
+Creating the code!
+The keys are 43 47
+Code Created!
+-----------------------
+Message: 63
+Encoded: 011010
+Received: 011010
+The second kind error rate: 0.02
+-----------------------
+The average second kind error is 0.02
+Creating the code!
+The keys are 149 37
+Code Created!
+-----------------------
+Message: 60
+Encoded: 10011000
+Received: 10011000
+The second kind error rate: 0.03
+-----------------------
+The average second kind error is 0.03
+Creating the code!
+The keys are 23 59
+Code Created!
+-----------------------
+Message: 59
+Encoded: 111100
+Received: 111100
+The second kind error rate: 0.04
+-----------------------
+The average second kind error is 0.04
+Creating the code!
+The keys are 23 131
+Code Created!
+-----------------------
+Message: 100
+Encoded: 01010000
+Received: 01010000
+The second kind error rate: 0.05
+-----------------------
+The average second kind error is 0.05
+Creating the code!
+The keys are 29 83
+Code Created!
+-----------------------
+Message: 99
+Encoded: 0111000
+Received: 0111000
+The second kind error rate: 0.04
+-----------------------
+The average second kind error is 0.04
+Creating the code!
+The keys are 11 109
+Code Created!
+-----------------------
+Message: 38
+Encoded: 1110000
+Received: 1110000
+The second kind error rate: 0.09
+-----------------------
+The average second kind error is 0.09
+Creating the code!
+The keys are 5 73
+Code Created!
+-----------------------
+Message: 9
+Encoded: 0110000
+Received: 0110000
+The second kind error rate: 0.2
+-----------------------
+The average second kind error is 0.2
+Creating the code!
+The keys are 47 79
+Code Created!
+-----------------------
+Message: 57
+Encoded: 0011000
+Received: 0011000
+The second kind error rate: 0.02
+-----------------------
+The average second kind error is 0.02
+Creating the code!
+The keys are 67 13
+Code Created!
+-----------------------
+Message: 10
+Encoded: 0011000
+Received: 0011000
+The second kind error rate: 0.07
+-----------------------
+The average second kind error is 0.07
+End

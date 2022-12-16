@@ -7,7 +7,6 @@ Channel::Channel(uint64_t x, uint64_t y, ChannelFunc* f)
     this->f = f;
 }
 Channel::~Channel(){
-    delete this->f;
 }
 chnl_output Channel::transmit(chnl_input symb){
     if(symb <= this->x && symb > 0)

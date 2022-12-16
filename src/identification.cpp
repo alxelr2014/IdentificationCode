@@ -10,18 +10,17 @@ IdentificationCode::IdentificationCode(uint64_t N, uint64_t n)
 }
 IdentificationCode::~IdentificationCode()
 {
-    delete this->encoder;
-    delete this->decoder;
+
 }
 
 void IdentificationCode::constructID_Code(const Channel &C, function<ID_Code *(const Channel &, uint64_t, uint64_t)> construction_method)
 {
-    printf("Creating the code!\n");
+    *getOutputStream() << "Creating the code!\n";
     ID_Code *result = construction_method(C, this->N, this->n);
     this->encoder = result->first;
     this->decoder = result->second;
     this->valid_construction = true;
-    printf("Code Created!\n");
+    *getOutputStream() << "Code Created!\n";
 }
 uint64_t IdentificationCode::getN()
 {
@@ -52,9 +51,9 @@ vector<chnl_input> *IdentificationCode::encode(uint64_t message)
         {
             return (*(this->encoder))(message);
         }
-        printf("Not a valid message %llu\n", message);
+        *getOutputStream() << "Not a valid message " << message << '\n';
     }
-    printf("Not a valid construction!");
+    *getOutputStream() << "Not a valid construction!\n" ;
     return nullptr;
 }
 uint64_t IdentificationCode::decode(const vector<chnl_output> &received)

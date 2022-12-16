@@ -7,7 +7,12 @@
 	"settings": {
 		"files.associations": {
 			"cstdio": "cpp",
-			"*.tcc": "cpp"
+			"*.tcc": "cpp",
+			"new": "cpp",
+			"iostream": "cpp",
+			"cmath": "cpp",
+			"iosfwd": "cpp",
+			"ostream": "cpp"
 		}
 	}
 }

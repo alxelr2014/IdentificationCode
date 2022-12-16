@@ -26,9 +26,7 @@ uint64_t generateDecodingFunction(uint64_t keyK, uint64_t keyQ, uint64_t n, uint
     return mod_eq * div + rem_eq;
 }
 
-ID_Code *NoiselessBSC_ID(const Channel &C, uint64_t N, uint64_t n)
-{
-    double alpha = 1.1;
+pair<uint64_t, uint64_t> eratosthenesMethod(uint64_t N, double alpha){
     uint64_t K = ceil(powl(log2l(N), alpha));
     vector<uint64_t> *primes_K = eratosthenesSeive(K);
     uint64_t pK = primes_K->at(primes_K->size() - 1);
@@ -38,19 +36,38 @@ ID_Code *NoiselessBSC_ID(const Channel &C, uint64_t N, uint64_t n)
     else primes_Q = primes_K;
     uint64_t pQ = primes_Q->at(primes_Q->size() - 1);
 
+    *getOutputStream() << "K = " << K << ", Q = " << Q << ", pK = " << pK << ", pQ = " << pQ << '\n';
+
     uniform_int_distribution<uint64_t> distK(0, primes_K->size() - 1);
     uniform_int_distribution<uint64_t> distQ(0, primes_Q->size() - 1);
 
     uint64_t keyK = primes_K->at(distK(*getGenerator()));
     uint64_t keyQ = primes_Q->at(distQ(*getGenerator()));
 
-    printf("K =%llu, Q= %llu, pK = %llu, pQ = %llu\n", K, Q, pK, pQ);
-    printf("The keys are %llu %llu\n", keyK, keyQ);
+    return pair<uint64_t,uint64_t>(keyK,keyQ);
+}
 
-    n = (keyK < keyQ) ? (ceil(log2l(keyK))) : (ceil(log2l(keyQ)));
+pair<uint64_t, uint64_t> millerMethod(uint64_t N, double alpha){
+    uint64_t K = ceil(powl(log2l(N), alpha));
+    uint64_t max_p = 18*K*ceil(log10l(K));
+    uint64_t keyK = random_prime(max_p,10,10);
+    uint64_t keyQ = random_prime(max_p,10,10);
+    return pair<uint64_t,uint64_t>(keyK,keyQ); 
+}
+
+
+ID_Code *NoiselessBSC_ID(const Channel &C, uint64_t N, uint64_t n)
+{
+    double alpha = 1.1;
+    //pair<uint64_t,uint64_t> keys = eratosthenesMethod(N,alpha);
+    pair<uint64_t,uint64_t> keys = millerMethod(N,alpha);
+
+    *getOutputStream() << "The keys are " << keys.first << " " << keys.second << '\n';
+    n = (keys.first > keys.second) ? (ceil(log2l(keys.first))) : (ceil(log2l(keys.second)));
     ID_Code *result = new ID_Code;
-    result->first = new ID_EncodingFunction(bind(generateEncodingFunction, keyK, keyQ, placeholders::_1, n));
-    result->second = new ID_DecodingFunction(bind(generateDecodingFunction, keyK, keyQ, n,N,placeholders::_1));
 
+    result->first = new ID_EncodingFunction(bind(generateEncodingFunction, keys.first, keys.second, placeholders::_1, n));
+    result->second = new ID_DecodingFunction(bind(generateDecodingFunction, keys.first, keys.second, n,N,placeholders::_1));
+    
     return result;
 }

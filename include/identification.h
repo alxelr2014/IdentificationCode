@@ -4,11 +4,12 @@
 #include <vector>
 #include <functional>
 #include "channel.h"
+#include "rando.h"
 
 using namespace std;
 
-typedef function<vector<chnl_input>* (uint64_t)> ID_EncodingFunction; 
-typedef function<uint64_t (const vector<chnl_output> &)> ID_DecodingFunction;
+typedef function<vector<chnl_input>* (uint64_t)> ID_EncodingFunction; //encoder
+typedef function<uint64_t (const vector<chnl_output> &)> ID_DecodingFunction; //decoder
 typedef pair<ID_EncodingFunction* ,ID_DecodingFunction*> ID_Code;
 
 

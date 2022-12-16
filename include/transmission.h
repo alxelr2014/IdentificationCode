@@ -4,8 +4,8 @@
 #include "channel.h"
 using namespace std;
 
-typedef function<vector<chnl_input>* (uint64_t)> TR_EncodingFunction; 
-typedef function<uint64_t (const vector<chnl_output> &)> TR_DecodingFunction;
+typedef function<vector<chnl_input>* (uint64_t)> TR_EncodingFunction; //encoder
+typedef function<uint64_t (const vector<chnl_output> &)> TR_DecodingFunction; //decoder
 typedef pair<TR_EncodingFunction*,TR_DecodingFunction*> TR_Code;
 class TransmissionCode
 {

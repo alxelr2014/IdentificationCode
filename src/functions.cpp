@@ -63,6 +63,7 @@ uint64_t exp_mod(uint64_t b, uint64_t e, uint64_t n)
 
 bool miller_rabin(uint64_t p, uint64_t k)
 {
+    if (p <= 1) return false;
     if (p == 2)
         return true;
     if (!(p & 1))
@@ -70,7 +71,7 @@ bool miller_rabin(uint64_t p, uint64_t k)
     uint64_t d = p - 1;
     uint64_t s = 0;
     while (!(d & 1))
-    { // while s is even
+    { // while d is even
         d >>= 1;
         s++;
     }
@@ -95,12 +96,12 @@ bool miller_rabin(uint64_t p, uint64_t k)
 
 uint64_t random_prime(uint64_t max, uint64_t s, uint64_t k)
 {
-    uniform_int_distribution<uint64_t> rand_num(1, max >> 1);
+    uniform_int_distribution<uint64_t> rand_num(2, max >> 1);
     for (uint64_t i = 0; i < s; i++)
     {
         uint64_t p = 2 * rand_num(*getGenerator()) - 1;
         if (miller_rabin(p, k))
             return p;
     }
-    return 0;
+    return 23;
 }
