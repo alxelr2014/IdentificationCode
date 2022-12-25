@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage[a4paper,bindingoffset=0.2in,%
+left=0.75in,right=0.75in,top=1in,bottom=1in,%
+footskip=.25in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage[ruled,noline]{algorithm2e}
+\usepackage{codestyles}
+\usepackage{listings}
+\usepackage{hyperref}
+
+\newcommand{\abs}[1]{\left| #1 \right|}
+\begin{document}
+\section{Week 1}
+\subsection{Multiway paper}
+This week, I mainly worked on the Ahlswede's \cite{multiway} paper. Here is a summary of what I did:
+\begin{itemize}
+	\item The ``\(\sqrt{n}\) trick'' is described in \cite{idfeedback}. The idea behind the section F's 3 step algorithm is also described in previous works of Ahlswede. I will take a look at the referenced article next week.
+	\item I think the section B. can be described more intuitively as follows:
+	      \begin{itemize}
+		      \item \(\Omega\) is the set of \textit{terminals} which are basically the communication devices.
+		      \item \(\Gamma\) is the set of \textit{messengers} which can be viewd as a pair of transmitter and receiver. For each messenger \(\gamma\), \(\mathcal{N}_{\gamma}\) is the set of messages that the transmitter and receiver communicate with.
+		      \item For each terminal \(\omega \in \Omega\), the set of transmitters on that terminal is denoted by \(\mathcal{A}_{\omega}\).
+		      \item For each terminal \(\omega \in \Omega\), the set of receiver on that terminal is denoted by \(\mathcal{B}_{\omega}\). --- there is a typo in the definition given in the paper, the last \(\mathcal{B}_{\omega}\) should be changed to \(\omega\).
+		      \item For each terminal \(\omega \in \Omega\), the set of available feedback lines is denoted by \(\Phi_{\omega}\). --- there is a typo here too, \(\Phi_{\omega} \subset \Omega\) and not \(\Gamma\).
+		      \item The channel \(W\) is discrete and memoryless.
+	      \end{itemize}
+	      the given assumption can also be interpreted as follows
+	      \begin{itemize}
+		      \item \(\mathcal{A}_{\omega} \cap \mathcal{B}_{\omega} = \emptyset\):
+		            because otherwise, the transmitter and receiver would be placed on the same terminal which makes communication via channel unnecessary.
+
+		            \(\cup_{\omega \in \Omega} \mathcal{A}_{\omega} = \cup_{\omega \in \Omega } \mathcal{B}_{\omega} = \Gamma\): we can assume that each transmitter/receiver is placed only on one terminal.
+		      \item If \(\abs{\mathcal{X}_{\omega}} = \abs{\mathcal{Y}_{\omega}} = 1\), then terminal can not transmit or receive any information.
+		      \item If \(\abs{\mathcal{X}_{\omega}}\) then the terminal can not send information, hence no transmitter should be placed on it. Similarly for receiving.
+		      \item I did not fully understand what is logic behind \(A_4\) but I guess that is related to relay channels, since the relays do not send or decode data.
+		      \item \(\omega \in \Phi_{\omega}\) every terminal should know what it received.
+		      \item If \(\gamma \in \mathcal{A}_{\omega} \cap \mathcal{B}_{\omega'}\), then the transmitter of \(\gamma\) is on \(\omega\) and its receiver is on \(\omega'\). Then, all the information available at \(\omega'\) is feedbacked to \(\omega\), i.e. \(\Phi_{\omega'} \subset \Phi_{\omega}\).
+		      \item Passive decoders do not need to transmit anything.
+	      \end{itemize}
+	\item On section C:
+	      \begin{itemize}
+		      \item Randomized feedback is not explained, I dont see what makes them different than the stochastic feedback defined later.
+		      \item ``concatentation of strategies'' after equation (1.6) is ambiguous.
+		      \item Derivation of equation (1.8) might be something like the following, but I am not sure as the definition are not formal.
+		            \begin{align*}
+			            \mu(\mathcal{F}_{m + n}) & = \max_{f^{n + m} \in \mathcal{F}_{n + m}} H(Y^{n + m}(f^{n+ m}))                              \\
+			                                     & \geq  \max_{f^{n + m} \in \mathcal{F}_n \times \mathcal{F}_m } H(Y^{n + m}(f^{n+ m}))          \\
+			                                     & = \max_{f^{n} \in \mathcal{F}_n} \max_{f^m \in \mathcal{F}_m } H(Y^{n }(f^{n}) , Y^m(f^m))     \\
+			                                     & = \max_{f^{n} \in \mathcal{F}_n} \max_{f^m \in \mathcal{F}_m } H(Y^{n }(f^{n}) )+ H( Y^m(f^m)) \\
+			                                     & = \mu(\mathcal{F}_n) + \mu(\mathcal{F}_m)
+		            \end{align*}
+		            I used independence in the second and the third line.
+		      \item Given the above inequality, \(\mu(\mathcal{F}_n) \geq n \mu(\mathcal{F}_1)\) and therefore
+		            \begin{equation*}
+			            \mu((\mathcal{F}_n)_{n = 1}^{\infty}) = \lim_{n \to \infty} \dfrac{1}{n \mu(\mathcal{F}_{n})} \leq \lim_{n \to \infty} \dfrac{1}{n^2 \mu(\mathcal{F}_{1})} =? 0
+		            \end{equation*}
+		            and since \(\mu \geq 0\), then \(\mu = 0\)??!.
+		      \item I skimmed the remaining sections. I am not sure how the mystery number \(\mu\) is related to the 3-step algorithm.
+	      \end{itemize}
+\end{itemize}
+\subsection{Randomized prime}
+I also worked on the randomized prime generation idea. Consider the following algorithm
+\begin{algorithm}
+	\DontPrintSemicolon
+	\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+	\Input{\(n,t\)}
+	\Output{A uniform \(n\)-bit prime}
+	\For{\(i = 1 \to t\)}{
+	\(p \gets \{0,1\}^{n}\)\;
+	\If{\(p\) is prime}{
+		\Return{\(p\)}
+	}
+	}
+	\Return{\(\perp\)}
+	\caption{Generating random primes}
+\end{algorithm}
+Instead of checking that \(p\) is a prime, we can check if \(p\) passes the Miller-Rabin test or not, which is more efficient -- running in \(O(n^3)\) rather than in \(O(2^n)\) for a simple primality test, or \(\tilde{O}{n^6}\) for AKS primality test. By applying the Miller-Rabin test multiple times, the probability of error (a composite number passes the test) decreases rapidly. Moreover, by letting \(n\) to be large enough (an asymptotic formula can be derived from the Prime Number Theorem), we can be sure that \(\pi_K\) can be represented by \(n\)-bits, and therefore our analysis for the 3-step algorithms remains unchanged.
+
+For the next week I am going to do a more thorough derivation of the above idea and implement it.
+\section{Week 2}
+Add the randomized prime generation and a testing python code to plot the error rate.
+\section{Week 3}
+\subsection{The simulation code}
+\subsubsection{\texttt{Channel} class}
+\lstinputlisting[style = cpp-code, firstline = 9,linewidth = \textwidth]{../include/channel.h}
+The \texttt{channel} class models a discrete memoryless channel.  The \texttt{ChannelFunc} is a function that takes an input character -- the characters are modeled as indicies-- and returns an output character. This function might be randomized as well. In fact the channel's transition matrix \(W\) should be implemented in \texttt{ChannelFunc} and be given as input to the constructor. It was wiser to let indicies start from \(0\) and I will refactor the code.
+
+The \texttt{transmit} method simply calls the \texttt{ChaanelFunc f} on the given symbol.
+
+\subsubsection{\texttt{Identification} class}
+\lstinputlisting[style = cpp-code, firstline = 11,linewidth = \textwidth]{../include/identification.h}
+This class models an identification code for a given channel \texttt{C}. The construction of the codes is done by \texttt{constructID\_Code} which takes a \texttt{construction\_method} to do the job. The \texttt{encoder} is a function that takes a message and encodes to a block of channel's inpute character.  The \texttt{decoder} returns \textbf{the number of identified messages}. Under a uniform distribution on messages, the second error rate -- false identification -- is equal to the number of identified messages divided by the number of messages \(N\). I have not implemented the \texttt{getFirstKindError} and \texttt{getSecondKindError} yet.
+
+There is a similar \texttt{transmission} class which is supposed to model transmission codes. I added this class because of the constructions in \cite{idfeedback} and \cite{verdu} that use transmission codes. However, I have only implemented the 3-step algorithm so far.
+\subsubsection{\texttt{Codes} class}
+\lstinputlisting[style = cpp-code, firstline = 14,linewidth = \textwidth]{../include/codes.h}
+For now it only implements the 3-step algorithm.
+\subsubsection{\texttt{Simulate} class}
+\lstinputlisting[style = cpp-code, firstline = 14,linewidth = \textwidth]{../include/simulate.h}
+It takes as input a \texttt{Channel C} and a identification code constructor \texttt{construction\_method} then, it simulates the transmission of a message over channel. For now, it outputs the second error rate of the Identification code. 
+\subsubsection{main}
+\lstinputlisting[style = cpp-code, firstline = 11,linewidth = \textwidth]{../src/main.cpp}
+The \texttt{main} method takes some optional inputs 
+\begin{enumerate}
+	\item Address of a file for logging.
+	\item The parameter \(N\), the number messages.
+	\item The parameter \(n\), the block size -- for 3-step algorithm is not important.
+	\item The parameter \(m\), the number of simulations.
+	\item A random seed for initializing the random generator.
+\end{enumerate}
+
+\bibliographystyle{plain} % We choose the "plain" reference style
+\bibliography{references}
+\end{document}
