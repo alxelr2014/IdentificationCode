@@ -144,9 +144,9 @@ where we used the fact that \(\frac{\pi(m)}{m} \approx \frac{1}{\ln m}\) asympto
 	\implies& s  \geq \dfrac{-1}{\lg\left(1 - \frac{1}{\ln m}\right)}\\
 	\implies& s  \geq \dfrac{-\ln 2}{\ln\left(1 - \frac{1}{\ln m}\right)} 
 	\intertext{note that \(\ln(1 - \frac{1}{x}) \approx -\frac{1}{x}\) for large enough \(x\)}
-	\implies& s  \geq \ln m\ln 2
+	\implies& s  \geq \ln m\ln 2 = \ln^2 2 \lg m
 \end{align*}
-
+which means that \(s\) is in the order of number of bits of \(m\).
 \bibliographystyle{plain} % We choose the "plain" reference style
 \bibliography{references}
 \end{document}
