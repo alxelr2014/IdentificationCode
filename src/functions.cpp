@@ -96,10 +96,10 @@ bool miller_rabin(uint64_t p, uint64_t k)
 
 uint64_t random_prime(uint64_t max, uint64_t s, uint64_t k)
 {
-    uniform_int_distribution<uint64_t> rand_num(2, max >> 1);
+    uniform_int_distribution<uint64_t> rand_num(1, max >> 1);
     for (uint64_t i = 0; i < s; i++)
     {
-        uint64_t p = 2 * rand_num(*getGenerator()) - 1;
+        uint64_t p = 2 * rand_num(*getGenerator()) + 1;
         if (miller_rabin(p, k))
             return p;
     }

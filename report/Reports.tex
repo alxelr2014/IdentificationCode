@@ -76,7 +76,7 @@ I also worked on the randomized prime generation idea. Consider the following al
 	\Return{\(\perp\)}
 	\caption{Generating random primes}
 \end{algorithm}
-Instead of checking that \(p\) is a prime, we can check if \(p\) passes the Miller-Rabin test or not, which is more efficient -- running in \(O(n^3)\) rather than in \(O(2^n)\) for a simple primality test, or \(\tilde{O}{n^6}\) for AKS primality test. By applying the Miller-Rabin test multiple times, the probability of error (a composite number passes the test) decreases rapidly. Moreover, by letting \(n\) to be large enough (an asymptotic formula can be derived from the Prime Number Theorem), we can be sure that \(\pi_K\) can be represented by \(n\)-bits, and therefore our analysis for the 3-step algorithms remains unchanged.
+Instead of checking that \(p\) is a prime, we can check if \(p\) passes the Miller-Rabin test or not, which is more efficient -- running in \(O(n^3)\) rather than in \(O(2^n)\) for a simple primality test, or \(\tilde{O}{n^6}\) for AKS primality test. By applying the Miller-Rabin test multiple times, the mathbb{P}ability of error (a composite number passes the test) decreases rapidly. Moreover, by letting \(n\) to be large enough (an asymptotic formula can be derived from the Prime Number Theorem), we can be sure that \(\pi_K\) can be represented by \(n\)-bits, and therefore our analysis for the 3-step algorithms remains unchanged.
 
 For the next week I am going to do a more thorough derivation of the above idea and implement it.
 \section{Week 2}
@@ -110,6 +110,42 @@ The \texttt{main} method takes some optional inputs
 	\item The parameter \(m\), the number of simulations.
 	\item A random seed for initializing the random generator.
 \end{enumerate}
+\subsection{Random Prime Generation}
+The pseudocode of our prime generation algorithm is 
+\begin{algorithm}
+	\DontPrintSemicolon
+	\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+	\Input{positive integers \(m,s,k\)}
+	\Output{A uniformly chosen odd prime less than or equal to \(m\)}
+	\For{\(i = 1 \to s\)}{
+	\(n \gets \{3,5,\dots, m\}\)\;
+	\If{Miller\_Rabin\((n,k)\) is PRIME}{
+		\Return{\(n\)}
+	}
+	}
+	\Return{\(23\)}
+	\caption{pseudocode}
+\end{algorithm}
+
+
+Instead of returning \(\perp\) when all of the randomly chosen numbers are COMPOSITE, it returns 23. Therefore, the probability of finding no prime number is 
+\begin{align*}
+	\mathbb{P}\left\{\perp\right\} &= \mathbb{P}\left\{M\_R(n_1,k) = \mathrm{COMPOSITE}, \dots , M\_R(n_s,k) = \mathrm{COMPOSITE}\right\}\\
+	&= \prod_{i= 1}^s \mathbb{P}\left\{M\_R(n_i,k)= \mathrm{COMPOSITE}\right\}\\
+	&= \prod_{i= 1}^s \mathbb{P}\left\{n_i \text{ is composite}\right\}\\
+	&= \prod_{i= 1}^s \left(1 -\mathbb{P}\left\{n_i \text{ is prime}\right\}\right)\\
+	&\approx \prod_{i= 1}^s \left(1 - \frac{1}{\ln m}\right)\\
+	&= \left(1 - \frac{1}{\ln m}\right)^s
+\end{align*}
+where we used the fact that \(\frac{\pi(m)}{m} \approx \frac{1}{\ln m}\) asymptotically by prime number theorem \cite{apostol}. From Theorem 31.39 of \cite{clrs} and its following analysis, for moderate values of \(s \approx 3\), the probability of error is negligible. That is, if the algorithm returns a number -- not \(\perp\)-- then it is most likely a prime. Then, the number of iteration to get a prime number is about 
+\begin{align*}
+	&\mathbb{P}\left\{\perp\right\}  \leq \frac{1}{2}\\
+	\implies& s \lg\left(1 - \frac{1}{\ln m}\right) \leq -1 \\
+	\implies& s  \geq \dfrac{-1}{\lg\left(1 - \frac{1}{\ln m}\right)}\\
+	\implies& s  \geq \dfrac{-\ln 2}{\ln\left(1 - \frac{1}{\ln m}\right)} 
+	\intertext{note that \(\ln(1 - \frac{1}{x}) \approx -\frac{1}{x}\) for large enough \(x\)}
+	\implies& s  \geq \ln m\ln 2
+\end{align*}
 
 \bibliographystyle{plain} % We choose the "plain" reference style
 \bibliography{references}

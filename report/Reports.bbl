@@ -11,6 +11,16 @@ R.~Ahlswede and B.~Verboven.
 \newblock {\em IEEE Transactions on Information Theory}, 37(6):1519--1526,
   1991.
 
+\bibitem{apostol}
+Tom~M. Apostol.
+\newblock {\em Introduction to Analytic Number Theory}.
+\newblock Springer New York, 1976.
+
+\bibitem{clrs}
+Thomas~H. Cormen, Charles~E. Leiserson, Ronald~L. Rivest, and Clifford Stein.
+\newblock {\em Introduction to Algorithms, Third Edition}.
+\newblock The MIT Press, 3rd edition, 2009.
+
 \bibitem{verdu}
 S.~Verdu and V.K. Wei.
 \newblock Explicit construction of optimal constant-weight codes for
