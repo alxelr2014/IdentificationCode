@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.27)  28 DEC 2022 01:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.27)  6 FEB 2023 00:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -108,6 +108,17 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \mathdisplay@stack=\toks22
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
+) (c:/texlive/2022/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks23
+\thm@bodyfont=\toks24
+\thm@headfont=\toks25
+\thm@notefont=\toks26
+\thm@headpunct=\toks27
+\thm@preskip=\skip52
+\thm@postskip=\skip53
+\thm@headsep=\skip54
+\dth@everypar=\toks28
 ) (c:/texlive/2022/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
  (c:/texlive/2022/texmf-dist/tex/latex/amsfonts/amsfonts.sty
@@ -125,18 +136,18 @@ Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Bcount=\count275
 \calc@Adimen=\dimen156
 \calc@Bdimen=\dimen157
-\calc@Askip=\skip52
-\calc@Bskip=\skip53
+\calc@Askip=\skip55
+\calc@Bskip=\skip56
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count276
-\calc@Cskip=\skip54
+\calc@Cskip=\skip57
 ) (c:/texlive/2022/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
 \g_MT_multlinerow_int=\count277
 \l_MT_multwidth_dim=\dimen158
-\origjot=\skip55
+\origjot=\skip58
 \l_MT_shortvdotswithinadjustabove_dim=\dimen159
 \l_MT_shortvdotswithinadjustbelow_dim=\dimen160
 \l_MT_above_intertext_sep=\dimen161
@@ -151,7 +162,7 @@ Package: algorithm2e 2017/07/18 v5.2 algorithms environments
  (c:/texlive/2022/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
-\algocf@hangindent=\skip56
+\algocf@hangindent=\skip59
  (c:/texlive/2022/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
 \c@checkoddpage=\count279
@@ -160,36 +171,36 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 ) (c:/texlive/2022/texmf-dist/tex/latex/relsize/relsize.sty
 Package: relsize 2013/03/29 ver 4.1
 )
-\skiptotal=\skip57
-\skiplinenumber=\skip58
-\skiprule=\skip59
-\skiphlne=\skip60
-\skiptext=\skip61
-\skiplength=\skip62
-\algomargin=\skip63
-\skipalgocfslide=\skip64
+\skiptotal=\skip60
+\skiplinenumber=\skip61
+\skiprule=\skip62
+\skiphlne=\skip63
+\skiptext=\skip64
+\skiplength=\skip65
+\algomargin=\skip66
+\skipalgocfslide=\skip67
 \algowidth=\dimen166
 \inoutsize=\dimen167
 \inoutindent=\dimen168
 \interspacetitleruled=\dimen169
 \interspacealgoruled=\dimen170
 \interspacetitleboxruled=\dimen171
-\algocf@ruledwidth=\skip65
+\algocf@ruledwidth=\skip68
 \algocf@inoutbox=\box54
 \algocf@inputbox=\box55
-\AlCapSkip=\skip66
-\AlCapHSkip=\skip67
-\algoskipindent=\skip68
+\AlCapSkip=\skip69
+\AlCapHSkip=\skip70
+\algoskipindent=\skip71
 \algocf@nlbox=\box56
 \algocf@hangingbox=\box57
 \algocf@untilbox=\box58
-\algocf@skipuntil=\skip69
+\algocf@skipuntil=\skip72
 \algocf@capbox=\box59
-\algocf@lcaptionbox=\skip70
-\algoheightruledefault=\skip71
-\algoheightrule=\skip72
-\algotitleheightruledefault=\skip73
-\algotitleheightrule=\skip74
+\algocf@lcaptionbox=\skip73
+\algoheightruledefault=\skip74
+\algoheightrule=\skip75
+\algotitleheightruledefault=\skip76
+\algotitleheightrule=\skip77
 \c@algocfline=\count280
 \c@algocfproc=\count281
 \c@algocf=\count282
@@ -200,7 +211,7 @@ Package: codestyles
  (c:/texlive/2022/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count283
 \lst@gtempboxa=\box62
-\lst@token=\toks23
+\lst@token=\toks29
 \lst@length=\count284
 \lst@currlwidth=\dimen172
 \lst@column=\count285
@@ -349,32 +360,34 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip75
-) (c:/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+\Hy@SectionHShift=\skip78
+)
+\c@definition=\count302
+ (c:/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-09-28 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count302
+\l__color_backend_stack_int=\count303
 \l__pdf_internal_box=\box64
 ) (./Reports.aux)
 \openout1 = `Reports.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -425,44 +438,44 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 \Gin@req@height=\dimen182
 \Gin@req@width=\dimen183
 )
-\c@lstlisting=\count303
+\c@lstlisting=\count304
  (c:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count304
+\scratchcounter=\count305
 \scratchdimen=\dimen184
 \scratchbox=\box65
-\nofMPsegments=\count305
-\nofMParguments=\count306
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count307
+\nofMPsegments=\count306
+\nofMParguments=\count307
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count308
 \MPscratchDim=\dimen185
-\MPnumerator=\count308
-\makeMPintoPDFobject=\count309
-\everyMPtoPDFconversion=\toks25
+\MPnumerator=\count309
+\makeMPintoPDFobject=\count310
+\everyMPtoPDFconversion=\toks31
 ) (c:/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (c:/texlive/2022/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 14.
+Package hyperref Info: Link coloring OFF on input line 17.
  (./Reports.out) (./Reports.out)
 \@outlinefile=\write3
 \openout3 = `Reports.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 22.
  (c:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
  (c:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 86.
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 87.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 89.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 90.
  (../include/channel.h
 consecutive:
 ) [2] (../include/identification.h
@@ -473,23 +486,23 @@ consecutive:
 consecutive:
 ) [3] (../src/main.cpp
 consecutive:
-) [4] (./Reports.bbl) [5] (./Reports.aux)
+) [4] [5] (./Reports.bbl) [6] (./Reports.aux)
 Package rerunfilecheck Info: File `Reports.out' has not changed.
-(rerunfilecheck)             Checksum: 4D6C9ABA4CB0D2CA490B5DC1C6D3149F;1494.
+(rerunfilecheck)             Checksum: AFB64C648A7D1FA68345724DBCFF68DE;1571.
  ) 
 Here is how much of TeX's memory you used:
- 14067 strings out of 475071
- 216358 string characters out of 5782907
- 738746 words of memory out of 5000000
- 35175 multiletter control sequences out of 15000+600000
+ 14151 strings out of 475071
+ 217630 string characters out of 5782907
+ 740023 words of memory out of 5000000
+ 35252 multiletter control sequences out of 15000+600000
  473325 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,14n,77p,762b,2106s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Reports.pdf (5 pages, 208468 bytes).
+Output written on Reports.pdf (6 pages, 216646 bytes).
 PDF statistics:
- 276 PDF objects out of 1000 (max. 8388607)
- 234 compressed objects within 3 object streams
- 106 named destinations out of 1000 (max. 500000)
- 97 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 289 PDF objects out of 1000 (max. 8388607)
+ 246 compressed objects within 3 object streams
+ 109 named destinations out of 1000 (max. 500000)
+ 105 words of extra memory for PDF output out of 10000 (max. 10000000)
 

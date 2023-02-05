@@ -3,6 +3,7 @@
 left=0.75in,right=0.75in,top=1in,bottom=1in,%
 footskip=.25in]{geometry}
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage[ruled,noline]{algorithm2e}
@@ -10,7 +11,9 @@ footskip=.25in]{geometry}
 \usepackage{listings}
 \usepackage{hyperref}
 
+\newtheorem{definition}{Definition}
 \newcommand{\abs}[1]{\left| #1 \right|}
+
 \begin{document}
 \section{Week 1}
 \subsection{Multiway paper}
@@ -147,6 +150,23 @@ where we used the fact that \(\frac{\pi(m)}{m} \approx \frac{1}{\ln m}\) asympto
 	\implies& s  \geq \ln m\ln 2 = \ln^2 2 \lg m
 \end{align*}
 which means that \(s\) is in the order of number of bits of \(m\).
+\section{Week 4}
+Identification is a communication paradigm introduced by Ahlswede \cite{idfeedback}. In identification schemes, in essence, the receiver wants to know whether a certain message has been send or not. This is in contrast to the Shannon's transmission paradigm where the receiver wants to know the content of the message. 
+
+More formally, the send and receiver both have the message set \(\mathcal{M}\) and the receiver is interested in message \(m \in \mathcal{M}\). Ofcourse, when the sender knows \(m\), he can send a bit to indicate that he intends to send \(m\) or not. We may then assume that sender does not know \(m\). 
+
+This problem can be trivially addressed by transmission codes, the receiver decodes the received code to \(\hat{m}\) and then decides if \(\hat{m} = m\). However, the  Ahlswede's identification codes require exponentially shorter blocklength to identify the same number of messages. This improvement is achieved mainly by relaxing the condition that the decoding sets need be disjoint. By allowing the decoding sets to have slight overlap, Ahlswede \cite{idfeedback} has shown that there exists coding schemes that can identify \(2^{2^{nC}}\) messages where \(C\) is the Shannon capacity of the DMC channel.
+
+There are two kinds of errors associated with an identification scheme. The first kind happens when the sender sends \(m\) but the receiver fails to identify it and hence \textit{misses} the identification. The second kind happens when the sender send \(m' \neq m\) and the receiver \textit{falsely} identifies \(m\) instead.
+
+\begin{definition}[Identification code]
+	An identification code \(n, N,\lambda_1, \lambda_2\) for a DMC channel \(\mathcal{W^n}(\mathcal{X}^n | \mathcal{Y}^n)\) is a set \(\{ Q( \cdot |i), \mathcal{D}_i \}_{i \in [N]}\) where \(Q(\cdot | i)\) is a distribution over \(\mathcal{X}^n\) to that encodes \(i\) -- for determinstic encoder \(Q(x_i | i) = 1\) for some \(x_i \in \mathcal{X}^n\), and \(\mathcal{D}_i \subset \mathcal{Y}\) is the decoding set of \(i\). The first and second kind errors are bounded by \(\lambda_1\) and \(\lambda_2\), respectively.
+	\begin{align*}
+		&\sum_{x^n \in \mathcal{X}^n} Q(x^n | i) W^n(\mathcal{D}_i^c | x^n) \leq \lambda_1 \\
+		&\sum_{x^n \in \mathcal{X}^n} Q(x^n | j) W^n(\mathcal{D}_i | x^n) \leq \lambda_1 \\
+	\end{align*}
+\end{definition}
+
 \bibliographystyle{plain} % We choose the "plain" reference style
 \bibliography{references}
 \end{document}
