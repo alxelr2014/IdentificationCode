@@ -11,7 +11,17 @@ footskip=.25in]{geometry}
 \usepackage{listings}
 \usepackage{hyperref}
 
+\DeclarePairedDelimiter{\ceilp}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floorp}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\roundp}{\lfloor}{\rceil}
+
+\newcommand{\floor}[1]{\floorp{#1}}
+\newcommand{\ceil}[1]{\ceilp{#1}}
+\newcommand{\round}[1]{\roundp{#1}}
+
 \newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+
 \newcommand{\abs}[1]{\left| #1 \right|}
 
 \begin{document}
@@ -163,10 +173,84 @@ There are two kinds of errors associated with an identification scheme. The firs
 	An identification code \(n, N,\lambda_1, \lambda_2\) for a DMC channel \(\mathcal{W^n}(\mathcal{X}^n | \mathcal{Y}^n)\) is a set \(\{ Q( \cdot |i), \mathcal{D}_i \}_{i \in [N]}\) where \(Q(\cdot | i)\) is a distribution over \(\mathcal{X}^n\) to that encodes \(i\) -- for determinstic encoder \(Q(x_i | i) = 1\) for some \(x_i \in \mathcal{X}^n\), and \(\mathcal{D}_i \subset \mathcal{Y}\) is the decoding set of \(i\). The first and second kind errors are bounded by \(\lambda_1\) and \(\lambda_2\), respectively.
 	\begin{align*}
 		&\sum_{x^n \in \mathcal{X}^n} Q(x^n | i) W^n(\mathcal{D}_i^c | x^n) \leq \lambda_1 \\
-		&\sum_{x^n \in \mathcal{X}^n} Q(x^n | j) W^n(\mathcal{D}_i | x^n) \leq \lambda_1 \\
+		&\sum_{x^n \in \mathcal{X}^n} Q(x^n | j) W^n(\mathcal{D}_i | x^n) \leq \lambda_2 \\
 	\end{align*}
 \end{definition}
 
+
+\subsection{Prime Number Generator}
+Prime number generators are algorithms that generate primes (I guess :))) well technically the name is self-explanatory). There are multitude of PNG, each might be desirable given the requirements of the problem. Typically we may consider two types of PNG; prime sieves and primality tests. In a prime sieve we look for all primes in a given interval \([m,n]\) where usually \(m = 1\). One of the simplest --but not the most efficient-- sieves is the sieve of Eratosthenes. 
+\begin{algorithm}
+	\DontPrintSemicolon
+	\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+	\Input{positive integer \(n\)}
+	\Output{All prime numbers less than or equal to \(n\)}
+	create a bitset \(b\) of size \(n\) set initially to all true\;
+	\(b[1] =\) false\;
+	\(P = \emptyset\)\;
+	\For{\(i = 2, \dots, n\)}{
+	\If{\(b[i]\) is true}{
+		\(P = P \cup \{i\}\)\;
+		\For{\(j = 2i, \dots, \floor{\frac{n}{i}}i \)}{
+			\(b[j] =\) false\;
+		}
+	}
+	}
+	\Return{\(P\)}
+	\caption{sieve of Eratosthenes}
+\end{algorithm}
+Prime sieves are not very efficient, even if there was no computation, just outputing the primes less than \(n\) is of order \(O(n/\ln n)\), which makes these algorithms sub-exponential in size of \(n\). 
+
+However, in most application we look for some large primes and not all primes. One  strategy to generate such primes is to pick a random number -- perhaps from a desirable distribution-- and then check whether that number is a prime. Therefore, we need an efficient primality test algorithm. There are determinstic and randomized polynomial time primality tests. However, currently the best determinstic algorithms are much slower than randomized ones -- higher polynomial degree-- and at the same time, the randomized algorithms can be made very accurate. As a result, for most applications a randomized test is used. A list of basic primality test algorithms can be found in \cite{das}.
+
+\subsection{3-Step Algorithm}
+In essence the 3-Step algorithm does the following:
+\begin{enumerate}
+	\item The sender uniformly chooses two indicies \(k,l\) from \([K],[K']\) respectively.
+	\item Given any message \(m \in [M]\), the sender send \(\phi_l(\phi_k(m))\) to the receiver. 
+\end{enumerate} 
+I think if we send \(\pi_k\) and \(\pi_l\) instead of the indicies can signficantly improve the efficiency of the receiver without compromising the rate. Note that, \(\pi_k = O(k \ln k)\) -- the constant term is relatively small \(C \leq 30\) for all integers and \(C \leq 15\) for \(k \geq 200\). Therefore, the asymptotic transmission cost of this modified scheme is 
+\begin{align}
+	n &= \ceil{\lg \pi_K} + 2\ceil{\lg \pi_{K'}} \\
+	&= O(\lg K + \lg\lg K) + O(\lg K' + \lg \lg K') \\
+	&= O(\lg K) + O(\lg K') \sim \alpha [1 + o(1)] \lg \lg M
+\end{align}
+which is the same as before. The benefit of this modification is that the receiver does not need to compute \(\pi_k\) and \(\pi_l\) from \(k\) and \(l\) respectively -- as far as I know only a prime sieve can do this reliably, however as explained above, the sieves are subexponential. 
+
+I also came up with a new error analysis which \underline{I think} is better than the Ahlswede's. First consider the following lemmas
+\begin{lemma}
+	For any \(x \geq 2\),
+	\begin{equation}
+		\frac{1}{x}\sum_{p \leq x} \frac{1}{p} = \dfrac{\lg \lg x}{x} + O(\frac{1}{x})
+	\end{equation}
+	The approximate term can be expanded in terms of Mertens' constant.
+\end{lemma}
+
+\begin{lemma}
+	Let \(m,m' \gets [M]\) and \(k \gets [K]\) be a uniform random variable independent of \(m,m'\). Then,
+	\begin{equation*}
+		\mathbb{P}\left( \phi_k(m) = \phi_k(m')  \middle| m \neq m'  \right) \leq \dfrac{\lg \lg K}{K} + O(\frac{1}{K})
+	\end{equation*}
+\end{lemma}
+
+\begin{proof}
+	We easily have 
+	\begin{align*}
+		\mathbb{P}\left(  \phi_k(m) = \phi_k(m') \middle| m \neq  m'  \right) &= \sum_{\hat{k} = 1}^K \mathbb{P}\left(  \phi_k(m) = \phi_k(m') \middle| m \neq m', k = \hat{k}   \right) \mathbb{P}\left( k = \hat{k} \middle| m \neq m'  \right) \\
+		&= \dfrac{1}{K} \sum_{\hat{k} = 1}^K \mathbb{P}\left(  \phi_k(m) = \phi_k(m')\middle| m \neq m', k = \hat{k}   \right) \\
+		&\leq \dfrac{1}{K} \sum_{\hat{k} = 1}^K  \dfrac{1}{\pi_{\hat{k}}} \\
+		&= \dfrac{\lg \lg K}{K} + O(\frac{1}{K})
+	\end{align*}
+\end{proof}
+Now by following the error analysis of Ahlswede we get 
+\begin{equation*}
+	\mathbb{P}\left( \phi_l(\phi_k(m)) = \phi_l(\phi_k(m'))\middle| m \neq m'  \right) \leq \dfrac{\lg \lg K}{K} + \dfrac{\lg \lg K'}{K'}
+\end{equation*}
+and we have 
+\begin{align*}
+	\dfrac{\lg \lg K}{K} = \dfrac{\lg \alpha + \lg \lg M}{(\lg M)^{\alpha}} \leq \dfrac{1}{(\lg M)^{\alpha - 1}}
+\end{align*}
+I came up with this when I was working on the error analysis of our code, where we used the Miller-Rabin to generate prime. I am currently working on the distribution of the generate numbers and I will add it as soon as I become confident.
 \bibliographystyle{plain} % We choose the "plain" reference style
 \bibliography{references}
 \end{document}

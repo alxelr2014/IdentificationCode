@@ -21,6 +21,11 @@ Thomas~H. Cormen, Charles~E. Leiserson, Ronald~L. Rivest, and Clifford Stein.
 \newblock {\em Introduction to Algorithms, Third Edition}.
 \newblock The MIT Press, 3rd edition, 2009.
 
+\bibitem{das}
+Abhijit Das.
+\newblock {\em Computational Number Theory}.
+\newblock Chapman and Hall/CRC, 1st edition, 2013.
+
 \bibitem{verdu}
 S.~Verdu and V.K. Wei.
 \newblock Explicit construction of optimal constant-weight codes for
