@@ -105,3 +105,13 @@ uint64_t random_prime(uint64_t max, uint64_t s, uint64_t k)
     }
     return 23;
 }
+
+
+uint64_t ceil_log(uint64_t n){
+    uint64_t ans= 0;
+    while(n){
+        ans++;
+        n/=2;
+    }
+    return ans;
+}

@@ -20,3 +20,6 @@ bool miller_rabin(uint64_t p, uint64_t k);
 // tests whether p is a prime for k iterations
 uint64_t random_prime(uint64_t max, uint64_t s, uint64_t k);
 // picks a number from 2 to max and returns it if it passed the miller-rabin test.
+
+uint64_t ceil_log(uint64_t n); 
+//calculate the number of bits of n

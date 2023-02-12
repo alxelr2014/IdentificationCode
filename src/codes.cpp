@@ -49,9 +49,13 @@ pair<uint64_t, uint64_t> eratosthenesMethod(uint64_t N, double alpha){
 
 pair<uint64_t, uint64_t> millerMethod(uint64_t N, double alpha){
     uint64_t K = ceil(powl(log2l(N), alpha));
-    uint64_t max_p = 18*K*ceil(log10l(K));
-    uint64_t keyK = random_prime(max_p,10,10);
-    uint64_t keyQ = random_prime(max_p,10,10);
+    uint64_t n = 18*K*ceil(log10l(K));
+    const int eps_power = 10;
+    const int delta_power = 6;
+    const int k = (ceil_log(n) + ceil_log(eps_power) + delta_power)/2;
+    const int s = n*eps_power;
+    uint64_t keyK = random_prime(n,s,k);
+    uint64_t keyQ = random_prime(n,s,k);
     return pair<uint64_t,uint64_t>(keyK,keyQ); 
 }
 

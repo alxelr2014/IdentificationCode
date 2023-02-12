@@ -11,9 +11,9 @@ exe_address = base_address + "bin/main"
 string_set = string.ascii_uppercase	+ string.ascii_lowercase + string.ascii_letters	+ string.digits
 n = 0
 m = 30
-N = [10]
+N = [5]
 results = []
-num_repeats = 18
+num_repeats = 25
 
 for _i in range(num_repeats):
     file_address=  base_address + "logs/log-"+str(_i)+".txt"

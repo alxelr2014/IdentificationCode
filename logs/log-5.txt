@@ -1,101 +1,101 @@
 Creating the code!
-The keys are 61 727
+The keys are 137 907
 Code Created!
 -----------------------
-Message: 273568
-Encoded: 0111010000
-Received: 0111010000
-The second kind error rate: 0.016393
+Message: 457031
+Encoded: 0101000100
+Received: 0101000100
+The second kind error rate: 0.007298
 -----------------------
-The average second kind error is 0.016393
+The average second kind error is 0.007298
 Creating the code!
-The keys are 523 839
+The keys are 167 401
 Code Created!
 -----------------------
-Message: 105894
-Encoded: 0101111100
-Received: 0101111100
-The second kind error rate: 0.001912
+Message: 265850
+Encoded: 110110010
+Received: 110110010
+The second kind error rate: 0.005988
 -----------------------
-The average second kind error is 0.001912
+The average second kind error is 0.005988
 Creating the code!
-The keys are 349 181
+The keys are 239 71
 Code Created!
 -----------------------
-Message: 996620
-Encoded: 011101000
-Received: 011101000
-The second kind error rate: 0.005731
+Message: 485734
+Encoded: 10001000
+Received: 10001000
+The second kind error rate: 0.016736
 -----------------------
-The average second kind error is 0.005731
+The average second kind error is 0.016736
 Creating the code!
-The keys are 971 811
+The keys are 269 293
 Code Created!
 -----------------------
-Message: 679783
-Encoded: 1010101000
-Received: 1010101000
-The second kind error rate: 0.002059
+Message: 301319
+Encoded: 100101000
+Received: 100101000
+The second kind error rate: 0.003718
 -----------------------
-The average second kind error is 0.002059
+The average second kind error is 0.003718
 Creating the code!
-The keys are 521 883
+The keys are 467 739
 Code Created!
 -----------------------
-Message: 370248
-Encoded: 0010101010
-Received: 0010101010
-The second kind error rate: 0.001919
+Message: 371383
+Encoded: 0001111000
+Received: 0001111000
+The second kind error rate: 0.002142
 -----------------------
-The average second kind error is 0.001919
+The average second kind error is 0.002142
 Creating the code!
-The keys are 821 277
+The keys are 379 863
 Code Created!
 -----------------------
-Message: 696340
-Encoded: 0110000100
-Received: 0110000100
-The second kind error rate: 0.003654
+Message: 244568
+Encoded: 1100111000
+Received: 1100111000
+The second kind error rate: 0.002638
 -----------------------
-The average second kind error is 0.003654
+The average second kind error is 0.002638
 Creating the code!
-The keys are 719 293
+The keys are 197 491
 Code Created!
 -----------------------
-Message: 453304
-Encoded: 1101010000
-Received: 1101010000
-The second kind error rate: 0.004172
+Message: 336025
+Encoded: 011100010
+Received: 011100010
+The second kind error rate: 0.005076
 -----------------------
-The average second kind error is 0.004172
+The average second kind error is 0.005076
 Creating the code!
-The keys are 937 257
+The keys are 769 677
 Code Created!
 -----------------------
-Message: 891998
-Encoded: 0111000100
-Received: 0111000100
-The second kind error rate: 0.004269
+Message: 19578
+Encoded: 1100011010
+Received: 1100011010
+The second kind error rate: 0.0013
 -----------------------
-The average second kind error is 0.004269
+The average second kind error is 0.0013
 Creating the code!
-The keys are 419 821
+The keys are 491 293
 Code Created!
 -----------------------
-Message: 806550
-Encoded: 0011000110
-Received: 0011000110
-The second kind error rate: 0.002386
+Message: 91140
+Encoded: 011100000
+Received: 011100000
+The second kind error rate: 0.004074
 -----------------------
-The average second kind error is 0.002386
+The average second kind error is 0.004074
 Creating the code!
-The keys are 601 167
+The keys are 829 809
 Code Created!
 -----------------------
-Message: 428163
-Encoded: 0110101000
-Received: 0110101000
-The second kind error rate: 0.006655
+Message: 304393
+Encoded: 0001100100
+Received: 0001100100
+The second kind error rate: 0.001206
 -----------------------
-The average second kind error is 0.006655
+The average second kind error is 0.001206
 End
