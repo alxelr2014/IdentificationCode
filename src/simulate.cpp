@@ -6,7 +6,7 @@ void reportTransmission(uint64_t message, const vector<chnl_input> &encoded, con
                        << "Encoded: ";
     for (chnl_input symb : encoded)
     {
-        *getOutputStream() << symb;
+        *getOutputStream() << symb ;
     }
     *getOutputStream() << "\n"
                        << "Received: ";
@@ -43,59 +43,56 @@ void reportTransmission(uint64_t message, const vector<chnl_input> &encoded, con
 }*/
 
 double reportIdentification(uint64_t message, const vector<chnl_input> &encoded, const vector<chnl_output> &received,
-                            uint64_t identified, uint64_t N)
+                            uint64_t identified, uint64_t number_of_messages)
 {
 
     *getOutputStream() << "Message: " << message << "\n"
                        << "Encoded: ";
     for (chnl_input symb : encoded)
     {
-        *getOutputStream() << symb - 1;
+        *getOutputStream() << symb ;
     }
     *getOutputStream() << "\n"
                        << "Received: ";
     for (chnl_output symb : received)
     {
-        *getOutputStream() << symb - 1;
+        *getOutputStream() << symb ;
     }
-    double error2 = ((double)identified) / N;
+    double error2 = ((double)identified) / number_of_messages;
     *getOutputStream() << "\n"
                        << "The second kind error rate: " << error2 << "\n";
     return error2;
 }
 
-double simulate(Channel &C, uint64_t N, uint64_t n, function<ID_Code *(const Channel &, uint64_t, uint64_t)> construction_method)
+pair<uint64_t,double> simulate(Channel &channel, uint64_t number_of_messages, uint64_t block_length, function<ID_Code *(const Channel &, uint64_t, uint64_t)> construction_method)
 {
-        //cout << "Simulate 1" << endl;
-    IdentificationCode Rc = IdentificationCode(N, n);
-    Rc.constructID_Code(C, construction_method);
-       // cout << "Simulate 2" << endl;
-    std::uniform_int_distribution<uint64_t> distribution(1, N);
-
-    double avg_error = 0;
+    // create the identification code
+    IdentificationCode Rc = IdentificationCode(number_of_messages, block_length);
+    Rc.constructID_Code(channel, construction_method);
+    // uniform distribution over messages
+    std::uniform_int_distribution<uint64_t> distribution(1, number_of_messages);
     uint64_t message = distribution(*getGenerator());
+    // encode the message
     vector<chnl_input> *encoded = Rc.encode(message);
-    vector<chnl_output> received;
-       // cout << "Simulate 3" << endl;
 
+    // transmit the message over channel and put it in the {received} array
+    vector<chnl_output> received;
     for (chnl_input symb : *encoded)
     {
-        chnl_output rsymb = C.transmit(symb);
-        if (rsymb == 0)
-        {
-            cout << "\nerror?!" << endl;
-            return 0;
-        }
+        chnl_output rsymb = channel.transmit(symb);
         received.emplace_back(rsymb);
     }
-       // cout << "Simulate 4" << endl;
+    // decoded the recieved string
+    // note that {decode} method gives the number of messages that could be identified from the received text.
     uint64_t identified = Rc.decode(received);
+    // output
     *getOutputStream() << "-----------------------\n";
-    avg_error += reportIdentification(message, *encoded, received, identified, N);
-       // cout << "Simulate 5" << endl;
+    double error = reportIdentification(message, *encoded, received, identified, number_of_messages);
     *getOutputStream() << "-----------------------\n";
-    *getOutputStream() << "The average second kind error is " << avg_error << endl;
-      //  cout << "Simulate 6" << endl;
+    *getOutputStream() << "The block length is " << 3*encoded->size() << endl;
+    *getOutputStream() << "The average second kind error is " << error << endl;
+    *getOutputStream() << "-----------------------\n";
 
-    return avg_error;
+    // we are sending 2 prime numbers and one message. The upperbound is 3 times the number of bits of the larger prime
+    return {3*encoded->size(), error};
 }

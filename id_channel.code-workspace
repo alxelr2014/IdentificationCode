@@ -12,7 +12,8 @@
 			"iostream": "cpp",
 			"cmath": "cpp",
 			"iosfwd": "cpp",
-			"ostream": "cpp"
+			"ostream": "cpp",
+			"functional": "cpp"
 		}
 	}
 }

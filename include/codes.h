@@ -11,4 +11,4 @@
 #include "rando.h"
 
 
-ID_Code* NoiselessBSC_ID(const Channel &C, uint64_t N, uint64_t n); // the 3 step coding scheme
+ID_Code* NoiselessBSC_ID(const Channel &channel, uint64_t number_of_message, uint64_t block_length); // the 3 step coding scheme

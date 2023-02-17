@@ -1,101 +1,21 @@
 Creating the code!
-The keys are 593 379
+The keys are 503 571
 Code Created!
 -----------------------
-Message: 7199
-Encoded: 1010101000
-Received: 1010101000
-The second kind error rate: 0.0034
+Message: 93940
+Encoded: 0000000110
+Received: 0000000110
+The second kind error rate: 0.001988
 -----------------------
-The average second kind error is 0.0034
+The average second kind error is 0.001988
 Creating the code!
-The keys are 13 293
+The keys are 719 677
 Code Created!
 -----------------------
-Message: 6083
-Encoded: 011100000
-Received: 011100000
-The second kind error rate: 0.0769
+Message: 941610
+Encoded: 1001110110
+Received: 1001110110
+The second kind error rate: 0.001391
 -----------------------
-The average second kind error is 0.0769
-Creating the code!
-The keys are 647 631
-Code Created!
------------------------
-Message: 7348
-Encoded: 1001011100
-Received: 1001011100
-The second kind error rate: 0.0016
------------------------
-The average second kind error is 0.0016
-Creating the code!
-The keys are 487 67
-Code Created!
------------------------
-Message: 8421
-Encoded: 010100000
-Received: 010100000
-The second kind error rate: 0.0164
------------------------
-The average second kind error is 0.0164
-Creating the code!
-The keys are 631 23
-Code Created!
------------------------
-Message: 7725
-Encoded: 1000100000
-Received: 1000100000
-The second kind error rate: 0.0428
------------------------
-The average second kind error is 0.0428
-Creating the code!
-The keys are 113 263
-Code Created!
------------------------
-Message: 341
-Encoded: 001000000
-Received: 001000000
-The second kind error rate: 0.0089
------------------------
-The average second kind error is 0.0089
-Creating the code!
-The keys are 379 241
-Code Created!
------------------------
-Message: 7548
-Encoded: 001101100
-Received: 001101100
-The second kind error rate: 0.0053
------------------------
-The average second kind error is 0.0053
-Creating the code!
-The keys are 307 113
-Code Created!
------------------------
-Message: 4569
-Encoded: 111101000
-Received: 111101000
-The second kind error rate: 0.0098
------------------------
-The average second kind error is 0.0098
-Creating the code!
-The keys are 397 433
-Code Created!
------------------------
-Message: 1462
-Encoded: 100010001
-Received: 100010001
-The second kind error rate: 0.0025
------------------------
-The average second kind error is 0.0025
-Creating the code!
-The keys are 223 349
-Code Created!
------------------------
-Message: 7520
-Encoded: 110001010
-Received: 110001010
-The second kind error rate: 0.0045
------------------------
-The average second kind error is 0.0045
+The average second kind error is 0.001391
 End

@@ -2,10 +2,10 @@
 
 using namespace std;
 
-IdentificationCode::IdentificationCode(uint64_t N, uint64_t n)
+IdentificationCode::IdentificationCode(uint64_t number_of_messages, uint64_t block_length)
 {
-    this->N = N;
-    this->n = n;
+    this->number_of_messages = number_of_messages;
+    this->block_length = block_length;
     this->valid_construction = false;
 }
 IdentificationCode::~IdentificationCode()
@@ -13,22 +13,24 @@ IdentificationCode::~IdentificationCode()
 
 }
 
-void IdentificationCode::constructID_Code(const Channel &C, function<ID_Code *(const Channel &, uint64_t, uint64_t)> construction_method)
+void IdentificationCode::constructID_Code(const Channel &channel, function<ID_Code *(const Channel &, uint64_t, uint64_t)> construction_method)
 {
     *getOutputStream() << "Creating the code!\n";
-    ID_Code *result = construction_method(C, this->N, this->n);
-    this->encoder = result->first;
-    this->decoder = result->second;
+    ID_Code *result = construction_method(channel, this->number_of_messages, this->block_length);
+    this->encoder = get<0>(*result);
+    this->decoder = get<1>(*result);
+    this->identifier = get<2>(*result);
+
     this->valid_construction = true;
     *getOutputStream() << "Code Created!\n";
 }
-uint64_t IdentificationCode::getN()
+uint64_t IdentificationCode::getNumberOfMessages()
 {
-    return this->N;
+    return this->number_of_messages;
 }
-uint64_t IdentificationCode::getn()
+uint64_t IdentificationCode::getBlockLength()
 {
-    return this->n;
+    return this->block_length;
 }
 
 double IdentificationCode::getFirstKindError()
@@ -47,7 +49,7 @@ vector<chnl_input> *IdentificationCode::encode(uint64_t message)
 {
     if (this->valid_construction)
     {
-        if (message <= this->N && message > 0)
+        if (message <= this->number_of_messages && message > 0)
         {
             return (*(this->encoder))(message);
         }
@@ -63,4 +65,11 @@ uint64_t IdentificationCode::decode(const vector<chnl_output> &received)
         return (*(this->decoder))(received);
     }
     return 0;
+}
+
+bool IdentificationCode::identify(const vector<chnl_output> &received, uint64_t message){
+    if(this->valid_construction){
+        return (*(this->identifier))(received,message);
+    }
+    return false;
 }

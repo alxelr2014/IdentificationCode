@@ -22,27 +22,24 @@ uint64_t phi(uint64_t m, uint64_t p)
     return (m % p) + 1;
 }
 
-vector<uint64_t> *binary_representation(uint64_t number, uint64_t num_digits)
+vector<uint64_t> *binaryIntToVector(uint64_t number, uint64_t num_digits)
 {
     vector<uint64_t> *result = new vector<uint64_t>;
     while (num_digits--)
     {
-        result->emplace_back((number & (1)) + 1);
+        result->emplace_back((number & (1)));
         number >>= 1;
     }
     return result;
 }
 
-uint64_t decimal_representation(const vector<uint64_t> &bin_num, uint64_t num_digits)
+uint64_t binaryVectorToInt(const vector<uint64_t> &bin_num, uint64_t num_digits)
 {
     uint64_t result = 0;
-    for (uint64_t i = num_digits - 1; i > 0; i--)
-    {
-        result <<= 1;
-        result += bin_num[i] - 1;
+    for (uint64_t i = 0; i < num_digits; i++)
+    {   
+        result |= bin_num[i] << i ;
     }
-    result <<= 1;
-    result += bin_num[0] - 1;
     return result;
 }
 uint64_t exp_mod(uint64_t b, uint64_t e, uint64_t n)
@@ -96,7 +93,8 @@ bool miller_rabin(uint64_t p, uint64_t k)
 
 uint64_t random_prime(uint64_t max, uint64_t s, uint64_t k)
 {
-    uniform_int_distribution<uint64_t> rand_num(1, max >> 1);
+    // get a number between {max}/4 and {max}/2, then multiply by 2 and add 1 to get an odd number between {max}/2 and {max}
+    uniform_int_distribution<uint64_t> rand_num(max >> 2, max >> 1);
     for (uint64_t i = 0; i < s; i++)
     {
         uint64_t p = 2 * rand_num(*getGenerator()) + 1;

@@ -13,7 +13,7 @@ class Channel
 {
 private:
     uint64_t x, y; /* size of the input and output alphabet
-     X = {1, 2, ... , x} , Y = {1, 2, ... , y} */
+     X = {0, 2, ... , x-1} , Y = {0, 2, ... , y-1} */
     ChannelFunc* f; // the randomized function of channel
 
 public:

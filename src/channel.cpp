@@ -9,7 +9,7 @@ Channel::Channel(uint64_t x, uint64_t y, ChannelFunc* f)
 Channel::~Channel(){
 }
 chnl_output Channel::transmit(chnl_input symb){
-    if(symb <= this->x && symb > 0)
+    if(symb <= this->x && symb >= 0)
         return (*(this->f))(symb);
     return 0;
 }
