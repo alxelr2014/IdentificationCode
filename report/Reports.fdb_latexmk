@@ -1,22 +1,24 @@
 # Fdb version 3
-["bibtex Reports"] 1676047377 "Reports.aux" "Reports.bbl" "Reports" 1676048461
-  "Reports.aux" 1676048460 3714 6df5a9f2f5ffb9e76d9da064ad993c9c "pdflatex"
+["bibtex Reports"] 1676706637 "Reports.aux" "Reports.bbl" "Reports" 1676706641
+  "Reports.aux" 1676706640 4550 3bd2c2ce0ab5aca09e2829b2d47937b9 "pdflatex"
   "c:/texlive/2022/texmf-dist/bibtex/bst/base/plain.bst" 1666872196 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "references.bib" 1676043714 1676 f58a33bb7e085422ac9d97e32d2f77ea ""
   (generated)
   "Reports.bbl"
   "Reports.blg"
-["pdflatex"] 1676048458 "c:/Users/Emad Zinoghli/Desktop/Codes/IdentificationChannel/report/Reports.tex" "Reports.pdf" "Reports" 1676048461
-  "../include/channel.h" 1665703254 608 0b48c3041560c2172e44cbce149c59a1 ""
-  "../include/codes.h" 1671147455 331 e7d82cb896241547b7dc887fa7397135 ""
-  "../include/identification.h" 1671187741 1130 b6622f9c67f154033dbca2c45132d4d3 ""
-  "../include/simulate.h" 1671997733 592 d35fc0df51a7b5c878253a2a4c1d9a12 ""
-  "../src/main.cpp" 1671215787 1026 cb195e7a4e7bd581c7a27047f358de8c ""
-  "Reports.aux" 1676048460 3714 6df5a9f2f5ffb9e76d9da064ad993c9c "pdflatex"
-  "Reports.bbl" 1676047377 1075 644fac2051059a5ca6ff93dee3fbdcfb "bibtex Reports"
-  "Reports.out" 1676048461 1886 f3580e60e293cd409ec44ba3bc4c3023 "pdflatex"
-  "Reports.tex" 1676048457 19165 32161978ad8e81609ad59717cdc27f5b ""
-  "c:/Users/Emad Zinoghli/Desktop/Codes/IdentificationChannel/report/Reports.tex" 1676048457 19165 32161978ad8e81609ad59717cdc27f5b ""
+["pdflatex"] 1676706638 "c:/Users/Emad Zinoghli/Desktop/Codes/IdentificationChannel/report/Reports.tex" "Reports.pdf" "Reports" 1676706641
+  "../include/channel.h" 1676647861 612 f7e6f3c3805bab4f537829c55bf3c224 ""
+  "../include/codes.h" 1676646622 364 9d50b52f4e203606e6adcd157504845a ""
+  "../include/identification.h" 1676661408 1625 25184b7f22f33bd01e85ad64a4dfaa6c ""
+  "../include/simulate.h" 1676661435 650 9b47d9e8f229ddecf684f444cbc1534b ""
+  "../src/main.cpp" 1676665304 1626 dd2759fc434e8ec2b7469ab290f2f304 ""
+  "ErrorVsBlockLength.png" 1676706382 19474 33d982778f83b3f845bf157ee8e7a243 ""
+  "MessageVsBlocklength.png" 1676706364 23682 991876a0c96916d7dce29ed93c95d642 ""
+  "Reports.aux" 1676706640 4550 3bd2c2ce0ab5aca09e2829b2d47937b9 "pdflatex"
+  "Reports.bbl" 1676706638 1075 644fac2051059a5ca6ff93dee3fbdcfb "bibtex Reports"
+  "Reports.out" 1676706640 2483 06edf85aa48dc82cda8bc3996314bf12 "pdflatex"
+  "Reports.tex" 1676706632 22348 c9313aab2f87f04569e857f3df76c29f ""
+  "c:/Users/Emad Zinoghli/Desktop/Codes/IdentificationChannel/report/Reports.tex" 1676706632 22348 c9313aab2f87f04569e857f3df76c29f ""
   "c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1666873105 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1666875386 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1666874458 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
