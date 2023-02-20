@@ -1,21 +1,26 @@
 Creating the code!
-The keys are 503 571
+The keys are 17207 9787
 Code Created!
 -----------------------
-Message: 93940
-Encoded: 0000000110
-Received: 0000000110
-The second kind error rate: 0.001988
+Message: 6
+Encoded: 000100000000000
+Received: 000100000000000
+The log second kind error rate: -12.4857
 -----------------------
-The average second kind error is 0.001988
+The block length is 45
+The average log second kind error is -12.4857
+-----------------------
 Creating the code!
-The keys are 719 677
+The keys are 14983 16097
 Code Created!
 -----------------------
-Message: 941610
-Encoded: 1001110110
-Received: 1001110110
-The second kind error rate: 0.001391
+Message: 29
+Encoded: 11111000000000
+Received: 11111000000000
+The log second kind error rate: -12.871
 -----------------------
-The average second kind error is 0.001391
+The block length is 42
+The average log second kind error is -12.871
+-----------------------
 End
+

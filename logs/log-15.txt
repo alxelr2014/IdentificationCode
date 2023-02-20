@@ -1,362 +1,122 @@
 Creating the code!
-The keys are 1201 1553
+The keys are 13003 21391
 Code Created!
 -----------------------
-Message: 1237325025
-Encoded: 01110000110
-Received: 01110000110
-The second kind error rate: 0.00083264
+Message: 65
+Encoded: 110000100000000
+Received: 110000100000000
+The log second kind error rate: -12.6666
 -----------------------
-The block length is 33
-The average second kind error is 0.00083264
+The block length is 45
+The average log second kind error is -12.6666
 -----------------------
 Creating the code!
-The keys are 1283 1181
+The keys are 15091 11171
 Code Created!
 -----------------------
-Message: 1309834265
-Encoded: 01000010100
-Received: 01000010100
-The second kind error rate: 0.000779423
+Message: 97
+Encoded: 11000110000000
+Received: 11000110000000
+The log second kind error rate: -12.2964
 -----------------------
-The block length is 33
-The average second kind error is 0.000779423
+The block length is 42
+The average log second kind error is -12.2964
 -----------------------
 Creating the code!
-The keys are 1453 853
+The keys are 20533 13879
 Code Created!
 -----------------------
-Message: 1763895723
-Encoded: 10111011000
-Received: 10111011000
-The second kind error rate: 0.00137646
+Message: 7
+Encoded: 100100000000000
+Received: 100100000000000
+The log second kind error rate: -12.7407
 -----------------------
-The block length is 33
-The average second kind error is 0.00137646
+The block length is 45
+The average log second kind error is -12.7407
 -----------------------
 Creating the code!
-The keys are 1511 1487
+The keys are 12799 14549
 Code Created!
 -----------------------
-Message: 984655838
-Encoded: 01011010010
-Received: 01011010010
-The second kind error rate: 0.000661814
+Message: 181
+Encoded: 11101101000000
+Received: 11101101000000
+The log second kind error rate: -12.6437
 -----------------------
-The block length is 33
-The average second kind error is 0.000661814
+The block length is 42
+The average log second kind error is -12.6437
 -----------------------
 Creating the code!
-The keys are 1367 839
+The keys are 12601 15797
 Code Created!
 -----------------------
-Message: 460483829
-Encoded: 00011100100
-Received: 00011100100
-The second kind error rate: 0.00146306
+Message: 72
+Encoded: 01010010000000
+Received: 01010010000000
+The log second kind error rate: -12.6213
 -----------------------
-The block length is 33
-The average second kind error is 0.00146306
+The block length is 42
+The average log second kind error is -12.6213
 -----------------------
 Creating the code!
-The keys are 1567 1453
+The keys are 11171 18803
 Code Created!
 -----------------------
-Message: 1534186897
-Encoded: 01100101101
-Received: 01100101101
-The second kind error rate: 0.000638162
+Message: 221
+Encoded: 111110110000000
+Received: 111110110000000
+The log second kind error rate: -12.4475
 -----------------------
-The block length is 33
-The average second kind error is 0.000638162
+The block length is 45
+The average log second kind error is -12.4475
 -----------------------
 Creating the code!
-The keys are 881 883
+The keys are 12511 11927
 Code Created!
 -----------------------
-Message: 236214517
-Encoded: 1111100011
-Received: 1111100011
-The second kind error rate: 0.00113507
+Message: 21
+Encoded: 11101000000000
+Received: 11101000000000
+The log second kind error rate: -12.0259
 -----------------------
-The block length is 30
-The average second kind error is 0.00113507
+The block length is 42
+The average log second kind error is -12.0259
 -----------------------
 Creating the code!
-The keys are 971 1049
+The keys are 13163 17021
 Code Created!
 -----------------------
-Message: 539565209
-Encoded: 01100001110
-Received: 01100001110
-The second kind error rate: 0.00102987
+Message: 201
+Encoded: 110100110000000
+Received: 110100110000000
+The log second kind error rate: -12.6842
 -----------------------
-The block length is 33
-The average second kind error is 0.00102987
+The block length is 45
+The average log second kind error is -12.6842
 -----------------------
 Creating the code!
-The keys are 1429 1151
+The keys are 12911 17551
 Code Created!
 -----------------------
-Message: 1375115312
-Encoded: 01110100000
-Received: 01110100000
-The second kind error rate: 0.00139958
+Message: 214
+Encoded: 000110110000000
+Received: 000110110000000
+The log second kind error rate: -12.6563
 -----------------------
-The block length is 33
-The average second kind error is 0.00139958
+The block length is 45
+The average log second kind error is -12.6563
 -----------------------
 Creating the code!
-The keys are 919 1217
+The keys are 17669 13691
 Code Created!
 -----------------------
-Message: 5972608
-Encoded: 10111000000
-Received: 10111000000
-The second kind error rate: 0.00108814
+Message: 98
+Encoded: 001001100000000
+Received: 001001100000000
+The log second kind error rate: -12.524
 -----------------------
-The block length is 33
-The average second kind error is 0.00108814
------------------------
-Creating the code!
-The keys are 1103 1319
-Code Created!
------------------------
-Message: 299759999
-Encoded: 00010111110
-Received: 00010111110
-The second kind error rate: 0.000906618
------------------------
-The block length is 33
-The average second kind error is 0.000906618
------------------------
-Creating the code!
-The keys are 1289 1129
-Code Created!
------------------------
-Message: 1205857336
-Encoded: 00000101100
-Received: 00000101100
-The second kind error rate: 0.000775795
------------------------
-The block length is 33
-The average second kind error is 0.000775795
------------------------
-Creating the code!
-The keys are 1499 1163
-Code Created!
------------------------
-Message: 1201660595
-Encoded: 01000111010
-Received: 01000111010
-The second kind error rate: 0.000667111
------------------------
-The block length is 33
-The average second kind error is 0.000667111
------------------------
-Creating the code!
-The keys are 1193 811
-Code Created!
------------------------
-Message: 1445616522
-Encoded: 10111010100
-Received: 10111010100
-The second kind error rate: 0.00167645
------------------------
-The block length is 33
-The average second kind error is 0.00167645
------------------------
-Creating the code!
-The keys are 1487 1423
-Code Created!
------------------------
-Message: 413717436
-Encoded: 00110100101
-Received: 00110100101
-The second kind error rate: 0.000672494
------------------------
-The block length is 33
-The average second kind error is 0.000672494
------------------------
-Creating the code!
-The keys are 1511 1327
-Code Created!
------------------------
-Message: 1308386019
-Encoded: 00000100010
-Received: 00000100010
-The second kind error rate: 0.000661814
------------------------
-The block length is 33
-The average second kind error is 0.000661814
------------------------
-Creating the code!
-The keys are 1123 1447
-Code Created!
------------------------
-Message: 87280120
-Encoded: 01001100010
-Received: 01001100010
-The second kind error rate: 0.000890472
------------------------
-The block length is 33
-The average second kind error is 0.000890472
------------------------
-Creating the code!
-The keys are 1049 1471
-Code Created!
------------------------
-Message: 982421830
-Encoded: 10110100110
-Received: 10110100110
-The second kind error rate: 0.000953289
------------------------
-The block length is 33
-The average second kind error is 0.000953289
------------------------
-Creating the code!
-The keys are 1063 1021
-Code Created!
------------------------
-Message: 587962718
-Encoded: 00111001100
-Received: 00111001100
-The second kind error rate: 0.000940734
------------------------
-The block length is 33
-The average second kind error is 0.000940734
------------------------
-Creating the code!
-The keys are 1279 1109
-Code Created!
------------------------
-Message: 280005313
-Encoded: 00001111000
-Received: 00001111000
-The second kind error rate: 0.000781861
------------------------
-The block length is 33
-The average second kind error is 0.000781861
------------------------
-Creating the code!
-The keys are 1129 1291
-Code Created!
------------------------
-Message: 58174705
-Encoded: 00101011010
-Received: 00101011010
-The second kind error rate: 0.000885739
------------------------
-The block length is 33
-The average second kind error is 0.000885739
------------------------
-Creating the code!
-The keys are 1483 839
-Code Created!
------------------------
-Message: 464438483
-Encoded: 00111010010
-Received: 00111010010
-The second kind error rate: 0.00134862
------------------------
-The block length is 33
-The average second kind error is 0.00134862
------------------------
-Creating the code!
-The keys are 1481 881
-Code Created!
------------------------
-Message: 1625609545
-Encoded: 00010000100
-Received: 00010000100
-The second kind error rate: 0.00135044
------------------------
-The block length is 33
-The average second kind error is 0.00135044
------------------------
-Creating the code!
-The keys are 1109 1009
-Code Created!
------------------------
-Message: 473242367
-Encoded: 00010000000
-Received: 00010000000
-The second kind error rate: 0.00180343
------------------------
-The block length is 33
-The average second kind error is 0.00180343
------------------------
-Creating the code!
-The keys are 1021 877
-Code Created!
------------------------
-Message: 788118219
-Encoded: 1001100100
-Received: 1001100100
-The second kind error rate: 0.000979432
------------------------
-The block length is 30
-The average second kind error is 0.000979432
------------------------
-Creating the code!
-The keys are 1423 1567
-Code Created!
------------------------
-Message: 486492920
-Encoded: 00001000010
-Received: 00001000010
-The second kind error rate: 0.000702741
------------------------
-The block length is 33
-The average second kind error is 0.000702741
------------------------
-Creating the code!
-The keys are 809 947
-Code Created!
------------------------
-Message: 839739825
-Encoded: 0111111100
-Received: 0111111100
-The second kind error rate: 0.00123609
------------------------
-The block length is 30
-The average second kind error is 0.00123609
------------------------
-Creating the code!
-The keys are 883 827
-Code Created!
------------------------
-Message: 1194995708
-Encoded: 0110100000
-Received: 0110100000
-The second kind error rate: 0.00226501
------------------------
-The block length is 30
-The average second kind error is 0.00226501
------------------------
-Creating the code!
-The keys are 1171 1019
-Code Created!
------------------------
-Message: 700422652
-Encoded: 01010011010
-Received: 01010011010
-The second kind error rate: 0.000853971
------------------------
-The block length is 33
-The average second kind error is 0.000853971
------------------------
-Creating the code!
-The keys are 1297 1063
-Code Created!
------------------------
-Message: 1040688441
-Encoded: 01111000100
-Received: 01111000100
-The second kind error rate: 0.00077101
------------------------
-The block length is 33
-The average second kind error is 0.00077101
+The block length is 45
+The average log second kind error is -12.524
 -----------------------
 End
 

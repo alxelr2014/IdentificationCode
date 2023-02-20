@@ -1,0 +1,122 @@
+Creating the code!
+The keys are 25243 26849
+Code Created!
+-----------------------
+Message: 215
+Encoded: 100110110000000
+Received: 100110110000000
+The log second kind error rate: -13.6236
+-----------------------
+The block length is 45
+The average log second kind error is -13.6236
+-----------------------
+Creating the code!
+The keys are 23029 22619
+Code Created!
+-----------------------
+Message: 180
+Encoded: 011011010000000
+Received: 011011010000000
+The log second kind error rate: -12.9062
+-----------------------
+The block length is 45
+The average log second kind error is -12.9062
+-----------------------
+Creating the code!
+The keys are 22283 20323
+Code Created!
+-----------------------
+Message: 270
+Encoded: 000010001000000
+Received: 000010001000000
+The log second kind error rate: -12.8587
+-----------------------
+The block length is 45
+The average log second kind error is -12.8587
+-----------------------
+Creating the code!
+The keys are 19417 18133
+Code Created!
+-----------------------
+Message: 84
+Encoded: 011010100000000
+Received: 011010100000000
+The log second kind error rate: -12.6601
+-----------------------
+The block length is 45
+The average log second kind error is -12.6601
+-----------------------
+Creating the code!
+The keys are 23981 26347
+Code Created!
+-----------------------
+Message: 266
+Encoded: 001100001000000
+Received: 001100001000000
+The log second kind error rate: -13.5496
+-----------------------
+The block length is 45
+The average log second kind error is -13.5496
+-----------------------
+Creating the code!
+The keys are 18773 19427
+Code Created!
+-----------------------
+Message: 186
+Encoded: 001111010000000
+Received: 001111010000000
+The log second kind error rate: -13.1964
+-----------------------
+The block length is 45
+The average log second kind error is -13.1964
+-----------------------
+Creating the code!
+The keys are 26903 22283
+Code Created!
+-----------------------
+Message: 204
+Encoded: 011100110000000
+Received: 011100110000000
+The log second kind error rate: -13.1305
+-----------------------
+The block length is 45
+The average log second kind error is -13.1305
+-----------------------
+Creating the code!
+The keys are 21401 20261
+Code Created!
+-----------------------
+Message: 253
+Encoded: 111111110000000
+Received: 111111110000000
+The log second kind error rate: -12.8004
+-----------------------
+The block length is 45
+The average log second kind error is -12.8004
+-----------------------
+Creating the code!
+The keys are 16963 16217
+Code Created!
+-----------------------
+Message: 174
+Encoded: 000011010000000
+Received: 000011010000000
+The log second kind error rate: -12.4651
+-----------------------
+The block length is 45
+The average log second kind error is -12.4651
+-----------------------
+Creating the code!
+The keys are 22993 25189
+Code Created!
+-----------------------
+Message: 156
+Encoded: 011110010000000
+Received: 011110010000000
+The log second kind error rate: -13.4889
+-----------------------
+The block length is 45
+The average log second kind error is -13.4889
+-----------------------
+End
+

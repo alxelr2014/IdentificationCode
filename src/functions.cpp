@@ -17,7 +17,7 @@ vector<uint64_t> *eratosthenesSeive(uint64_t upbound)
     return result;
 }
 
-uint64_t phi(uint64_t m, uint64_t p)
+uint64_t phi(BigUInt m, uint64_t p)
 {
     return (m % p) + 1;
 }

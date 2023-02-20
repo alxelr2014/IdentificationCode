@@ -10,11 +10,17 @@
 6. Extending the algorithm: In what ways can we generalize the algorithms? removing the primes! relationship with other coding schemes, their similarities, and their differences! Other improvements and optimizations!
 
 ## TODO List
-- Miller-Rabin error analysis
+:heavy_check_mark: :o: :x:
+- Miller-Rabin error analysis 
 - Improve the Miller-Rabin in the code and improve the code for BSC
-- Pictorial representation of sieve of Eratosthenes
+- Pictorial representation of sieve of Eratosthenes 
 - Sources of randomness and determining the required randomness in the PNG
 - proof Mertens' second theorem
 - PNT statement, variations, corollary, history of proof, proof sketch
 - Adding the code and the algorithms to the report
 - Generate an error curve for noiseless BSC
+- curves: add theoretical + points
+- add explanation, elaboration
+- add example
+- add decoder
+-

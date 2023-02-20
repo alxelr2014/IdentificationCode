@@ -3,10 +3,11 @@
 #include <cstdint>
 #include <random>
 #include "rando.h"
+#include "biguint.h"
 
 using namespace std;
 
-uint64_t phi(uint64_t m, uint64_t p); // phi_p(m) = [m % p] + 1
+uint64_t phi(BigUInt m, uint64_t p); // phi_p(m) = [m % p] + 1
 
 vector<uint64_t>* binaryIntToVector(uint64_t number, uint64_t num_digits); // turns a binary number to a vector of bits
 uint64_t binaryVectorToInt(const vector<uint64_t>& bin_num, uint64_t num_digits); // turns a vector bits to a binary number
