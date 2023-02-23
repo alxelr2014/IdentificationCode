@@ -8,21 +8,11 @@ vector<chnl_input> * generateEncodingFunction(uint64_t keyK, uint64_t keyQ,uint6
 
 long double generateDecodingFunction(uint64_t keyK, uint64_t keyQ, uint64_t number_of_bits, uint64_t log_number_of_messages, const vector<chnl_output> &received)
 {
-    uint64_t numer = binaryVectorToInt(received,number_of_bits);
-    uint64_t prod = keyK;
+    uint64_t prod = keyQ;
     // uint64_t rem = number_of_messages % prod;
     long double log_div = log_number_of_messages -log2l(prod);
     // uint64_t rem_eq = 0;
-    uint64_t mod_eq = 0;
-    for(uint64_t i = 1; i <= prod ; i++)
-    {
-        uint64_t cipher = phi(phi(i,keyK), keyQ);
-        if(cipher == numer){
-            mod_eq++;
-            //(i <= rem) ? rem_eq++ : 0;
-        }
-    }
-    return log2l(mod_eq + 1 ) +  log_div ;
+    return log_div ;
 }
 bool generateIdentifyingFunction(uint64_t keyK, uint64_t keyQ, uint64_t number_of_bits, const vector<chnl_output> &received, BigUInt message){
     
@@ -54,23 +44,27 @@ pair<uint64_t, uint64_t> eratosthenesMethod(uint64_t N, double alpha){
 */
 pair<uint64_t, uint64_t> millerMethod(uint64_t log_number_of_message, double alpha){
     // K = [ log_2(M)^alpha ]
-    uint64_t K = ceil(powl(log_number_of_message, alpha));
-
+    uint64_t K1 = log_number_of_message;
+    uint64_t K2 = ceil(log2l(K1));
+    long double C = powl(log_number_of_message,alpha);
     // the {upperbound} is given by the Prime Number Theorem (inequalities), O(K log K).
     // There are certainly {K} primes less than {upper_bound}
-    uint64_t upper_bound = 18*K*ceil(log10l(K));
+    uint64_t upper_bound_K1 = ceil(C*K1*log2l(K1));
+    uint64_t upper_bound_K2 = ceil(C*K2*log2l(K2));
 
     // {eps_power} and {delta_power} are the set error terms
     // they are picked so that with high probability the generated number is a prime
-    const int eps_power = 10;
-    const int delta_power = 6;
+    const double eps_power = 10.0;
+    const double delta_power = 6.0;
 
     // k:= the number of repeats of Primality test, s:= the number of times a number is generated to be tested
-    const int k = (ceil_log(upper_bound) + ceil_log(eps_power) + delta_power)/2;
-    const int s = upper_bound*eps_power;
+    const int k1 = (log2l(log2l(upper_bound_K1)) + log2l(eps_power/2.7178) + delta_power)/2;
+    const int s1 = log2l(upper_bound_K1)*eps_power;
+    const int k2 = (log2l(log2l(upper_bound_K2)) + log2l(eps_power/2.7178) + delta_power)/2;
+    const int s2 = log2l(upper_bound_K2)*eps_power;
 
-    uint64_t keyK = random_prime(upper_bound,s,k);
-    uint64_t keyQ = random_prime(upper_bound,s,k);
+    uint64_t keyK = random_prime(upper_bound_K1,s1,k1);
+    uint64_t keyQ = random_prime(upper_bound_K2,s2,k2);
     return pair<uint64_t,uint64_t>(keyK,keyQ); 
 }
 
@@ -79,13 +73,13 @@ ID_Code *NoiselessBSC_ID(const Channel &channel, uint64_t log_number_of_message,
 {
     // M := number_of_messages,  n := block_length, alpha := alpha
     // pi_k := keys.first, pi_l := keys.second 
-    double alpha = 1.1;
+    double alpha = 0.1;
     //pair<uint64_t,uint64_t> keys = eratosthenesMethod(N,alpha);
     pair<uint64_t,uint64_t> keys = millerMethod(log_number_of_message,alpha);
 
     *getOutputStream() << "The keys are " << keys.first << " " << keys.second << '\n';
-    uint64_t number_of_bits = (keys.first > keys.second) ? (ceil(log2l(keys.first))) : (ceil(log2l(keys.second)));
-
+    uint64_t number_of_bits = (keys.first < keys.second) ? (ceil(log2l(keys.first))) : (ceil(log2l(keys.second)));
+    number_of_bits++;
     // create the encoder,decoder, and identifier
     ID_EncodingFunction *enc = new ID_EncodingFunction(bind(generateEncodingFunction, keys.first, keys.second, number_of_bits, placeholders::_1));
     ID_DecodingFunction *dec = new ID_DecodingFunction(bind(generateDecodingFunction, keys.first, keys.second, number_of_bits,log_number_of_message,placeholders::_1));

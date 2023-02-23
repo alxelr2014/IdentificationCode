@@ -1,29 +1,10 @@
 \documentclass{article}
 \usepackage[a4paper,bindingoffset=0.2in,%
-left=0.75in,right=0.75in,top=1in,bottom=1in,%
+left=0.6in,right=0.6in,top=1in,bottom=1in,%
 footskip=.25in]{geometry}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage[ruled,noline]{algorithm2e}
-\usepackage{codestyles}
-\usepackage{listings}
-\usepackage{hyperref}
 
-\DeclarePairedDelimiter{\ceilp}{\lceil}{\rceil}
-\DeclarePairedDelimiter{\floorp}{\lfloor}{\rfloor}
-\DeclarePairedDelimiter{\roundp}{\lfloor}{\rceil}
+\usepackage{common}
 
-\newcommand{\floor}[1]{\floorp{#1}}
-\newcommand{\ceil}[1]{\ceilp{#1}}
-\newcommand{\round}[1]{\roundp{#1}}
-
-\newtheorem{definition}{Definition}
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Lemma}
-
-\newcommand{\abs}[1]{\left| #1 \right|}
 
 \begin{document}
 \section{Week 1}
@@ -90,7 +71,7 @@ I also worked on the randomized prime generation idea. Consider the following al
 	\Return{\(\perp\)}
 	\caption{Generating random primes}
 \end{algorithm}
-Instead of checking that \(p\) is a prime, we can check if \(p\) passes the Miller-Rabin test or not, which is more efficient -- running in \(O(n^3)\) rather than in \(O(2^n)\) for a simple primality test, or \(\tilde{O}{n^6}\) for AKS primality test. By applying the Miller-Rabin test multiple times, the mathbb{P}ability of error (a composite number passes the test) decreases rapidly. Moreover, by letting \(n\) to be large enough (an asymptotic formula can be derived from the Prime Number Theorem), we can be sure that \(\pi_K\) can be represented by \(n\)-bits, and therefore our analysis for the 3-step algorithms remains unchanged.
+Instead of checking that \(p\) is a prime, we can check if \(p\) passes the Miller-Rabin test or not, which is more efficient -- running in \(\bigO{n^3}\) rather than in \(\bigO{2^n}\) for a simple primality test, or \(\logBigO{n^6}\) for AKS primality test. By applying the Miller-Rabin test multiple times, the probability of error (a composite number passes the test) decreases rapidly. Moreover, by letting \(n\) to be large enough (an asymptotic formula can be derived from the Prime Number Theorem), we can be sure that \(\pi_K\) can be represented by \(n\)-bits, and therefore our analysis for the 3-step algorithms remains unchanged.
 
 For the next week I am going to do a more thorough derivation of the above idea and implement it.
 \section{Week 2}
@@ -170,12 +151,13 @@ This problem can be trivially addressed by transmission codes, the receiver deco
 
 There are two kinds of errors associated with an identification scheme. The first kind happens when the sender sends \(m\) but the receiver fails to identify it and hence \textit{misses} the identification. The second kind happens when the sender send \(m' \neq m\) and the receiver \textit{falsely} identifies \(m\) instead.
 
-\begin{definition}[Identification code]
-	An identification code \(n, N,\lambda_1, \lambda_2\) for a DMC channel \(\mathcal{W^n}(\mathcal{X}^n | \mathcal{Y}^n)\) is a set \(\{ Q( \cdot |i), \mathcal{D}_i \}_{i \in [N]}\) where \(Q(\cdot | i)\) is a distribution over \(\mathcal{X}^n\) to that encodes \(i\) -- for determinstic encoder \(Q(x_i | i) = 1\) for some \(x_i \in \mathcal{X}^n\), and \(\mathcal{D}_i \subset \mathcal{Y}\) is the decoding set of \(i\). The first and second kind errors are bounded by \(\lambda_1\) and \(\lambda_2\), respectively.
+\begin{definition}[Identification code]\label{def:idcode}
+	An identification code \((n, N,\lambda_1, \lambda_2)\) for a DMC channel \(\mathcal{W^n}(\mathcal{X}^n | \mathcal{Y}^n)\) is a set \(\{ Q( \cdot |i), \mathcal{D}_i \}_{i \in [N]}\) where \(Q(\cdot | i)\) is a distribution over \(\mathcal{X}^n\) to that encodes \(i\) -- for determinstic encoder \(Q(x_i | i) = 1\) for some \(x_i \in \mathcal{X}^n\), and \(\mathcal{D}_i \subset \mathcal{Y}\) is the decoding set of \(i\). The first and second kind errors are bounded by \(\lambda_1\) and \(\lambda_2\), respectively.
 	\begin{align*}
-		&\sum_{x^n \in \mathcal{X}^n} Q(x^n | i) W^n(\mathcal{D}_i^c | x^n) \leq \lambda_1 \\
-		&\sum_{x^n \in \mathcal{X}^n} Q(x^n | j) W^n(\mathcal{D}_i | x^n) \leq \lambda_2 \\
+		P_{e,1}(i)&= \sum_{x^n \in \mathcal{X}^n} Q(x^n | i) W^n(\mathcal{D}_i^c | x^n) \leq \lambda_1 \\
+		P_{e,2}(i,j)&=\sum_{x^n \in \mathcal{X}^n} Q(x^n | j) W^n(\mathcal{D}_i | x^n) \leq \lambda_2
 	\end{align*}
+	For all \(1 \leq i,j \leq N\) and \(j \neq i\).
 \end{definition}
 
 
@@ -254,8 +236,11 @@ and we have
 I came up with this when I was working on the error analysis of our code, where we used the Miller-Rabin to generate prime. I am currently working on the distribution of the generate numbers and I will add it as soon as I become confident.
 
 \section{Week 5}
-\subsection{Miller-Rabin (sketch) analysis}
-Let \(MR(n,k)\) be the distribution of Miller-Rabin algorithm on the \(m\)-bit prime candidate \(n\) and \(k\) repeats.
+\subsection{Miller-Rabin analysis}
+Miller-Rabin is a well-known random primality test algorithm. Let \(MR(n,k)\) be the distribution of Miller-Rabin algorithm on the prime candidate \(n\) with \(k\) repeats. Let \(\mathcal{P}\) be the set of primes. Then, we have the following probabilities.
+\begin{align}
+	hi
+\end{align}
 \begin{equation*}
 	MR(n,k) = \begin{cases}
 		1 & \text{with probability 1, if } n \text{ is prime}\\
@@ -286,7 +271,7 @@ Let \(\epsilon = e^{-l}\) and \(\delta = 2^{-q}\) with \(l,q \geq 0\). Then,
 Note that, \(s = ml\) and \(k = \dfrac{\lg(ml) + q}{2}\) satisfies both inequalities.
 
 \subsection{Prime Number Theorem}
-\begin{theorem}[\cite{apostol}]
+\begin{theorem}[\cite{apostol}]\label{thm:pnt}
 	Let \(\pi(x)\) denote the number of primes less than or equal to \(x \geq 1\). The prime number theorem states that 
 	\begin{equation*}
 		\lim_{x \to \infty} \dfrac{\pi(x) \ln x}{x} = 1
@@ -295,7 +280,7 @@ Note that, \(s = ml\) and \(k = \dfrac{\lg(ml) + q}{2}\) satisfies both inequali
 \end{theorem}
 
 Moreover, we may frequently use these exact bounds on \(\pi(x)\).
-\begin{lemma}[\cite{apostol}]
+\begin{lemma}[\cite{apostol}]\label{lmm:ineqpnt}
 	For any \(n \geq 2\), 
 	\begin{equation*}
 		\dfrac{1}{6} \dfrac{n}{\ln n} \leq \pi(n) \leq 6 \dfrac{n}{\ln n}
@@ -317,6 +302,230 @@ I also worked on our code. There was a mistake where I outputed the curve of num
 \end{figure}
 
 Because of the double exponential nature of \(M\), the code will fail on larger values of \(M\). However, we can we use the fact that the algorithm is mostly concerened about \(\lg M\) and alleviate this problem.
+
+\section{Week 6}
+\subsection{3-step algorithm}
+The 3-step algorithm as described in \cite{multiway} defines the following parameters.
+\begin{itemize}
+	\item Let \(\mathcal{M} = \set{1,2, \dots, M }\) be the message set and \(\alpha > 1\). Let \(K = \ceil{\bracket{\lg M}^{\alpha}}\).
+	\item Let \(\pi_i\) denote the \(i_{\mathrm{th}}\) prime. Let \(\mathcal{M}' = \set{1, 2, 3 ,\dots, \pi_K}\) and \(K' = \ceil{\bracket{\lg \pi_K}^{\alpha}}\). 
+	\item Let us denote the set \(\{1,2, \dots, \pi_l \}\) by \(\mathbb{Z}^+_l\).  Define the function \(\phi_l: \mathbb{N} \to \mathbb{Z}_{l}^+ \) as follows.
+	\begin{equation}
+		\func{\phi_l}{n} = [n \mod \pi_l] + 1
+	\end{equation}
+	Where \([n \mod \pi_l]\) is equal to the remainder of the division of \(n\) by \(\pi_l\).
+\end{itemize}
+A round of communication in this scheme is as follows.
+\begin{enumerate}
+	\item The sender chooses a key \(k \gets \mathcal{K} = \set{1,2,\dots, K }\) uniformly and transmits it.
+	\item The sender chooses another key \(l \gets \mathcal{K}' = \set{1,2,\dots, K' }\) uniformly and transmits it.
+	\item Given a message \(m \in \mathcal{M}\), the sender transmits \(\func{\phi_l}{\func{\phi_k}{m}}\). Assuming that receiver wishes to identify \(\hat{m} \in \mathcal{M}\), he calculate \(\func{\phi_l}{\func{\phi_k}{\hat{m}}}\) and compares it with \(\func{\phi_l}{\func{\phi_k}{m}}\). He identifies the message as \(\hat{m}\) whenever \(\func{\phi_l}{\func{\phi_k}{m}}\) = \(\func{\phi_l}{\func{\phi_k}{\hat{m}}}\).
+\end{enumerate}
+
+\begin{example}
+	Suppose \(M = 100\) and \(\alpha = 1.5\). Then, \(K = 18\), \(\pi_K = 61\), and \(K' = 15\). Assume that \(k = 12\) and \(l = 7\) are chosen, with \(\pi_k = 31\) and \(\pi_l = 17\). Given \(m = 71\), the sender sends the following code. 
+	\begin{equation*}
+		\underbrace{1100}_{k = 12} \underbrace{111}_{l = 7} \underbrace{01011}_{\phi_l(\phi_k(71)) = 11}
+	\end{equation*}
+	We immediately find this scheme to be problematic when the sender sends the code all at once. There needs to be some separator that allows the receiver to determine where each part of the code starts and ends. However, let us continue with the example. If \(\hat{m}_1 = 71\), then clearly the receiver correctly identifies the message. If \(\hat{m}_2 = 32\) 
+	\begin{equation*}
+		\func{\phi_l}{\func{\phi_k}{\hat{m}_2}} = 16 = (10000)
+	\end{equation*}
+	and the receiver correctly does not identify the message. However, when \(\hat{m}_3 = 9\), \(\func{\phi_l}{\func{\phi_k}{\hat{m}_3}}= 11 = (01011)\) which means the receiver falsely identifies \(m = 71\) as \(\hat{m} = 9\).
+\end{example}
+
+\begin{theorem}[\cite{multiway}]
+	The 3-step algorithm produces a \((n = n(M,\alpha), M, \lambda_1 = 0, \lambda_2 = \lambda_2(M,\alpha))\) identification code -- per \Cref{def:idcode}-- such that \(\lambda_2 \to 0\) as \(M \to \infty\). Moreover, this coding scheme is optimal.
+	\begin{equation}
+		\lim_{M \to \infty} \dfrac{\lg \lg M}{n(M)} = \dfrac{1}{\alpha}
+	\end{equation}
+\end{theorem}
+\begin{proof}
+	It is obvious that \(\lambda_1 = 0\), that is the receiver will not miss an identification. For the second kind error probability consider the following lemmas.
+	\begin{lemma}
+		Any positive integers \(m\) has at most \(\floor{\lg m}\) unique prime factors. 
+	\end{lemma}
+	\begin{proof}
+		Suppose \(p_1, \dots, p_k\) are all the prime factors of \(m\). Then for some \(\alpha_1, \dots, \alpha_k \geq 1\)
+		\begin{equation*}
+			m = \prod_{i = 1}^k p_i^{\alpha_i} \geq \prod_{i = 1}^{k} 2^{\alpha_i} \geq 2^k
+		\end{equation*}
+		As a result, \(k \leq \floor{\lg m}\) as required.
+	\end{proof}
+	\begin{lemma}
+		For any \(m,m' \in \mathcal{M} = \set{1,2, \dots,M}\) such that \(m \neq \hat{m}\)
+		\begin{equation}
+			\abs{ \set[[\Bigg]]<k  \in \set{1,2, \dots, K}>{\func{\phi_k}{m} = \func{\phi_k}{\hat{m}}}} \leq \lg M
+		\end{equation}
+	\end{lemma}
+	\begin{proof}
+		The given set is the set of common prime factors of \(m\) and \(\hat{m}\) that are less than or equal to \(\pi_K\). The inequality immediatly follows from the fact that \(m,\hat{m} \leq M\) and \(M\) has at most \(\lg M\) prime factors.
+	\end{proof}
+	We can derive an upper bound for the second kind error.
+	\begin{align}
+		\func{P_{e,2}}{m,\hat{m}} &= \condProb{\func{\phi_l}{\func{\phi_k}{m}} = \func{\phi_l}{\func{\phi_k}{\hat{m}}}}{ m \neq \hat{m}}\\
+		&=\condProb{\func{\phi_l}{\func{\phi_k}{m}} = \func{\phi_l}{\func{\phi_k}{\hat{m}}}}{\func{\phi_k}{m} = \func{\phi_k}{\hat{m}}, m \neq \hat{m}} \condProb{\func{\phi_k}{m} = \func{\phi_k}{\hat{m}}}{ m \neq \hat{m}}\\
+		& \qquad \condProb{\func{\phi_l}{\func{\phi_k}{m}} = \func{\phi_l}{\func{\phi_k}{\hat{m}}}}{\func{\phi_k}{m} \neq \func{\phi_k}{\hat{m}}, m \neq \hat{m}} \condProb{\func{\phi_k}{m} \neq \func{\phi_k}{\hat{m}}}{ m \neq \hat{m}}\\
+		&\leq \condProb{\func{\phi_k}{m} = \func{\phi_k}{\hat{m}}}{ m \neq \hat{m}} + \condProb{\func{\phi_l}{\func{\phi_k}{m}} = \func{\phi_l}{\func{\phi_k}{\hat{m}}}}{\func{\phi_k}{m} \neq \func{\phi_k}{\hat{m}}} \\
+		&\leq \dfrac{\lg M}{K} + \dfrac{\lg M'}{K'} \\
+		&= \dfrac{\lg M}{\ceil{\bracket{\lg M}^{\alpha}}} + \dfrac{\lg \pi_K}{\ceil{\bracket{\lg \pi_K}^{\alpha}}}\\
+		&= \dfrac{1}{\bracket{\lg M}^{\alpha - 1}} + \dfrac{1}{\bracket{\lg \pi_K}^{\alpha - 1}}
+	\end{align}
+	By the prime number theorem, \Cref{thm:pnt}, \(\pi_K \sim K \ln K\). As a result, \(\lambda_2 \to 0\) as \(M \to \infty\).
+	\begin{equation*}
+		\bracket{\lg \pi_K}^{\alpha - 1} \sim \bracket{\lg K + \lg \lg K - \lg \lg e}^{\alpha - 1} \approx \bracket{\alpha \lg \lg M + \lg\lg\lg M + \lg \alpha - \lg\lg e}^{\alpha - 1}
+	\end{equation*}
+	Finally, the blocklength is calculated by \(n = \ceil{\lg K} + \ceil{\lg K'} + \ceil{\lg \pi_{K'}}\). By applying the prime number theorem \ref{lmm:ineqpnt}
+	\begin{align*}
+		n &= \ceil{\lg K}  + \ceil{\lg K'} + \ceil{\lg \pi_{K'}}\\
+		&= \ceil{\lg \ceil{(\lg M)^{\alpha}}} + \ceil{\lg \ceil{(\lg \pi_K)^{\alpha}}} + \ceil{\lg \pi_{K'}}\\
+		&\approx \alpha \lg \lg M + \alpha \lg\lg \pi_K + \lg \pi_{K'}\\
+		&\approx \alpha \lg \lg M + (1 + o(1))\lg\lg\lg M + (\alpha + o(1)) \lg \lg \pi_K \\
+		&\approx \alpha (1 + o(1)) \lg\lg M
+	\end{align*}
+	which was what was wanted.
+\end{proof}
+This scheme requires sender to have access to a prime generation algorithm that given \(K\) computes the first \(K\) primes. And it requires the receiver to have access to another prime generation algorithm that given an index \(k\) output \(\pi_k\), the \(k_{\mathrm{th}}\) prime. To the best of our knowledge both these algorithm are exponential (I think the best algorithm are subexponential in fact)[needs referencing]. To alleviate these inefficiencies we propose the following modifications.
+
+\subsection{Modified 3-step algorithm}
+Consider the following parameters.
+\begin{itemize}
+	\item Let \(\mathcal{M} = \set{1,2, \dots, M }\) be the message set and let \(K = \ceil{\lg M}\), \(K' = \ceil{\lg K}\), and \(C = \bracket{\lg M}^{\alpha}\) for some constant \(\alpha > 0\). 
+	\item Let us denote the set \(\set{1,2, \dots, l }\) by \(\mathbb{Z}^+_l\).  Define the function \(\phi_l: \mathbb{N} \to \mathbb{Z}_{l}^+ \) as follows.
+	\begin{equation}
+		\func{\phi_l}{n}= [n \mod l] + 1
+	\end{equation}
+	Where \([n \mod l]\) is equal to the remainder of the division of \(n\) by \(l\).
+\end{itemize}
+
+A round of communication in this scheme is as follows.
+\begin{enumerate}
+	\item The sender chooses a probabilistic prime \(k\) from the set \(\mathcal{K} = \set{1,2,\dots, \ceil{C K \lg K}}\) by a prime number generator and transmits it.
+	\item The sender chooses another probabilistic prime \(l\) from the set \( \mathcal{K}' = \set{1,2,\dots, \ceil{CK' \lg K'} }\) by the same prime number generator and transmits it.
+	\item Given a message \(m \in \mathcal{M}\), the sender transmits \(\func{\phi_l}{\func{\phi_k}{m}}\). Assuming that receiver wishes to identify \(\hat{m} \in \mathcal{M}\), he calculates \(\func{\phi_l}{\func{\phi_k}{\hat{m}}}\) and compares it with \(\func{\phi_l}{\func{\phi_k}{m}}\). He identifies the message as \(\hat{m}\) whenever \(\func{\phi_l}{\func{\phi_k}{m}}\) = \(\func{\phi_l}{\func{\phi_k}{\hat{m}}}\).
+\end{enumerate}
+
+\begin{example}
+	Suppose \(M = 100\) and \(C = 6\), then \(K = 7\), \(C K \lg K  = 118\), \(K' = 3\), and \(C K' \lg K' = 29\). Assume that  \(k = 67\) and \(l = 13\). Given \(m = 71\), the sender sends the following code. 
+	\begin{equation*}
+		\underbrace{1000011}_{k = 67} \underbrace{1101}_{l = 13} \underbrace{0110}_{\func{\phi_l}{\func{\phi_k}{71}} = 6}
+	\end{equation*}
+	We again require that the codes be separated by time or by some special character. 
+	If \(\hat{m}_1 = 71\), then clearly the receiver correctly identifies the message. If \(\hat{m}_2 = 32\) 
+	\begin{equation*}
+		\func{\phi_l}{\func{\phi_k}{32}} = 8 = (1000)
+	\end{equation*}
+	and the receiver correctly does not identify the message. However, when \(\hat{m}_3 = 4\), \(\func{\phi_l}{\func{\phi_k}{4}} = 6 = (0110)\) which means the receiver falsely identifies \(m = 71\) as \(\hat{m} = 6\).
+\end{example}
+\begin{theorem}
+	This coding scheme is optimal.
+	\begin{equation}
+		\lim_{M \to \infty} \dfrac{\lg \lg M}{\func{n}{M}} = \dfrac{1}{1+3\alpha}
+	\end{equation}
+\end{theorem}
+
+\begin{proof}
+	The blocklength is calculated by \(n = \ceil{\lg \abs{\mathcal{K}}} + 2\ceil{\lg \abs{\mathcal{K}'}}\). By applying the prime number theorem \ref{lmm:ineqpnt}
+	\begin{align}
+		n &= \ceil{\lg \abs{\mathcal{K}}} + 2\ceil{\lg \abs{\mathcal{K}'}}\\
+		&= \ceil{\lg \ceil{CK\lg K}} + 2\ceil{\lg \ceil{CK'\lg K'}} \\
+		&\approx \lg K + \lg C + \lg \lg K + 2 \bracket{\lg K' + \lg C + \lg K'}\\
+		&\approx \lg \lg M + \lg C + \lg \lg \lg M + 2 \bracket{\lg \lg\lg M + \lg C + \lg \lg \lg M}\\
+		&\approx (1 + 3\alpha + o(1)) \lg\lg M
+	\end{align}
+	which was what was wanted.
+\end{proof}
+The error analysis this code depends on the prime number generator. We will be using a simple prime number generator based on the Miller-Rabin primality test.
+\subsection{Miller-Rabin analysis}
+Miller-Rabin is a well-known random primality test algorithm. Let \(\func{MR}{n,k}\) be the distribution of Miller-Rabin algorithm on the prime candidate \(n\) with \(k\) repeats. Let \(\mathcal{P}\) be the set of primes. Then, we have the following probabilities.
+\begin{align}
+	&\condProb{\func{MR}{n,k}}{n \in \mathcal{P}} = 1\\
+	&\condProb{\func{MR}{n,k}}{n \notin \mathcal{P}} \leq 4^{-k}
+\end{align}
+Consider the following random prime number genrator, \(\func{GMR}{N,s,k}\). This algorithm, samples number uniformly and then checks if they are prime using the Miller-Rabin test. Then, \(N\) is the upperbound, \(s\) is the maximum number of attempts, and \(k\) is the number of repeats in the underlying Miller-Rabin test.
+\begin{algorithm}
+	\DontPrintSemicolon
+	\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+	\Input{positive integers \(N,s,k\)}
+	\Output{A uniformly chosen odd prime less than or equal to \(N\)}
+	\For{\(i = 1 \to s\)}{
+	\(n \gets \{3,5,\dots, N\}\)\;
+	\If{\(\func{MR}{n,k}\)}{
+		\Return{\(n\)}
+	}
+	}
+	\Return{\(\perp\)}
+	\caption{\(\func{GMR}{N,s,k}\)}
+\end{algorithm}
+We analyse the distribution of \(\func{GMR}{N,s,k}\). Let \(n_i\) denote the random variable \(n\) in the \(i_{\mathrm{th}}\) iteration.
+\begin{align}
+	\prob{\func{GMR}{M,s,k} = \perp} &= \prob{\func{MR}{n_1,k} = \dots =  \func{MR}{n_s,k} = 0}\\
+	&= \prod_{i = 1}^s \prob{\func{MR}{n_i,k} = 0} && \text{(Independence)} \\
+	&= \prod_{i = 1}^s \condProb{\func{MR}{n_i,k} = 0}{n_i \notin P} \prob{n_i \notin P}\\
+	&\leq \prod_{i = 1}^s \bracket{1 - \dfrac{\func{\pi}{N}}{N}}\\
+	&=\bracket{1 - \dfrac{\func{\pi}{N}}{N}}^s \\
+	&\approx \bracket{1 - \dfrac{1}{\ln N}}^s && \text{(PNT)}
+\end{align}
+If we bound this error probability with \(\epsilon\), then we get the following bound on \(s\).
+\begin{equation*}
+	s \geq \dfrac{\ln \epsilon}{\func{\ln}{1 - \frac{1}{\ln N}}} \approx - \ln N \ln \epsilon
+\end{equation*}
+For sufficiently large \(N\).
+The probability that the result of \(GMR(N,s,k)\) is composite, given it is not \(\perp\) is as follows.
+\begin{align}
+	\condProb{\func{GMR}{N,s,k} \notin P}{\func{GMR}{N,s,k} \neq \perp} &\leq \sum_{i = 1}^s \prob{\func{MR}{n_i, k} = 1, n_i \notin P }\\
+	&= \sum_{i = 1}^s \condProb{\func{MR}{n_i, k} = 1}{ n_i \notin P }\prob{n_i \notin P}\\
+	&= \sum_{i = 1}^s 4^{-k} \bracket{1 - \dfrac{\func{\pi}{N}}{N}}\\
+	&= s 4^{-k}\bracket{1 - \dfrac{\func{\pi}{N}}{N}}\\
+	&\approx s4^{-k}\bracket{1 - \dfrac{1}{\ln N}} && \text{(PNT)}
+\end{align}
+If we bound this error probability with \(\delta\), then we get the following bound on \(s\).
+\begin{equation}
+	s \leq \bracket{1 - \dfrac{1}{\ln N}}^{-1}  4^k \delta \approx   4^{k}\delta
+\end{equation}
+Let \(\epsilon = e^{-l}\) and \(\delta = 2^{-q}\) with \(l,q \geq 0\). Then, 
+\begin{equation}
+	l \ln N \leq s \leq 2^{2k- q}
+\end{equation}
+Note that, \(s = l \ln N\) and \(k = \dfrac{\func{\lg}{l/e} + \lg \lg N + q}{2}\) satisfies both inequalities.
+\subsection{Proof of modified 3-step algorithm}
+
+\begin{theorem}
+	The modified 3-step algorithm produces a \((n = n(M), M, \lambda_1 = 0, \lambda_2 = \lambda_2(M,C))\) identification code -- per \Cref{def:idcode}-- such that \(\lambda_2 \to 0\) as \(M \to \infty\). Moreover, this coding scheme is optimal.
+	\begin{equation}
+		\lim_{M \to \infty} \dfrac{\lg \lg M}{n(M)} = 1
+	\end{equation}
+\end{theorem}
+We employ the same techniques used by Ahlswede by first calculating the following probability. Suppose \(m,\hat{m} \in \mathcal{M} = \set{1,2, \dots, M}\) and \(p \gets \func{GMR}{N,s,k}\) such that the \(\prob{p = \perp} = 0\)
+\footnote{This may be achieved by either selecting a small prime number or a random number instead of outputing \(\perp\). Since we have shown that this probability can be as small as we'd like, the first method shall not affect our uniform distribution considerably.}
+and \(\prob{p \notin \mathcal{P}} \leq \delta\) then 
+\begin{align}
+	\condProb{\func{\phi_p}{m} = \func{\phi_p}{\hat{m}}}{m \neq \hat{m}} &=\condProb{\func{\phi_p}{m} = \func{\phi_p}{\hat{m}}}{m \neq \hat{m}, p \in \mathcal{P}} \condProb{p \in \mathcal{P}}{m \neq \hat{m}}  \\
+	& \qquad + \condProb{\func{\phi_p}{m} = \func{\phi_p}{\hat{m}}}{m \neq \hat{m}, p \notin \mathcal{P}} \condProb{p \notin \mathcal{P}}{m \neq \hat{m}} \\
+	&\leq \dfrac{\lg M}{\func{\pi}{N}} \prob{p \in \mathcal{P}} + \prob{p \notin \mathcal{P}} \\
+	&\leq \dfrac{\lg M}{\func{\pi}{N}} + \delta
+\end{align}
+
+\begin{proof}
+	Let \(m,\hat{m} \in \mathcal{M} = \set{1,2,\dots, M}\) be given. Let the probable prime \(k \gets \func{GMR}{\ceil{CK \lg K}, s_K, r_K}\) and \(l \gets \func{GMR}{\ceil{CK' \lg K'}, s_{K'}, r_{K'}}\) with \(K = \ceil{\lg M}\) and \(K' = \ceil{\lg K}\). The parameters \(r_K,s_K,r_{K'},\) and \(s_{K'}\) are set such that 
+	\begin{align}
+		&\prob{k = \perp} = \prob{l = \perp} = 0\\
+		&\prob{k \notin P} , \prob{l \notin P} \leq \delta 
+	\end{align} 
+	The probability of the second kind error is given as follow 
+	\begin{align}
+		\func{P_{e,2}}{m,\hat{m}} &= \condProb{\func{\phi_l}{\func{\phi_k}{m}} = \func{\phi_l}{\func{\phi_k}{\hat{m}}} }{m \neq \hat{m}}\\
+		 &=  \condProb{\func{\phi_l}{\func{\phi_k}{m}} = \func{\phi_l}{\func{\phi_k}{\hat{m}}} }{ \func{\phi_k}{m} = \func{\phi_k}{\hat{m}}, m \neq \hat{m}} \condProb{ \func{\phi_k}{m} = \func{\phi_k}{\hat{m}} }{m \neq \hat{m}}\\
+		 & \qquad + \condProb{\func{\phi_l}{\func{\phi_k}{m}} = \func{\phi_l}{\func{\phi_k}{\hat{m}}} }{ \func{\phi_k}{m} \neq \func{\phi_k}{\hat{m}}, m \neq \hat{m}} \condProb{ \func{\phi_k}{m} \neq  \func{\phi_k}{\hat{m}} }{m \neq \hat{m}}\\
+		 &\leq \condProb{ \func{\phi_k}{m} = \func{\phi_k}{\hat{m}} }{m \neq \hat{m}} + \condProb{\func{\phi_l}{\func{\phi_k}{m}} = \func{\phi_l}{\func{\phi_k}{\hat{m}}} }{ \func{\phi_k}{m} \neq \func{\phi_k}{\hat{m}}} \\
+		 &\leq \dfrac{\lg M}{\func{\pi}{\ceil{CK \lg K}}} + \dfrac{\lg \ceil{CK \lg K}}{\func{\pi}{CK' \lg K'}} + 2\delta  \\
+		 &\approx \dfrac{\func{\lg}{M} \func{\ln}{ CK \lg K}}{CK \lg K} + \dfrac{\func{\lg}{CK \lg K} \func{\ln}{CK' \lg K'}  }{CK' \lg K'} + 2\delta && \text{(PNT)}\\
+		 &\approx\dfrac{\lg K + \lg C + \lg \lg K}{C\lg K}\ln 2 + \dfrac{\bracket{K' + \lg K' + \lg C }\bracket{\lg K'+ \lg \lg K' + C}}{CK' \lg K'} \ln 2+ 2\delta\\
+		 &= \dfrac{2 \ln 2}{C} + 2 \delta + \littleO{1} \\
+		 &= \dfrac{2 \ln 2}{\bracket{\lg M}^{\alpha}} + 2\delta + \littleO{1}
+	\end{align}
+	Since \(\delta\) can be chosen as small as possible, then \(\lambda_2 \to \infty\) as \(M \to \infty\). 
+\end{proof}
 \bibliographystyle{plain} % We choose the "plain" reference style
 \bibliography{references}
 \end{document}

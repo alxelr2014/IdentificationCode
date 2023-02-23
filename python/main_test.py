@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 base_address = "C:/Users/Emad Zinoghli/Desktop/Codes/IdentificationChannel/"
 exe_address = base_address + "bin/main"
 string_set = string.ascii_uppercase	+ string.ascii_lowercase + string.ascii_letters	+ string.digits
+remove = True
 
 def plotting(data_x, data_y , label_x, label_y,scale = "linear"):
     fig, ax = plt.subplots()
@@ -19,14 +20,19 @@ def plotting(data_x, data_y , label_x, label_y,scale = "linear"):
     plt.ylabel(label_y)
     plt.show()
 
+def delete_files(n):
+    for _i in range(n):
+        file_address=  base_address + "logs/log-"+str(_i)+".txt"
+        os.remove(file_address)
+
 def run_experiments():
     # the block length is determined by the primes
     block_length = 0 
-    number_of_repeats = 10
-    log_number_of_messages = [5]
+    number_of_repeats = 20
+    log_number_of_messages = [20]
     log_avg_errors = []
     avg_block_length = []
-    number_of_experiments = 40
+    number_of_experiments = 90
 
     for _i in range(number_of_experiments):
         # sets up the commandline prompt to run the simulation
@@ -40,9 +46,14 @@ def run_experiments():
         log_avg_errors.append(float(res_list[1]))
         log_number_of_messages.append(log_number_of_messages[-1] + 15)
     log_number_of_messages.pop()
+
+    if remove:
+        delete_files(number_of_experiments)
     return avg_block_length,log_number_of_messages,log_avg_errors
 
 block_length, log_messages, log_error = run_experiments()
 error =[2**(_i) for _i in log_error]
 plotting(block_length,log_messages,"Block Length", "Log2 of the Number of Messages")
 plotting(block_length, error, "Block Length", "Second Kind Error")
+
+

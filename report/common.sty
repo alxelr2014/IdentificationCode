@@ -1,0 +1,215 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{common}
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{mathtools}
+\usepackage[ruled,noline]{algorithm2e}
+\usepackage{codestyles}
+\usepackage{listings}
+\usepackage{hyperref}
+\RequirePackage[standard,thmmarks,amsmath]{ntheorem}
+\RequirePackage{cleveref}
+\RequirePackage{mathrsfs}
+\RequirePackage{bm}
+
+\DeclarePairedDelimiter{\vertp}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\Vertp}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\floorp}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\ceilp}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\roundp}{\lfloor}{\rceil}
+\DeclarePairedDelimiter{\anglep}{\langle}{\rangle}
+\DeclarePairedDelimiter{\bracketp}{(}{)}
+\DeclarePairedDelimiter{\curlyp}{\{}{\}}
+\DeclarePairedDelimiter{\squarep}{[}{]}
+
+\NewDocumentCommand{\DeclareTripledDelimiter}{O{*}mmmmm}{%
+	\makeatletter
+	\ifcsname @tempDelim \endcsname%
+	{}
+  	\else%
+	  \DeclarePairedDelimiterX{\@tempDelim}[2]{#2}{#4}{\ensuremath{##1 \, \delimsize#3 \, \mathopen{}##2}}
+  	\fi%
+	\expandafter \csname @tempDelim \endcsname #1{#5}{#6}
+	\makeatother	
+}
+
+\NewDocumentCommand{\abs}{O{*}m}{%
+	\expandafter \csname vertp \endcsname #1{#2}
+}
+\NewDocumentCommand{\norm}{O{*}m}{%
+	\expandafter \csname Vertp \endcsname #1{#2}
+}
+\NewDocumentCommand{\floor}{O{*}m}{%
+	\expandafter \csname floorp \endcsname #1{#2}
+}
+\NewDocumentCommand{\ceil}{O{*}m}{%
+	\expandafter \csname ceilp \endcsname #1{#2}
+}
+\NewDocumentCommand{\round}{O{*}m}{%
+	\expandafter \csname roundp \endcsname #1{#2}
+}
+\NewDocumentCommand{\angleBracket}{O{*}m}{%
+	\expandafter \csname anglep \endcsname #1{#2}
+}
+\NewDocumentCommand{\bracket}{O{*}m}{%
+	\expandafter \csname bracketp \endcsname #1{#2}
+}
+\NewDocumentCommand{\squareBracket}{O{*}m}{%
+	\expandafter \csname squarep \endcsname #1{#2}
+}
+\NewDocumentCommand{\curlyBracket}{O{*}m}{%
+	\expandafter \csname curlyp \endcsname #1{#2}
+}
+
+\NewDocumentCommand{\pair}{O{*}mm}{%
+	\expandafter \csname bracketp \endcsname #1{#2 , #3}
+}
+
+
+%set
+\NewDocumentCommand{\set}{O{*}d<>m}{%
+	\IfNoValueTF{#2}
+	{\expandafter \csname curlyp \endcsname #1{#3}}
+	{\DeclareTripledDelimiter[#1]{\{}{\vert}{\}}{#2}{#3}}
+}
+
+
+
+%functions
+\NewDocumentCommand{\func}{O{*}mm}
+{
+	\ensuremath{#2 \expandafter \csname bracketp \endcsname #1{#3}}
+}
+\NewDocumentCommand{\squareFunc}{O{*}mm}
+{
+	\ensuremath{#2 \expandafter \csname squarep \endcsname #1{#3}}
+}
+\NewDocumentCommand{\curlyFunc}{O{*}mm}
+{
+	\ensuremath{#2 \expandafter \csname curlyp \endcsname #1{#3}}
+}
+\NewDocumentCommand{\operatorFunc}{O{*}mm}
+{
+	\ensuremath{ \expandafter \csname bracketp \endcsname #1{#2} \expandafter \csname bracketp \endcsname #1{#3}}
+}
+
+\newcommand{\evaluate}[1]{\ensuremath{\squareBracket[[\Bigg]]{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Probability %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareMathOperator*{\Probability}{Pr}
+\newcommand*{\prob}[1]{\ensuremath{\squareFunc{\Probability}{#1}}}
+\newcommand*{\condProb}[2] {\ensuremath{\prob{#1 \; \middle| \; #2}}}
+\newcommand*{\Expected}{\ensuremath{\mathbb{E}}}
+\DeclareMathOperator*{\Variance}{Var}
+\DeclareMathOperator*{\Covariance}{Cov}
+
+
+\NewDocumentCommand{\expected}{om}{%
+\IfNoValueTF{#1}
+{\ensuremath{\squareFunc{\Expected}{#2}}}
+{\ensuremath{\squareFunc{\Expected_{#1}}{#2}}}}%
+
+\NewDocumentCommand{\variance}{om}{%
+\IfNoValueTF{#1}
+{\ensuremath{\squareFunc{\Variance}{#2}}}
+{\ensuremath{\squareFunc{\Variance_{#1}}{#2}}}}%
+
+\NewDocumentCommand{\covariance}{om}{%
+\IfNoValueTF{#1}
+{\ensuremath{\squareFunc{\Covariance}{#2}}}
+{\ensuremath{\squareFunc{\Covariance_{#1}}{#2}}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Asymptotic Complexity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand*{\bigO}[1]{\ensuremath{\func{\mathcal{O}}{#1}}}
+\newcommand*{\littleO}[1]{\ensuremath{\func{o}{#1}}}
+\newcommand*{\logBigO}[1]{\ensuremath{\func{\tilde{\mathcal{O}}}{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Environments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem{otheorem}{Theorem}
+\newtheorem{oexample}{Example}
+\makeatletter%
+\@ifclassloaded{article}%
+{
+    
+    \renewtheorem{otheorem}{Theorem}
+    
+    \renewtheorem{oexample}{Example}
+}%
+{
+    \@ifclassloaded{book}
+    {
+        \renewtheorem{otheorem}{Theorem}[chapter]
+        \renewtheorem{oexample}{Example}[chapter]
+    }
+    {
+        \renewtheorem{otheorem}{Theorem}	
+        \renewtheorem{oexample}{Example}
+    }
+}%
+\makeatother%
+
+
+\theoremseparator{.}
+\theoremsymbol{}
+\theorembodyfont{\itshape}
+\theoremheaderfont{\normalfont\bfseries}
+\theoremstyle{plain}
+\renewtheorem{theorem}[otheorem]{Theorem}
+\renewtheorem{corollary}[otheorem]{Corollary}
+\renewtheorem{lemma}[otheorem]{Lemma}
+\renewtheorem{proposition}[otheorem]{Proposition}
+
+
+\theoremseparator{.}
+\theoremsymbol{}
+\theorembodyfont{\upshape}
+\theoremheaderfont{\normalfont\bfseries}
+\theoremstyle{plain}
+\renewtheorem{remark}{Remark}
+\renewtheorem{example}[oexample]{Example}
+
+\theoremseparator{:}
+\theoremsymbol{}
+\theorembodyfont{\upshape}
+\theoremheaderfont{\normalfont\bfseries}
+\theoremstyle{nonumberplain}
+\renewtheorem{definition}{Definition}
+\newtheorem{note}{Note}
+
+\theoremseparator{.}
+\theoremsymbol{{\ensuremath{\blacksquare}}}
+\theorembodyfont{\upshape}
+\theoremheaderfont{\itshape}
+\theoremstyle{nonumberplain}
+\renewtheorem{proof}{Proof}
+\theoremsymbol{{\ensuremath{\square}}}
+\newtheorem{prooflemma}{Proof}
+\theoremsymbol{{\ensuremath{\triangleright}}}
+\newtheorem{solution}{Solution}
+
+
+\theoremseparator{.}
+\theoremsymbol{}
+\theoremheaderfont{\normalfont\bfseries}
+\theoremstyle{plain}
+\theorembodyfont{\upshape}
+\newtheorem{results}{Results}
+
+
+\Crefname{theorem}{Theorem}{Theorems}
+\Crefname{example}{Example}{Examples}
+\Crefname{corollary}{Corollary}{Corollaries}
+\Crefname{lemma}{Lemma}{Lemmata}
+\Crefname{proposition}{Propostion}{Propositions}
+\Crefname{remark}{Remark}{Remarks}
+\Crefname{definition}{Definition}{Definitions}
+\Crefname{note}{Note}{Notes}
+\Crefname{equation}{Equation}{Equations}
+
+

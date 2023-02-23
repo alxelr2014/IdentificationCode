@@ -19,7 +19,7 @@
 - PNT statement, variations, corollary, history of proof, proof sketch
 - Adding the code and the algorithms to the report
 - Generate an error curve for noiseless BSC
-- curves: add theoretical + points
+- curves: add theoretical + points := add second upperbound2.
 - add explanation, elaboration
 - add example
 - add decoder
