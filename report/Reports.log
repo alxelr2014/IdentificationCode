@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.27)  23 FEB 2023 20:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.27)  23 FEB 2023 22:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -680,17 +680,17 @@ Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input l
 Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 220.
  [7]
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 274.
-<MessageVsBlocklength.png, id=280, 462.528pt x 346.896pt>
-File: MessageVsBlocklength.png Graphic file (type png)
-<use MessageVsBlocklength.png>
-Package pdftex.def Info: MessageVsBlocklength.png  used on input line 296.
+<graphic/MessageVsBlocklength.png, id=280, 462.528pt x 346.896pt>
+File: graphic/MessageVsBlocklength.png Graphic file (type png)
+<use graphic/MessageVsBlocklength.png>
+Package pdftex.def Info: graphic/MessageVsBlocklength.png  used on input line 296.
 (pdftex.def)             Requested size: 373.6152pt x 280.19846pt.
-<ErrorVsBlocklength.png, id=283, 462.528pt x 346.896pt>
-File: ErrorVsBlocklength.png Graphic file (type png)
-<use ErrorVsBlocklength.png>
-Package pdftex.def Info: ErrorVsBlocklength.png  used on input line 300.
+<graphic/ErrorVsBlocklength.png, id=283, 462.528pt x 346.896pt>
+File: graphic/ErrorVsBlocklength.png Graphic file (type png)
+<use graphic/ErrorVsBlocklength.png>
+Package pdftex.def Info: graphic/ErrorVsBlocklength.png  used on input line 300.
 (pdftex.def)             Requested size: 373.6152pt x 280.19846pt.
- [8] [9 <./MessageVsBlocklength.png> <./ErrorVsBlockLength.png>]
+ [8] [9 <./graphic/MessageVsBlocklength.png> <./graphic/ErrorVsBlockLength.png>]
 Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 326.
  [10] [11] [12]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
@@ -706,15 +706,15 @@ Package rerunfilecheck Info: File `Reports.out' has not changed.
 (rerunfilecheck)             Checksum: 23B747045F32F7154B50EC4D270C54F2;3242.
  ) 
 Here is how much of TeX's memory you used:
- 17600 strings out of 475071
- 284129 string characters out of 5782907
+ 17601 strings out of 475071
+ 284233 string characters out of 5782907
  875797 words of memory out of 5000000
  38516 multiletter control sequences out of 15000+600000
  482183 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,17n,91p,789b,2124s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Reports.pdf (14 pages, 339540 bytes).
+Output written on Reports.pdf (14 pages, 339538 bytes).
 PDF statistics:
  541 PDF objects out of 1000 (max. 8388607)
  474 compressed objects within 5 object streams

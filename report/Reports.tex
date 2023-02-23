@@ -293,11 +293,11 @@ Moreover, we may frequently use these exact bounds on \(\pi(x)\).
 \subsection{Simulation Code}
 I also worked on our code. There was a mistake where I outputed the curve of number of message \(M\)  to second kind error  \(\lambda_2\). Given that \(n \sim \lg \lg M\), at the time I thought this fine. But now the code produces to curves; \(n\) vs \(M\) and \(n\) vs \(\lambda_2\). 
 \begin{figure}
-	\includegraphics*[height = 0.4 \textheight]{MessageVsBlocklength.png}
+	\includegraphics*[height = 0.4 \textheight]{graphic/MessageVsBlocklength.png}
 	\caption{The number of message vs block length curve}
 \end{figure}
 \begin{figure}
-	\includegraphics*[height = 0.4 \textheight]{ErrorVsBlocklength.png}
+	\includegraphics*[height = 0.4 \textheight]{graphic/ErrorVsBlocklength.png}
 	\caption{The second kind error vs block length curve}
 \end{figure}
 
@@ -524,7 +524,7 @@ and \(\prob{p \notin \mathcal{P}} \leq \delta\) then
 		 &= \dfrac{2 \ln 2}{C} + 2 \delta + \littleO{1} \\
 		 &= \dfrac{2 \ln 2}{\bracket{\lg M}^{\alpha}} + 2\delta + \littleO{1}
 	\end{align}
-	Since \(\delta\) can be chosen as small as possible, then \(\lambda_2 \to \infty\) as \(M \to \infty\). 
+	Since \(\delta\) can be chosen as small as possible, then \(\lambda_2 \to 0\) as \(M \to \infty\). 
 \end{proof}
 \bibliographystyle{plain} % We choose the "plain" reference style
 \bibliography{references}
