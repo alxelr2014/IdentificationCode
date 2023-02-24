@@ -69,22 +69,29 @@ pair<uint64_t, uint64_t> millerMethod(uint64_t log_number_of_message, double alp
 }
 
 
-ID_Code *NoiselessBSC_ID(const Channel &channel, uint64_t log_number_of_message, uint64_t block_length)
+void NoiselessBSC_ID(const Channel &channel, IdentificationCode* id_code)
 {
     // M := number_of_messages,  n := block_length, alpha := alpha
     // pi_k := keys.first, pi_l := keys.second 
-    double alpha = 0.1;
+    double alpha = 0.00001;
     //pair<uint64_t,uint64_t> keys = eratosthenesMethod(N,alpha);
-    pair<uint64_t,uint64_t> keys = millerMethod(log_number_of_message,alpha);
+    pair<uint64_t,uint64_t> keys = millerMethod(id_code->getLogNumberOfMessages(),alpha);
 
     *getOutputStream() << "The keys are " << keys.first << " " << keys.second << '\n';
-    uint64_t number_of_bits = (keys.first < keys.second) ? (ceil(log2l(keys.first))) : (ceil(log2l(keys.second)));
-    number_of_bits++;
+    pair<uint64_t,uint64_t> number_of_bits = {ceil_log(keys.first), ceil_log(keys.second)};
+    if(number_of_bits.first < number_of_bits.second)
+        {
+            uint64_t temp = number_of_bits.first;
+            number_of_bits.first = number_of_bits.second;
+            number_of_bits.second = temp;
+        }
     // create the encoder,decoder, and identifier
-    ID_EncodingFunction *enc = new ID_EncodingFunction(bind(generateEncodingFunction, keys.first, keys.second, number_of_bits, placeholders::_1));
-    ID_DecodingFunction *dec = new ID_DecodingFunction(bind(generateDecodingFunction, keys.first, keys.second, number_of_bits,log_number_of_message,placeholders::_1));
-    ID_IdentifiyingFunction *idn = new ID_IdentifiyingFunction(bind(generateIdentifyingFunction, keys.first, keys.second, number_of_bits,placeholders::_1,placeholders::_2));
+    ID_EncodingFunction *enc = new ID_EncodingFunction(bind(generateEncodingFunction, keys.first, keys.second, number_of_bits.second, placeholders::_1));
+    ID_DecodingFunction *dec = new ID_DecodingFunction(bind(generateDecodingFunction, keys.first, keys.second, number_of_bits.second,id_code->getLogNumberOfMessages(),placeholders::_1));
+    ID_IdentifiyingFunction *idn = new ID_IdentifiyingFunction(bind(generateIdentifyingFunction, keys.first, keys.second, number_of_bits.second,placeholders::_1,placeholders::_2));
 
-    ID_Code* result = new ID_Code(make_tuple(enc,dec,idn));
-    return result;
+    id_code->setBlockLength(number_of_bits.first + 2* number_of_bits.second);
+    id_code->setEncoder(enc);
+    id_code->setDecoder(dec);
+    id_code->setIdentifier(idn);
 }

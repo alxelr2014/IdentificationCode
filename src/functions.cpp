@@ -94,7 +94,7 @@ bool miller_rabin(uint64_t p, uint64_t k)
 uint64_t random_prime(uint64_t max, uint64_t s, uint64_t k)
 {
     // get a number between {max}/4 and {max}/2, then multiply by 2 and add 1 to get an odd number between {max}/2 and {max}
-    uniform_int_distribution<uint64_t> rand_num(1, max >> 1);
+    uniform_int_distribution<uint64_t> rand_num(max >> 2, max >> 1);
     for (uint64_t i = 0; i < s; i++)
     {
         uint64_t p = 2 * rand_num(*getGenerator()) + 1;

@@ -12,4 +12,4 @@
 #include "biguint.h"
 
 
-ID_Code* NoiselessBSC_ID(const Channel &channel, uint64_t log_number_of_message, uint64_t block_length); // the 3 step coding scheme
+void NoiselessBSC_ID(const Channel &channel,IdentificationCode * id_code); // the 3 step coding scheme

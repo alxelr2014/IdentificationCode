@@ -3,6 +3,8 @@ import subprocess
 import string
 import random
 import matplotlib.pyplot as plt
+import numpy
+import math
 
 # make sure to compile the executable first
 base_address = "C:/Users/Emad Zinoghli/Desktop/Codes/IdentificationChannel/"
@@ -10,7 +12,7 @@ exe_address = base_address + "bin/main"
 string_set = string.ascii_uppercase	+ string.ascii_lowercase + string.ascii_letters	+ string.digits
 remove = True
 
-def plotting(data_x, data_y , label_x, label_y,scale = "linear"):
+def plotting(data_x, data_y , label_x, label_y,scale = "linear",second_func = None):
     fig, ax = plt.subplots()
     ax.plot(data_x,data_y)
     ax.spines['right'].set_visible(False)
@@ -18,6 +20,8 @@ def plotting(data_x, data_y , label_x, label_y,scale = "linear"):
     ax.set_yscale(scale)
     plt.xlabel(label_x)
     plt.ylabel(label_y)
+    if(second_func):
+        plt.plot(second_func[0], second_func[1],second_func[2])
     plt.show()
 
 def delete_files(n):
@@ -28,11 +32,12 @@ def delete_files(n):
 def run_experiments():
     # the block length is determined by the primes
     block_length = 0 
-    number_of_repeats = 20
-    log_number_of_messages = [20]
+    number_of_repeats = 10
+    log_number_of_messages = [5]
+    increments = 150
     log_avg_errors = []
     avg_block_length = []
-    number_of_experiments = 90
+    number_of_experiments = 400
 
     for _i in range(number_of_experiments):
         # sets up the commandline prompt to run the simulation
@@ -44,16 +49,18 @@ def run_experiments():
         res_list = res_string.split(" ")
         avg_block_length.append(int(res_list[0]))
         log_avg_errors.append(float(res_list[1]))
-        log_number_of_messages.append(log_number_of_messages[-1] + 15)
+        log_number_of_messages.append(log_number_of_messages[-1] + increments)
     log_number_of_messages.pop()
 
     if remove:
         delete_files(number_of_experiments)
     return avg_block_length,log_number_of_messages,log_avg_errors
 
+
 block_length, log_messages, log_error = run_experiments()
 error =[2**(_i) for _i in log_error]
-plotting(block_length,log_messages,"Block Length", "Log2 of the Number of Messages")
+x = numpy.linspace(block_length[0], block_length[-1], 400)
+y = numpy.exp2(x/2.1)
+plotting(block_length,log_messages,"Block Length", "Log2 of the Number of Messages","linear",(x,y,'r'))
 plotting(block_length, error, "Block Length", "Second Kind Error")
-
 

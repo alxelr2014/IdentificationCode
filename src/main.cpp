@@ -23,9 +23,9 @@ int main(int argv, char *argc[])
     Channel noiselessBSC = Channel(2, 2, new ChannelFunc([](chnl_input x)
                                                          { return x; }));
     file_address = (argv >= 2) ? argc[1] : "C:/Users/Emad Zinoghli/Desktop/Codes/IdentificationChannel/logs/log-default.txt";
-    uint64_t log_number_of_messages = (argv >= 3) ? atoi(argc[2]) : 200;
+    uint64_t log_number_of_messages = (argv >= 3) ? atoi(argc[2]) : 15;
     uint64_t block_length = (argv >= 4) ? atoi(argc[3]) : 0;
-    uint64_t number_of_simulation = (argv >= 5) ? atoi(argc[4]) : 2;
+    uint64_t number_of_simulation = (argv >= 5) ? atoi(argc[4]) : 10;
     random_seed = (argv >= 6) ? argc[5] : "";
     double avg_error = 0;
     uint64_t avg_block_length = 0;

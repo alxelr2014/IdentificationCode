@@ -1,26 +1,122 @@
 Creating the code!
-The keys are 17207 9787
+The keys are 53 7
 Code Created!
 -----------------------
-Message: 6
-Encoded: 000100000000000
-Received: 000100000000000
-The log second kind error rate: -12.4857
+Message: 15
+Encoded: 110
+Received: 110
+The log second kind error rate: -2.80735
 -----------------------
-The block length is 45
-The average log second kind error is -12.4857
+The block length is 12
+The average log second kind error is -2.80735
 -----------------------
 Creating the code!
-The keys are 14983 16097
+The keys are 71 5
 Code Created!
 -----------------------
-Message: 29
-Encoded: 11111000000000
-Received: 11111000000000
-The log second kind error rate: -12.871
+Message: 12
+Encoded: 001
+Received: 001
+The log second kind error rate: -2.32193
 -----------------------
-The block length is 42
-The average log second kind error is -12.871
+The block length is 13
+The average log second kind error is -2.32193
+-----------------------
+Creating the code!
+The keys are 61 7
+Code Created!
+-----------------------
+Message: 8
+Encoded: 110
+Received: 110
+The log second kind error rate: -2.80735
+-----------------------
+The block length is 12
+The average log second kind error is -2.80735
+-----------------------
+Creating the code!
+The keys are 41 11
+Code Created!
+-----------------------
+Message: 2
+Encoded: 0010
+Received: 0010
+The log second kind error rate: -3.45943
+-----------------------
+The block length is 14
+The average log second kind error is -3.45943
+-----------------------
+Creating the code!
+The keys are 71 11
+Code Created!
+-----------------------
+Message: 2
+Encoded: 0010
+Received: 0010
+The log second kind error rate: -3.45943
+-----------------------
+The block length is 15
+The average log second kind error is -3.45943
+-----------------------
+Creating the code!
+The keys are 41 11
+Code Created!
+-----------------------
+Message: 10
+Encoded: 0011
+Received: 0011
+The log second kind error rate: -3.45943
+-----------------------
+The block length is 14
+The average log second kind error is -3.45943
+-----------------------
+Creating the code!
+The keys are 41 5
+Code Created!
+-----------------------
+Message: 4
+Encoded: 011
+Received: 011
+The log second kind error rate: -2.32193
+-----------------------
+The block length is 12
+The average log second kind error is -2.32193
+-----------------------
+Creating the code!
+The keys are 47 7
+Code Created!
+-----------------------
+Message: 2
+Encoded: 001
+Received: 001
+The log second kind error rate: -2.80735
+-----------------------
+The block length is 12
+The average log second kind error is -2.80735
+-----------------------
+Creating the code!
+The keys are 41 11
+Code Created!
+-----------------------
+Message: 14
+Encoded: 1010
+Received: 1010
+The log second kind error rate: -3.45943
+-----------------------
+The block length is 14
+The average log second kind error is -3.45943
+-----------------------
+Creating the code!
+The keys are 71 7
+Code Created!
+-----------------------
+Message: 15
+Encoded: 110
+Received: 110
+The log second kind error rate: -2.80735
+-----------------------
+The block length is 13
+The average log second kind error is -2.80735
 -----------------------
 End
 

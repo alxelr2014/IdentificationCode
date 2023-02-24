@@ -12,14 +12,10 @@ IdentificationCode::~IdentificationCode()
 {
 }
 
-void IdentificationCode::constructID_Code(const Channel &channel, function<ID_Code *(const Channel &, uint64_t, uint64_t)> construction_method)
+void IdentificationCode::constructID_Code(const Channel &channel, function<void(const Channel &, IdentificationCode *)> construction_method)
 {
     *getOutputStream() << "Creating the code!\n";
-    ID_Code *result = construction_method(channel, this->log_number_of_messages, this->block_length);
-    this->encoder = get<0>(*result);
-    this->decoder = get<1>(*result);
-    this->identifier = get<2>(*result);
-
+    construction_method(channel, this);
     this->valid_construction = true;
     *getOutputStream() << "Code Created!\n";
 }
@@ -30,6 +26,11 @@ uint64_t IdentificationCode::getLogNumberOfMessages()
 uint64_t IdentificationCode::getBlockLength()
 {
     return this->block_length;
+}
+
+void IdentificationCode::setBlockLength(uint64_t block_length)
+{
+    this->block_length = block_length;
 }
 
 long double IdentificationCode::getFirstKindError()
@@ -47,6 +48,17 @@ long double IdentificationCode::getSecondKindError()
 
     return -1;
 }
+
+void IdentificationCode::setEncoder( ID_EncodingFunction *enc){
+    this->encoder = enc;
+}
+void IdentificationCode::setDecoder( ID_DecodingFunction *dec){
+    this->decoder = dec;
+}
+void IdentificationCode::setIdentifier( ID_IdentifiyingFunction *idn){
+    this->identifier = idn;
+}
+
 vector<chnl_input> *IdentificationCode::encode(uint64_t message)
 {
     if (this->valid_construction)
