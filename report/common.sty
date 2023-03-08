@@ -4,7 +4,7 @@
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 \RequirePackage{mathtools}
-\usepackage[ruled,noline]{algorithm2e}
+\usepackage[ruled,noline,linesnumbered]{algorithm2e}
 \usepackage{codestyles}
 \usepackage{listings}
 \usepackage{hyperref}
@@ -74,6 +74,11 @@
 	{\DeclareTripledDelimiter[#1]{\{}{\vert}{\}}{#2}{#3}}
 }
 
+%intervals
+\DeclarePairedDelimiterX{\clcl}[2]{[}{]}{#1 , #2}
+\DeclarePairedDelimiterX{\clop}[2]{[}{[}{#1 , #2}
+\DeclarePairedDelimiterX{\opcl}[2]{]}{]}{#1 , #2}
+\DeclarePairedDelimiterX{\opop}[2]{]}{[}{#1 , #2}
 
 
 %functions
@@ -211,5 +216,7 @@
 \Crefname{definition}{Definition}{Definitions}
 \Crefname{note}{Note}{Notes}
 \Crefname{equation}{Equation}{Equations}
+\Crefname{algocf}{Algorithm}{Algorithms}
+\crefname{algocf}{alg.}{algs.}
 
 

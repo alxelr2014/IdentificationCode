@@ -1,122 +1,213 @@
 Creating the code!
-The keys are 53 7
+The 1th key is 71 with 7 bits.
+The 2th key is 3 with 2 bits.
 Code Created!
------------------------
-Message: 15
-Encoded: 110
-Received: 110
-The log second kind error rate: -2.80735
------------------------
-The block length is 12
-The average log second kind error is -2.80735
+The block length is 11
+The average second kind error is 0.333333
 -----------------------
 Creating the code!
-The keys are 71 5
+The 1th key is 139 with 8 bits.
+The 2th key is 7 with 3 bits.
 Code Created!
------------------------
-Message: 12
-Encoded: 001
-Received: 001
-The log second kind error rate: -2.32193
------------------------
-The block length is 13
-The average log second kind error is -2.32193
------------------------
-Creating the code!
-The keys are 61 7
-Code Created!
------------------------
-Message: 8
-Encoded: 110
-Received: 110
-The log second kind error rate: -2.80735
------------------------
-The block length is 12
-The average log second kind error is -2.80735
------------------------
-Creating the code!
-The keys are 41 11
-Code Created!
------------------------
-Message: 2
-Encoded: 0010
-Received: 0010
-The log second kind error rate: -3.45943
------------------------
 The block length is 14
-The average log second kind error is -3.45943
+The average second kind error is 0.142857
 -----------------------
 Creating the code!
-The keys are 71 11
+The 1th key is 397 with 9 bits.
+The 2th key is 11 with 4 bits.
 Code Created!
+The block length is 17
+The average second kind error is 0.0909091
 -----------------------
-Message: 2
-Encoded: 0010
-Received: 0010
-The log second kind error rate: -3.45943
+Creating the code!
+The 1th key is 179 with 8 bits.
+The 2th key is 3 with 2 bits.
+Code Created!
+The block length is 12
+The average second kind error is 0.333333
 -----------------------
+Creating the code!
+The 1th key is 487 with 9 bits.
+The 2th key is 5 with 3 bits.
+Code Created!
 The block length is 15
-The average log second kind error is -3.45943
+The average second kind error is 0.2
 -----------------------
 Creating the code!
-The keys are 41 11
+The 1th key is 461 with 9 bits.
+The 2th key is 7 with 3 bits.
 Code Created!
+The block length is 15
+The average second kind error is 0.142857
 -----------------------
-Message: 10
-Encoded: 0011
-Received: 0011
-The log second kind error rate: -3.45943
+Creating the code!
+The 1th key is 7 with 3 bits.
+The 2th key is 5 with 3 bits.
+Code Created!
+The block length is 9
+The average second kind error is 0.2
 -----------------------
+Creating the code!
+The 1th key is 163 with 8 bits.
+The 2th key is 5 with 3 bits.
+Code Created!
 The block length is 14
-The average log second kind error is -3.45943
+The average second kind error is 0.2
 -----------------------
 Creating the code!
-The keys are 41 5
+The 1th key is 223 with 8 bits.
+The 2th key is 11 with 4 bits.
 Code Created!
------------------------
-Message: 4
-Encoded: 011
-Received: 011
-The log second kind error rate: -2.32193
------------------------
-The block length is 12
-The average log second kind error is -2.32193
+The block length is 16
+The average second kind error is 0.0909091
 -----------------------
 Creating the code!
-The keys are 47 7
+The 1th key is 71 with 7 bits.
+The 2th key is 5 with 3 bits.
 Code Created!
------------------------
-Message: 2
-Encoded: 001
-Received: 001
-The log second kind error rate: -2.80735
------------------------
-The block length is 12
-The average log second kind error is -2.80735
------------------------
-Creating the code!
-The keys are 41 11
-Code Created!
------------------------
-Message: 14
-Encoded: 1010
-Received: 1010
-The log second kind error rate: -3.45943
------------------------
-The block length is 14
-The average log second kind error is -3.45943
------------------------
-Creating the code!
-The keys are 71 7
-Code Created!
------------------------
-Message: 15
-Encoded: 110
-Received: 110
-The log second kind error rate: -2.80735
------------------------
 The block length is 13
-The average log second kind error is -2.80735
+The average second kind error is 0.2
 -----------------------
+Creating the code!
+The 1th key is 409 with 9 bits.
+The 2th key is 3 with 2 bits.
+Code Created!
+The block length is 13
+The average second kind error is 0.333333
+-----------------------
+Creating the code!
+The 1th key is 181 with 8 bits.
+The 2th key is 3 with 2 bits.
+Code Created!
+The block length is 12
+The average second kind error is 0.333333
+-----------------------
+Creating the code!
+The 1th key is 107 with 7 bits.
+The 2th key is 7 with 3 bits.
+Code Created!
+The block length is 13
+The average second kind error is 0.142857
+-----------------------
+Creating the code!
+The 1th key is 181 with 8 bits.
+The 2th key is 5 with 3 bits.
+Code Created!
+The block length is 14
+The average second kind error is 0.2
+-----------------------
+Creating the code!
+The 1th key is 157 with 8 bits.
+The 2th key is 5 with 3 bits.
+Code Created!
+The block length is 14
+The average second kind error is 0.2
+-----------------------
+Creating the code!
+The 1th key is 347 with 9 bits.
+The 2th key is 11 with 4 bits.
+Code Created!
+The block length is 17
+The average second kind error is 0.0909091
+-----------------------
+Creating the code!
+The 1th key is 487 with 9 bits.
+The 2th key is 11 with 4 bits.
+Code Created!
+The block length is 17
+The average second kind error is 0.0909091
+-----------------------
+Creating the code!
+The 1th key is 113 with 7 bits.
+The 2th key is 7 with 3 bits.
+Code Created!
+The block length is 13
+The average second kind error is 0.142857
+-----------------------
+Creating the code!
+The 1th key is 401 with 9 bits.
+The 2th key is 11 with 4 bits.
+Code Created!
+The block length is 17
+The average second kind error is 0.0909091
+-----------------------
+Creating the code!
+The 1th key is 211 with 8 bits.
+The 2th key is 11 with 4 bits.
+Code Created!
+The block length is 16
+The average second kind error is 0.0909091
+-----------------------
+Creating the code!
+The 1th key is 373 with 9 bits.
+The 2th key is 5 with 3 bits.
+Code Created!
+The block length is 15
+The average second kind error is 0.2
+-----------------------
+Creating the code!
+The 1th key is 251 with 8 bits.
+The 2th key is 3 with 2 bits.
+Code Created!
+The block length is 12
+The average second kind error is 0.333333
+-----------------------
+Creating the code!
+The 1th key is 389 with 9 bits.
+The 2th key is 7 with 3 bits.
+Code Created!
+The block length is 15
+The average second kind error is 0.142857
+-----------------------
+Creating the code!
+The 1th key is 463 with 9 bits.
+The 2th key is 5 with 3 bits.
+Code Created!
+The block length is 15
+The average second kind error is 0.2
+-----------------------
+Creating the code!
+The 1th key is 467 with 9 bits.
+The 2th key is 5 with 3 bits.
+Code Created!
+The block length is 15
+The average second kind error is 0.2
+-----------------------
+Creating the code!
+The 1th key is 131 with 8 bits.
+The 2th key is 7 with 3 bits.
+Code Created!
+The block length is 14
+The average second kind error is 0.142857
+-----------------------
+Creating the code!
+The 1th key is 509 with 9 bits.
+The 2th key is 11 with 4 bits.
+Code Created!
+The block length is 17
+The average second kind error is 0.0909091
+-----------------------
+Creating the code!
+The 1th key is 449 with 9 bits.
+The 2th key is 11 with 4 bits.
+Code Created!
+The block length is 17
+The average second kind error is 0.0909091
+-----------------------
+Creating the code!
+The 1th key is 293 with 9 bits.
+The 2th key is 3 with 2 bits.
+Code Created!
+The block length is 13
+The average second kind error is 0.333333
+-----------------------
+Creating the code!
+The 1th key is 157 with 8 bits.
+The 2th key is 3 with 2 bits.
+Code Created!
+The block length is 12
+The average second kind error is 0.333333
+-----------------------
+Log of Number of Messages:300
 End
 

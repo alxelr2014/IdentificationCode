@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <iostream>
 #include <vector>
+#include "rando.h"
 using namespace std;
 
 class BigUInt
@@ -46,5 +47,7 @@ public:
     operator uint64_t() const;
     operator vector<bool>() const;
 };
+BigUInt BigUIntChar(char * number);
 BigUInt unsignedAddition(const BigUInt &a, const BigUInt &b, bool subtract);
 ostream& operator <<(ostream& stream, const BigUInt& a);
+BigUInt randomGenerator(uint64_t number_bits);

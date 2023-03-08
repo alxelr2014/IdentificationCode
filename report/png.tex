@@ -1,0 +1,100 @@
+\section{Prime Number Generation}
+\subsection{Uniform prime generation}
+The original 3-step algorithm [cite], in essence, generates two random prime numbers that are distributed uniformly in a given interval. Ahlswede then uses the fact that the primes are uniform to bound the second kind error probability. [The relaxation of this assumption complicates the error analysis. Explore this in subsection x.]. 
+
+To generate uniform primes on the interval \(\opcl{1}{\pi_K}\), Ahlswede picks a random index \(k \gets \set{1, \dots, K}\) and then calculates \(\pi_k\). Although this method minimizes the number random bits and generates exactly uniform primes, it is computationally expensive with state-of-the-art algorithms compute \(\pi_k\) in \(2^{\bigO{K}}\)[cite]. 
+
+To improve the time complexity of the scheme, we look for polynomial time algorithms that produce almost uniform primes with the least number of random bits possible. A trivial algorithms for producing uniform primes is given in \Cref{alg:trivialPNG}.
+\begin{algorithm}
+	\DontPrintSemicolon
+	\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+	\Input{Positive integer \(n\).}
+	\Output{A uniformly choen prime number less than or equal to \(n\).}
+	\Repeat{\(p\) is prime} 
+    {
+        \(p \gets \set{2,\dots, n}\);
+    }\nllabel{line:primality}
+	\Return{\(p\)}
+	\caption{Generating uniform primes}
+    \label{alg:trivialPNG}
+\end{algorithm}
+
+When we use a deterministic primality test in \cref{line:primality} of \Cref{alg:trivialPNG} the distribution of primes is exactly uniform. This algorithm may never terminate, however, we expect it to stop after \(\bigO{\lg n}\) steps. Because, by the prime number theorem [reference], 
+\begin{equation}
+    \dfrac{\func{\pi}{n}}{n} \approx \dfrac{1}{\ln n}
+\end{equation}
+hence, on average after \(\bigO{\lg n}\) steps a prime number \(p\) is chosen. As a result, \Cref{alg:trivialPNG} uses an average of \(\bracket{\lg n}^2\) random bits. The current state-of-the-art deterministic primality tests, AKS, runs in \(\logBigO{\bracket{\lg n}^6}\) which means that on average \Cref{alg:trivialPNG} runs in \(\logBigO{\bracket{\lg n}^7}\) [cite]. 
+
+We can further improve the time complexity of the \Cref{alg:trivialPNG} if we use randomized primality tests. These tests can determine whether a number \(p\) is prime with high probability. 
+\begin{algorithm}
+	\DontPrintSemicolon
+	\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+	\Input{Positive integer \(n\).}
+	\Output{A uniformly choen prime number less than or equal to \(n\).}
+	\Repeat{\(p\) is probably a prime} 
+    {
+        \(p \gets \set{2,\dots, n}\);
+    }\nllabel{line:pseudoprimality}
+	\Return{\(p\)}
+	\caption{Generating uniform primes}
+    \label{alg:trivialRPNG}
+\end{algorithm}
+
+For example, the Miller-Rabin test might declare a composite number as a prime, however, this happens with low probability, as low as desired. The output of the \Cref{alg:trivialRPNG} is not a unifrom prime number as it can be composite, however, the distribution of prime numbers is equiprobable over all primes. Continuing with Miller-Rabin test, it uses \(\lg p\) random bits where \(p\) is the number that is to be tested. Therefore, we still use an average of \(2\bracket{\lg n}^2\) random bits. The test itself runs in \(\bigO{\bracket{\lg n}^3}\) hence, the \Cref{alg:trivialRPNG} runs in \(\bigO{\bracket{\lg n}^4}\).
+
+In this report, we implement the Miller-Rabin test since it is more efficient and easier to implement. Furthermore, by exectuing this test an appropriate number rounds, we can ensure that the resulting distribution is statistically close to the uniform distribution over primes.
+
+\subsection{Miller-Rabin analysis}
+Miller-Rabin is a well-known random primality test algorithm. Let \(MR(n,k)\) be the distribution of Miller-Rabin algorithm on the prime candidate \(n\) with \(k\) repeats. Let \(\mathcal{P}\) be the set of primes. Then, from Theorem 31.39 of \cite{clrs} we have the following probabilities.
+
+\begin{align}
+	&\condProb{\func{MR}{n,k}}{n \in \mathcal{P}} = 1\\
+	&\condProb{\func{MR}{n,k}}{n \notin \mathcal{P}} \leq 4^{-k}
+\end{align}
+Consider the following random prime number genrator, \(\func{GMR}{N,s,k}\). This algorithm, samples numbers uniformly and then checks if they are prime using the Miller-Rabin test. The parameter \(N\) is the upperbound, \(s\) is the maximum number of attempts, and \(k\) is the number of repeats in the underlying Miller-Rabin test.
+\begin{algorithm}
+	\DontPrintSemicolon
+	\SetKwInOut{Input}{input}\SetKwInOut{Output}{output}
+	\Input{positive integers \(N,s,k\)}
+	\Output{A uniformly chosen prime number less than or equal to \(N\)}
+	\For{\(i = 1 \to s\)}{
+	\(n \gets \{1,2,\dots, N\}\)\;
+	\If{\(\func{MR}{n,k}\)}{
+		\Return{\(n\)}
+	}
+	}
+	\Return{\(\perp\)}
+	\caption{\(\func{GMR}{N,s,k}\)}
+\end{algorithm}
+We analyse the distribution of \(\func{GMR}{N,s,k}\). Let \(n_i\) denote the random variable \(n\) in the \(i_{\mathrm{th}}\) iteration.
+\begin{align}
+	\prob{\func{GMR}{M,s,k} = \perp} &= \prob{\func{MR}{n_1,k} = \dots =  \func{MR}{n_s,k} = 0}\\
+	&= \prod_{i = 1}^s \prob{\func{MR}{n_i,k} = 0} && \text{(Independence)} \\
+	&= \prod_{i = 1}^s \condProb{\func{MR}{n_i,k} = 0}{n_i \notin P} \prob{n_i \notin P}\\
+	&\leq \prod_{i = 1}^s \bracket{1 - \dfrac{\func{\pi}{N}}{N}}\\
+	&=\bracket{1 - \dfrac{\func{\pi}{N}}{N}}^s \\
+	&\approx \bracket{1 - \dfrac{1}{\ln N}}^s && \text{(PNT)}
+\end{align}
+If we bound this error probability with \(\epsilon\), then we get the following bound on \(s\).
+\begin{equation*}
+	s \geq \dfrac{\ln \epsilon}{\func{\ln}{1 - \frac{1}{\ln N}}} \approx - \ln N \ln \epsilon
+\end{equation*}
+for sufficiently large \(N\).
+
+The probability that the result of \(GMR(N,s,k)\) is composite, given it is not \(\perp\) is as follows.
+\begin{align}
+	\condProb{\func{GMR}{N,s,k} \notin P}{\func{GMR}{N,s,k} \neq \perp} &\leq \sum_{i = 1}^s \prob{\func{MR}{n_i, k} = 1, n_i \notin P }\\
+	&= \sum_{i = 1}^s \condProb{\func{MR}{n_i, k} = 1}{ n_i \notin P }\prob{n_i \notin P}\\
+	&= \sum_{i = 1}^s 4^{-k} \bracket{1 - \dfrac{\func{\pi}{N}}{N}}\\
+	&= s 4^{-k}\bracket{1 - \dfrac{\func{\pi}{N}}{N}}\\
+	&\approx s4^{-k}\bracket{1 - \dfrac{1}{\ln N}} && \text{(PNT)}
+\end{align}
+If we bound this error probability with \(\delta\), then we get the following bound on \(s\).
+\begin{equation}
+	s \leq \bracket{1 - \dfrac{1}{\ln N}}^{-1}  4^k \delta \approx   4^{k}\delta
+\end{equation}
+Let \(\epsilon = e^{-l}\) and \(\delta = 2^{-q}\) with \(l,q \geq 0\). Then, 
+\begin{equation}
+	l \ln N \leq s \leq 2^{2k- q}
+\end{equation}
+Note that, \(s = l \ln N\) and \(k = \dfrac{\func{\lg}{l/e} + \lg \lg N + q}{2}\) satisfies both inequalities.

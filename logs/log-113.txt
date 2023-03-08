@@ -1,0 +1,273 @@
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 670965061765435
+The parameters are K = 73, s = 185, key = 73
+The 1th key is 670965061765435 with 50 bits.
+The 2th key is 73 with 7 bits.
+Code Created!
+The block length is 64
+The average second kind error is 0.0136986
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 857895496341531
+The parameters are K = 73, s = 185, key = 17
+The 1th key is 857895496341531 with 50 bits.
+The 2th key is 17 with 5 bits.
+Code Created!
+The block length is 60
+The average second kind error is 0.0588235
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 588712379497939
+The parameters are K = 73, s = 185, key = 31
+The 1th key is 588712379497939 with 50 bits.
+The 2th key is 31 with 5 bits.
+Code Created!
+The block length is 60
+The average second kind error is 0.0322581
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 869928697312903
+The parameters are K = 73, s = 185, key = 3
+The 1th key is 869928697312903 with 50 bits.
+The 2th key is 3 with 2 bits.
+Code Created!
+The block length is 54
+The average second kind error is 0.333333
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 1121533210142191
+The parameters are K = 73, s = 185, key = 11
+The 1th key is 1121533210142191 with 50 bits.
+The 2th key is 11 with 4 bits.
+Code Created!
+The block length is 58
+The average second kind error is 0.0909091
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 322414724211681
+The parameters are K = 73, s = 185, key = 71
+The 1th key is 322414724211681 with 49 bits.
+The 2th key is 71 with 7 bits.
+Code Created!
+The block length is 63
+The average second kind error is 0.0140845
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 1048951362089957
+The parameters are K = 73, s = 185, key = 7
+The 1th key is 1048951362089957 with 50 bits.
+The 2th key is 7 with 3 bits.
+Code Created!
+The block length is 56
+The average second kind error is 0.142857
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 387309748606733
+The parameters are K = 73, s = 185, key = 67
+The 1th key is 387309748606733 with 49 bits.
+The 2th key is 67 with 7 bits.
+Code Created!
+The block length is 63
+The average second kind error is 0.0149254
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 303641294913361
+The parameters are K = 73, s = 185, key = 23
+The 1th key is 303641294913361 with 49 bits.
+The 2th key is 23 with 5 bits.
+Code Created!
+The block length is 59
+The average second kind error is 0.0434783
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 1170472668721909
+The parameters are K = 73, s = 185, key = 13
+The 1th key is 1170472668721909 with 51 bits.
+The 2th key is 13 with 4 bits.
+Code Created!
+The block length is 59
+The average second kind error is 0.0769231
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 539935230220563
+The parameters are K = 73, s = 185, key = 73
+The 1th key is 539935230220563 with 49 bits.
+The 2th key is 73 with 7 bits.
+Code Created!
+The block length is 63
+The average second kind error is 0.0136986
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 801823711480485
+The parameters are K = 73, s = 185, key = 71
+The 1th key is 801823711480485 with 50 bits.
+The 2th key is 71 with 7 bits.
+Code Created!
+The block length is 64
+The average second kind error is 0.0140845
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 99962026351301
+The parameters are K = 73, s = 185, key = 13
+The 1th key is 99962026351301 with 47 bits.
+The 2th key is 13 with 4 bits.
+Code Created!
+The block length is 55
+The average second kind error is 0.0769231
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 1493018271761679
+The parameters are K = 73, s = 185, key = 7
+The 1th key is 1493018271761679 with 51 bits.
+The 2th key is 7 with 3 bits.
+Code Created!
+The block length is 57
+The average second kind error is 0.142857
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 997617534606585
+The parameters are K = 73, s = 185, key = 43
+The 1th key is 997617534606585 with 50 bits.
+The 2th key is 43 with 6 bits.
+Code Created!
+The block length is 62
+The average second kind error is 0.0232558
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 13290987306383
+The parameters are K = 73, s = 185, key = 43
+The 1th key is 13290987306383 with 44 bits.
+The 2th key is 43 with 6 bits.
+Code Created!
+The block length is 56
+The average second kind error is 0.0232558
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 1505159608838217
+The parameters are K = 73, s = 185, key = 11
+The 1th key is 1505159608838217 with 51 bits.
+The 2th key is 11 with 4 bits.
+Code Created!
+The block length is 59
+The average second kind error is 0.0909091
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 1032950597757877
+The parameters are K = 73, s = 185, key = 23
+The 1th key is 1032950597757877 with 50 bits.
+The 2th key is 23 with 5 bits.
+Code Created!
+The block length is 60
+The average second kind error is 0.0434783
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 704593950150919
+The parameters are K = 73, s = 185, key = 17
+The 1th key is 704593950150919 with 50 bits.
+The 2th key is 17 with 5 bits.
+Code Created!
+The block length is 60
+The average second kind error is 0.0588235
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 492113928571873
+The parameters are K = 73, s = 185, key = 41
+The 1th key is 492113928571873 with 49 bits.
+The 2th key is 41 with 6 bits.
+Code Created!
+The block length is 61
+The average second kind error is 0.0243902
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 916375114883223
+The parameters are K = 73, s = 185, key = 23
+The 1th key is 916375114883223 with 50 bits.
+The 2th key is 23 with 5 bits.
+Code Created!
+The block length is 60
+The average second kind error is 0.0434783
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 1049911527240931
+The parameters are K = 73, s = 185, key = 47
+The 1th key is 1049911527240931 with 50 bits.
+The 2th key is 47 with 6 bits.
+Code Created!
+The block length is 62
+The average second kind error is 0.0212766
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 684612140638843
+The parameters are K = 73, s = 185, key = 47
+The 1th key is 684612140638843 with 50 bits.
+The 2th key is 47 with 6 bits.
+Code Created!
+The block length is 62
+The average second kind error is 0.0212766
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 793559363417313
+The parameters are K = 73, s = 185, key = 11
+The 1th key is 793559363417313 with 50 bits.
+The 2th key is 11 with 4 bits.
+Code Created!
+The block length is 58
+The average second kind error is 0.0909091
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 978335089781561
+The parameters are K = 73, s = 185, key = 61
+The 1th key is 978335089781561 with 50 bits.
+The 2th key is 61 with 6 bits.
+Code Created!
+The block length is 62
+The average second kind error is 0.0163934
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 355700970748057
+The parameters are K = 73, s = 185, key = 13
+The 1th key is 355700970748057 with 49 bits.
+The 2th key is 13 with 4 bits.
+Code Created!
+The block length is 57
+The average second kind error is 0.0769231
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 827688786707641
+The parameters are K = 73, s = 185, key = 53
+The 1th key is 827688786707641 with 50 bits.
+The 2th key is 53 with 6 bits.
+Code Created!
+The block length is 62
+The average second kind error is 0.0188679
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 453268679423437
+The parameters are K = 73, s = 185, key = 5
+The 1th key is 453268679423437 with 49 bits.
+The 2th key is 5 with 3 bits.
+Code Created!
+The block length is 55
+The average second kind error is 0.2
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 1519676770388915
+The parameters are K = 73, s = 185, key = 59
+The 1th key is 1519676770388915 with 51 bits.
+The 2th key is 59 with 6 bits.
+Code Created!
+The block length is 63
+The average second kind error is 0.0169492
+-----------------------
+Creating the code!
+The parameters are K = 1524103296024303, s = 1513, key = 1112322270345483
+The parameters are K = 73, s = 185, key = 47
+The 1th key is 1112322270345483 with 50 bits.
+The 2th key is 47 with 6 bits.
+Code Created!
+The block length is 62
+The average second kind error is 0.0212766
+-----------------------
+Log of Number of Messages:63495122545192
+End
+

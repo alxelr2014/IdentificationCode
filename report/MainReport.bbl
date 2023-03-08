@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{apostol}
+Tom~M. Apostol.
+\newblock {\em Introduction to Analytic Number Theory}.
+\newblock Springer New York, 1976.
+
+\bibitem{clrs}
+Thomas~H. Cormen, Charles~E. Leiserson, Ronald~L. Rivest, and Clifford Stein.
+\newblock {\em Introduction to Algorithms, Third Edition}.
+\newblock The MIT Press, 3rd edition, 2009.
+
+\end{thebibliography}

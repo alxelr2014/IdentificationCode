@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.27)  23 FEB 2023 22:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.27)  8 MAR 2023 17:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/Emad Zinoghli/Desktop/Codes/IdentificationChannel/report/Reports.tex"
-(c:/Users/Emad Zinoghli/Desktop/Codes/IdentificationChannel/report/Reports.tex
+**d:/Backup/Codes/IdentificationChannel/report/Reports.tex
+(d:/Backup/Codes/IdentificationChannel/report/Reports.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-09-28> (c:/texlive/2022/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -667,9 +667,9 @@ Overfull \hbox (21.2006pt too wide) in paragraph at lines 89--90
 \OT1/cmr/m/n/10 This class mod-els an iden-ti-fi-ca-tion code for a given chan-nel \OT1/cmtt/m/n/10 C\OT1/cmr/m/n/10 . The con-struc-tion of the codes is done by \OT1/cmtt/m/n/10 constructID[]Code
  []
 
-(../include/codes.h
+[3] (../include/codes.h
 consecutive:
-) [3] (../include/simulate.h
+) (../include/simulate.h
 consecutive:
 ) (../src/main.cpp
 consecutive:
@@ -680,19 +680,19 @@ Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input l
 Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 220.
  [7]
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 274.
-<graphic/MessageVsBlocklength.png, id=280, 462.528pt x 346.896pt>
+<graphic/MessageVsBlocklength.png, id=314, 462.528pt x 346.896pt>
 File: graphic/MessageVsBlocklength.png Graphic file (type png)
 <use graphic/MessageVsBlocklength.png>
 Package pdftex.def Info: graphic/MessageVsBlocklength.png  used on input line 296.
 (pdftex.def)             Requested size: 373.6152pt x 280.19846pt.
-<graphic/ErrorVsBlocklength.png, id=283, 462.528pt x 346.896pt>
+<graphic/ErrorVsBlocklength.png, id=317, 462.528pt x 346.896pt>
 File: graphic/ErrorVsBlocklength.png Graphic file (type png)
 <use graphic/ErrorVsBlocklength.png>
 Package pdftex.def Info: graphic/ErrorVsBlocklength.png  used on input line 300.
 (pdftex.def)             Requested size: 373.6152pt x 280.19846pt.
- [8] [9 <./graphic/MessageVsBlocklength.png> <./graphic/ErrorVsBlockLength.png>]
+ [8]
 Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 326.
- [10] [11] [12]
+ [9 <./graphic/MessageVsBlocklength.png>] [10 <./graphic/ErrorVsBlockLength.png>] [11] [12]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 500.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
@@ -706,18 +706,18 @@ Package rerunfilecheck Info: File `Reports.out' has not changed.
 (rerunfilecheck)             Checksum: 23B747045F32F7154B50EC4D270C54F2;3242.
  ) 
 Here is how much of TeX's memory you used:
- 17601 strings out of 475071
- 284233 string characters out of 5782907
- 875797 words of memory out of 5000000
- 38516 multiletter control sequences out of 15000+600000
+ 17716 strings out of 475071
+ 286274 string characters out of 5782907
+ 899828 words of memory out of 5000000
+ 38591 multiletter control sequences out of 15000+600000
  482183 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,17n,91p,789b,2124s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Reports.pdf (14 pages, 339538 bytes).
+ 87i,19n,91p,766b,2124s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on Reports.pdf (14 pages, 351398 bytes).
 PDF statistics:
- 541 PDF objects out of 1000 (max. 8388607)
- 474 compressed objects within 5 object streams
- 234 named destinations out of 1000 (max. 500000)
+ 595 PDF objects out of 1000 (max. 8388607)
+ 525 compressed objects within 6 object streams
+ 274 named destinations out of 1000 (max. 500000)
  215 words of extra memory for PDF output out of 10000 (max. 10000000)
 

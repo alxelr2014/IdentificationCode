@@ -91,6 +91,29 @@ bool miller_rabin(uint64_t p, uint64_t k)
     return true;
 }
 
+
+bool isprime(uint64_t n) { //determines if n is a prime number
+    const int pn = 9, p[] = { 2, 3, 5, 7, 11, 13, 17, 19, 23 };
+    for (int i = 0; i < pn; ++i)
+        if (n % p[i] == 0) return (n == (uint64_t) p[i]);
+    if (n < (uint64_t) p[pn - 1]) return 0;
+    uint64_t s = 0, t = n - 1;
+    while (~t & 1)
+        t >>= 1, ++s;
+    for (int i = 0; i < pn; ++i) {
+        uint64_t pt = exp_mod(p[i], t, n);
+        if (pt == 1) continue;
+        bool ok = 0;
+        for (uint64_t j = 0; j < s && !ok; ++j) {
+            if (pt == n - 1) ok = 1;
+            pt = exp_mod(pt, 2, n);
+        }
+        if (!ok) return 0;
+    }
+    return 1;
+}
+
+
 uint64_t random_prime(uint64_t max, uint64_t s, uint64_t k)
 {
     // get a number between {max}/4 and {max}/2, then multiply by 2 and add 1 to get an odd number between {max}/2 and {max}
@@ -104,6 +127,18 @@ uint64_t random_prime(uint64_t max, uint64_t s, uint64_t k)
     return 23;
 }
 
+uint64_t det_uniform_prime(uint64_t max, uint64_t s){
+    // get a number between {max}/4 and {max}/2, then multiply by 2 and add 1 to get an odd number between {max}/2 and {max}
+    uniform_int_distribution<uint64_t> rand_num(1, max >> 1);
+    for (uint64_t i = 0; i < s; i++)
+    {
+        uint64_t p = 2 * rand_num(*getGenerator()) + 1;
+        // *getOutputStream() << "------- Number p = " << p << " is to be tested.\n";
+        if (isprime(p))
+            return p;
+    }
+    return  2 * rand_num(*getGenerator()) + 1;
+}
 
 uint64_t ceil_log(uint64_t n){
     uint64_t ans= 0;

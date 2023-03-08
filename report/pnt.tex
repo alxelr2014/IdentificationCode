@@ -1,0 +1,20 @@
+\subsection{Prime Number Theorem}
+\begin{theorem}[\cite{apostol}]\label{thm:pnt}
+	Let \(\pi(x)\) denote the number of primes less than or equal to \(x \geq 1\). The prime number theorem states that 
+	\begin{equation*}
+		\lim_{x \to \infty} \dfrac{\pi(x) \ln x}{x} = 1
+	\end{equation*}
+	That is, \(\pi(x) \sim \dfrac{x}{\ln x}\). This implies that \(n\)-th prime \(p_n\) is asymptotically given by \(p_n \sim n \ln n\).
+\end{theorem}
+
+Moreover, we may frequently use these exact bounds on \(\pi(x)\).
+\begin{lemma}[\cite{apostol}]\label{lmm:ineqpnt}
+	For any \(n \geq 2\), 
+	\begin{equation*}
+		\dfrac{1}{6} \dfrac{n}{\ln n} \leq \pi(n) \leq 6 \dfrac{n}{\ln n}
+	\end{equation*}
+	and for any \(n \geq 1\),
+	\begin{equation*}
+		\dfrac{1}{6} n \ln n \leq p_n \leq 12 (n \ln n + n \ln \frac{12}{e})
+	\end{equation*}
+\end{lemma}

@@ -22,20 +22,23 @@ int main(int argv, char *argc[])
 {
     Channel noiselessBSC = Channel(2, 2, new ChannelFunc([](chnl_input x)
                                                          { return x; }));
-    file_address = (argv >= 2) ? argc[1] : "C:/Users/Emad Zinoghli/Desktop/Codes/IdentificationChannel/logs/log-default.txt";
-    uint64_t log_number_of_messages = (argv >= 3) ? atoi(argc[2]) : 15;
+                                                
+    file_address = (argv >= 2) ? argc[1] : "D:/Backup/Codes/IdentificationChannel/logs/log-default.txt";
+    uint64_t log_number_of_messages = (argv >= 3) ? stoull(argc[2]) : 300;
     uint64_t block_length = (argv >= 4) ? atoi(argc[3]) : 0;
-    uint64_t number_of_simulation = (argv >= 5) ? atoi(argc[4]) : 10;
-    random_seed = (argv >= 6) ? argc[5] : "";
+    uint64_t number_of_simulation = (argv >= 5) ? atoi(argc[4]) : 30;
+    uint64_t number_of_encoding_iteration = (argv >= 6) ? atoi(argc[5]) : 2;
+    random_seed = (argv >= 7) ? argc[6] : "";
     double avg_error = 0;
     uint64_t avg_block_length = 0;
     for (uint64_t i = 0; i < number_of_simulation; i++)
     {
-        pair<uint64_t,double> result =  simulate(noiselessBSC, log_number_of_messages, block_length, NoiselessBSC_ID);
+        pair<uint64_t,double> result =  simulate(noiselessBSC, log_number_of_messages, block_length,number_of_encoding_iteration, NoiselessBSC_ID);
         avg_block_length += result.first;
         avg_error += result.second;
     }
     cout <<  round(avg_block_length,number_of_simulation) << " " << avg_error / number_of_simulation;
+    *getOutputStream() << "Log of Number of Messages:" <<  log_number_of_messages << endl;
     *getOutputStream() << "End\n" << endl;
     getOutputStream()->flush();
     getOutputStream()->close();

@@ -11,6 +11,21 @@ BigUInt::BigUInt(uint64_t number)
     }
 }
 
+BigUInt BigUIntChar(char * number)
+{
+    BigUInt ans;
+    if (number == 0)
+        ans.push_back(0);
+    for(char c = *number; c;c =*++number)
+    {
+        if(c == '0')
+            ans.push_front(0);
+        else if(c == '1')
+            ans.push_front(1);
+    }
+    return ans;
+}
+
 BigUInt::~BigUInt()
 {
 }
@@ -236,6 +251,7 @@ bool BigUInt::empty() const
 
 ostream &BigUInt::couting(ostream &stream) const
 {
+    if(this->size() == 0) return stream;
     for (uint64_t i = this->size() - 1; i > 0; i--)
     {
         stream << this->number[i];
@@ -308,4 +324,18 @@ if {subtract} = true, then it assume that {a > b} and calculates {a- b}.
 ostream &operator<<(ostream &stream, const BigUInt &a)
 {
     return a.couting(stream);
+}
+
+
+BigUInt randomGenerator(uint64_t number_bits){
+    BigUInt ans (0);
+    ans.pop_back();
+      std::bernoulli_distribution distribution(0.5);
+      while(number_bits--){
+        ans.push_back(distribution(*getGenerator()));
+      }
+      while(!ans.back() && !ans.empty()){
+        ans.pop_back();
+      }
+      return ans;
 }

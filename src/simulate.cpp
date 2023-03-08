@@ -42,7 +42,7 @@ void reportTransmission(uint64_t message, const vector<chnl_input> &encoded, con
 
 }*/
 
-long double reportIdentification(uint64_t message, const vector<chnl_input> &encoded, const vector<chnl_output> &received,
+long double reportIdentification(BigUInt message, const vector<chnl_input> &encoded, const vector<chnl_output> &received,
                             long double log_identified, uint64_t log_number_of_messages)
 {
 
@@ -64,14 +64,14 @@ long double reportIdentification(uint64_t message, const vector<chnl_input> &enc
     return log_error2;
 }
 
-pair<uint64_t,double> simulate(Channel &channel, uint64_t log_number_of_messages, uint64_t block_length, function<void (const Channel &,IdentificationCode *)> construction_method)
+pair<uint64_t,long double> simulate(Channel &channel, uint64_t log_number_of_messages, uint64_t block_length, uint64_t number_of_encoding_iterations, function<void (const Channel &,IdentificationCode *)> construction_method)
 {
     // create the identification code
-    IdentificationCode Rc = IdentificationCode(log_number_of_messages, block_length);
+    IdentificationCode Rc = IdentificationCode(log_number_of_messages, block_length,number_of_encoding_iterations);
     Rc.constructID_Code(channel, construction_method);
     // uniform distribution over messages
-    std::uniform_int_distribution<uint64_t> distribution(1, log_number_of_messages);
-    uint64_t message = distribution(*getGenerator());
+    /*
+    BigUInt message = BigUInt(LONG_LONG_MAX);
     // encode the message
     vector<chnl_input> *encoded = Rc.encode(message);
 
@@ -88,11 +88,11 @@ pair<uint64_t,double> simulate(Channel &channel, uint64_t log_number_of_messages
     // output
     *getOutputStream() << "-----------------------\n";
     double log_error2 = reportIdentification(message, *encoded, received, log_identified, log_number_of_messages);
-    *getOutputStream() << "-----------------------\n";
+    *getOutputStream() << "-----------------------\n";*/
     *getOutputStream() << "The block length is " << Rc.getBlockLength() << endl;
-    *getOutputStream() << "The average log second kind error is " << log_error2 << endl;
+    *getOutputStream() << "The average second kind error is " << Rc.getSecondKindError() << endl;
     *getOutputStream() << "-----------------------\n";
 
     // we are sending 2 prime numbers and one message. The upperbound is 3 times the number of bits of the larger prime
-    return {Rc.getBlockLength(), log_error2};
+    return {Rc.getBlockLength(), Rc.getSecondKindError()};
 }
