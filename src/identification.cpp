@@ -2,9 +2,9 @@
 
 using namespace std;
 
-IdentificationCode::IdentificationCode(uint64_t log_number_of_messages, uint64_t block_length,uint64_t number_of_encoding_iteration)
+IdentificationCode::IdentificationCode(uint64_t loglog_number_of_messages, uint64_t block_length,uint64_t number_of_encoding_iteration)
 {
-    this->log_number_of_messages = log_number_of_messages;
+    this->loglog_number_of_messages = loglog_number_of_messages;
     this->block_length = block_length;
     this->number_of_encoding_iteration = number_of_encoding_iteration;
     this->valid_construction = false;
@@ -20,9 +20,9 @@ void IdentificationCode::constructID_Code(const Channel &channel, function<void(
     this->valid_construction = true;
     *getOutputStream() << "Code Created!\n";
 }
-uint64_t IdentificationCode::getLogNumberOfMessages()
+uint64_t IdentificationCode::getLogLogNumberOfMessages()
 {
-    return this->log_number_of_messages;
+    return this->loglog_number_of_messages;
 }
 uint64_t IdentificationCode::getBlockLength()
 {
@@ -69,7 +69,7 @@ void IdentificationCode::setIdentifier( ID_IdentifiyingFunction *idn){
     this->identifier = idn;
 }
 
-vector<chnl_input> *IdentificationCode::encode(BigUInt message)
+vector<chnl_input> *IdentificationCode::encode(mpz_t message)
 {
     if (this->valid_construction)
     {
@@ -88,7 +88,7 @@ long double IdentificationCode::decode(const vector<chnl_output> &received)
     return 0;
 }
 
-bool IdentificationCode::identify(const vector<chnl_output> &received, BigUInt message)
+bool IdentificationCode::identify(const vector<chnl_output> &received, mpz_t message)
 {
     if (this->valid_construction)
     {

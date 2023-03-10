@@ -1,5 +1,6 @@
 CXX = g++
 CXXFLAGS = -Wall -g
+BUILDFLAGS = -lgmpxx -lgmp
 RM = rm -f
 INC = include/
 OUT = out/
@@ -21,7 +22,7 @@ runt_%:
 	$(BIN)$(TST)$*
 
 main: $(SRC_OBJ) 
-	$(CXX) $(CXXFLAGS) $^ -o $(BIN)$@
+	$(CXX) $(CXXFLAGS) $^ -o $(BIN)$@ $(BUILDFLAGS)
 
 test: $(TST_EXE)
 
@@ -29,10 +30,10 @@ $(BIN)$(TST)%: $(OUT)$(TST)%.o $(SRC_MAINLESS_OBJ)
 	$(CXX) $(CXXFLAGS) $^ -o  $@
 
 $(OUT)%.o: $(SRC)%.cpp 
-	$(CXX) $(CXXFLAGS) -c $^ -o $@
+	$(CXX) $(CXXFLAGS) -c $^ -o $@ $(BUILDFLAGS)
 
 $(OUT)$(TST)%.o: $(TST)%.cpp
-	$(CXX) $(CXXFLAGS) -c $^ -o $@
+	$(CXX) $(CXXFLAGS) -c $^ -o $@ 
 
 clean:
 	$(RM) $(BIN)main $(SRC_OBJ) $(TST_OBJ) $(TST_EXE)

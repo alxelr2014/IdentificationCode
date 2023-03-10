@@ -1,45 +1,44 @@
 #include "../include/codes.h"
 
-vector<chnl_input> *generateEncodingFunction(vector<pair<uint64_t,uint64_t>> keys, BigUInt message)
+vector<chnl_input> *generateEncodingFunction(vector<pair<mpz_t,uint64_t>> keys, mpz_t message)
 {
-    uint64_t mod_result = message;
+    mpz_t mod_result;
+    mpz_init_set(mod_result, message);
     for(uint64_t i = 0 ; i < keys.size(); i++){
-        mod_result = phi(mod_result,keys[i].first);
+         phi(mod_result, mod_result, keys[i].first);
     }
-    vector<chnl_input> *res = binaryIntToVector(mod_result, keys[keys.size() - 1].second);
+    vector<chnl_input> *res ;//= binaryIntToVector(mod_result, keys[keys.size() - 1].second);
     return res;
 }
 
-long double generateDecodingFunction(vector<pair<uint64_t,uint64_t>> keys, uint64_t log_number_of_messages)
+long double generateDecodingFunction(vector<pair<mpz_t,uint64_t>> keys, uint64_t log_number_of_messages)
 {
     long double log_div = log_number_of_messages -  keys[keys.size() - 1].second;
     return log_div;
 }
-bool generateIdentifyingFunction(vector<pair<uint64_t,uint64_t>> keys, const vector<chnl_output> &received, BigUInt message)
+bool generateIdentifyingFunction(vector<pair<mpz_t,uint64_t>> keys, const vector<chnl_output> &received, mpz_t message)
 {
 
-    uint64_t decimal_rem = binaryVectorToInt(received,  keys[keys.size() - 1].second);
-    uint64_t cipher = message;
+    // uint64_t decimal_rem = binaryVectorToInt(received,  keys[keys.size() - 1].second);
+    mpz_t mod_result;
+    mpz_init_set(mod_result, message);
     for(uint64_t i = 0 ; i < keys.size(); i++){
-        cipher = phi(cipher,keys[i].first);
+         phi(mod_result, mod_result, keys[i].first);
     }
-    return cipher == decimal_rem;
+    return true;// cipher == decimal_rem;
 }
 
-vector<pair<uint64_t,uint64_t>> millerMethod(uint64_t log_number_of_message, uint64_t number_of_encoding_iteration, double alpha)
+vector<pair<mpz_t,uint64_t>> millerMethod(uint64_t loglog_number_of_messages, uint64_t number_of_encoding_iteration, double alpha)
 {
     // K = [ log_2(M)^alpha ]
-    vector<pair<uint64_t,uint64_t>> keys;
-    uint64_t currK = log_number_of_message;
+    vector<pair<mpz_t,uint64_t>> keys(number_of_encoding_iteration);
+    uint64_t curr_bit = (uint64_t) (((long double) loglog_number_of_messages )* alpha);
     for (uint64_t i = 0; i < number_of_encoding_iteration; i++)
     {
-        currK = (uint64_t) powl(currK, alpha);
-        uint64_t s = 30 * log2l(currK);
-        uint64_t key = det_uniform_prime(currK, s);
-        uint64_t key_bits = ceil_log(key);
-        keys.push_back({key,key_bits});
-        *getOutputStream() << "The parameters are K = " << currK << ", s = " << s << ", key = " << key << endl;
-        currK = (uint64_t)log2l(currK);
+        uniform_prime(keys[i].first,curr_bit, 50);
+        keys[i].second= curr_bit;
+        // *getOutputStream() << "The parameters are c = " << curr_bit << ", key = " << keys[i].first << endl;
+        curr_bit = (uint64_t) (log2l(curr_bit)* alpha);
     }
     return keys;
     // uint64_t K2 = ceil(log2l(K1));
@@ -69,7 +68,7 @@ void NoiselessBSC_ID(const Channel &channel, IdentificationCode *id_code)
     // M := number_of_messages,  n := block_length, alpha := alpha
     // pi_k := keys.first, pi_l := keys.second
     double alpha = 1.1;
-    vector<pair<uint64_t,uint64_t>> keys = millerMethod(id_code->getLogNumberOfMessages(), id_code->getNumberOfEncodingIteration(), alpha);
+    vector<pair<mpz_t,uint64_t>> keys = millerMethod(id_code->getLogLogNumberOfMessages(), id_code->getNumberOfEncodingIteration(), alpha);
 
     uint64_t block_length = keys[id_code->getNumberOfEncodingIteration() - 1].second;
     for(uint64_t i = 0 ; i < id_code->getNumberOfEncodingIteration(); i++){
@@ -78,12 +77,12 @@ void NoiselessBSC_ID(const Channel &channel, IdentificationCode *id_code)
     }
     // create the encoder,decoder, and identifier
     ID_EncodingFunction *enc = new ID_EncodingFunction(bind(generateEncodingFunction, keys, placeholders::_1));
-    ID_DecodingFunction *dec = new ID_DecodingFunction(bind(generateDecodingFunction, keys, id_code->getLogNumberOfMessages()));
+    ID_DecodingFunction *dec = new ID_DecodingFunction(bind(generateDecodingFunction, keys, id_code->getLogLogNumberOfMessages()));
     ID_IdentifiyingFunction *idn = new ID_IdentifiyingFunction(bind(generateIdentifyingFunction, keys, placeholders::_1, placeholders::_2));
 
     id_code->setBlockLength(block_length);
     id_code->setEncoder(enc);
     id_code->setDecoder(dec);
     id_code->setIdentifier(idn);
-    id_code->setSecondKindError((long double)(1.0 / (keys[id_code->getNumberOfEncodingIteration() - 1]).first));
+    id_code->setSecondKindError(1);
 }

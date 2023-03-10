@@ -2,6 +2,9 @@
 
 string file_address;
 string random_seed;
+string gmp_random_seed;
+gmp_randstate_t gmp_generator;
+
 
 default_random_engine *getGenerator()
 {
@@ -21,6 +24,20 @@ default_random_engine *getGenerator()
     return generator;
 }
 
+
+void init_gmp_generator(){
+    static bool first = true;
+    if(first){
+    if(gmp_random_seed.empty()){
+        printf("Please, enter a integer seed: ");
+        getline(cin, gmp_random_seed);
+    }
+        mpz_t seed;
+        mpz_init_set_str(seed,gmp_random_seed.c_str(),10);
+        gmp_randinit_default(gmp_generator);
+        gmp_randseed(gmp_generator,seed);
+    }
+}
 fstream *getFstream()
 {
     static fstream *out_stream = new fstream(file_address, ios::in | ios::out | ios::trunc);

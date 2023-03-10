@@ -42,7 +42,7 @@ void reportTransmission(uint64_t message, const vector<chnl_input> &encoded, con
 
 }*/
 
-long double reportIdentification(BigUInt message, const vector<chnl_input> &encoded, const vector<chnl_output> &received,
+long double reportIdentification(mpz_t message, const vector<chnl_input> &encoded, const vector<chnl_output> &received,
                             long double log_identified, uint64_t log_number_of_messages)
 {
 
@@ -64,14 +64,14 @@ long double reportIdentification(BigUInt message, const vector<chnl_input> &enco
     return log_error2;
 }
 
-pair<uint64_t,long double> simulate(Channel &channel, uint64_t log_number_of_messages, uint64_t block_length, uint64_t number_of_encoding_iterations, function<void (const Channel &,IdentificationCode *)> construction_method)
+pair<uint64_t,long double> simulate(Channel &channel, uint64_t loglog_number_of_messages, uint64_t block_length, uint64_t number_of_encoding_iterations, function<void (const Channel &,IdentificationCode *)> construction_method)
 {
     // create the identification code
-    IdentificationCode Rc = IdentificationCode(log_number_of_messages, block_length,number_of_encoding_iterations);
+    IdentificationCode Rc = IdentificationCode(loglog_number_of_messages, block_length,number_of_encoding_iterations);
     Rc.constructID_Code(channel, construction_method);
     // uniform distribution over messages
     /*
-    BigUInt message = BigUInt(LONG_LONG_MAX);
+    mpz_t message = mpz_t(LONG_LONG_MAX);
     // encode the message
     vector<chnl_input> *encoded = Rc.encode(message);
 

@@ -1,5 +1,5 @@
 #include "../include/functions.h"
-#include <cstdio>
+
 vector<uint64_t> *eratosthenesSeive(uint64_t upbound)
 {
     vector<bool> prime_bitset(upbound + 1, true);
@@ -17,9 +17,10 @@ vector<uint64_t> *eratosthenesSeive(uint64_t upbound)
     return result;
 }
 
-uint64_t phi(BigUInt m, uint64_t p)
+void phi(mpz_ptr r,mpz_t m, mpz_t p)
 {
-    return (m % p) + 1;
+    mpz_fdiv_r(r,m,p);
+    mpz_add_ui(r,r,1);
 }
 
 vector<uint64_t> *binaryIntToVector(uint64_t number, uint64_t num_digits)
@@ -34,6 +35,27 @@ vector<uint64_t> *binaryIntToVector(uint64_t number, uint64_t num_digits)
 }
 
 uint64_t binaryVectorToInt(const vector<uint64_t> &bin_num, uint64_t num_digits)
+{
+    uint64_t result = 0;
+    for (uint64_t i = 0; i < num_digits; i++)
+    {   
+        result |= bin_num[i] << i ;
+    }
+    return result;
+}
+
+vector<uint64_t> *gmp_binaryIntToVector(uint64_t number, uint64_t num_digits)
+{
+    vector<uint64_t> *result = new vector<uint64_t>;
+    while (num_digits--)
+    {
+        result->emplace_back((number & (1)));
+        number >>= 1;
+    }
+    return result;
+}
+
+uint64_t gmp_binaryVectorToInt(const vector<uint64_t> &bin_num, uint64_t num_digits)
 {
     uint64_t result = 0;
     for (uint64_t i = 0; i < num_digits; i++)
@@ -147,4 +169,10 @@ uint64_t ceil_log(uint64_t n){
         n/=2;
     }
     return ans;
+}
+
+void uniform_prime(mpz_ptr rop, mp_bitcnt_t n,int k){
+     do {
+    mpz_urandomb(rop,gmp_generator,n);
+    }while(!mpz_probab_prime_p(rop,k));
 }
