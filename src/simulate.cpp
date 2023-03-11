@@ -64,7 +64,7 @@ long double reportIdentification(mpz_t message, const vector<chnl_input> &encode
     return log_error2;
 }
 
-pair<uint64_t,long double> simulate(Channel &channel, uint64_t loglog_number_of_messages, uint64_t block_length, uint64_t number_of_encoding_iterations, function<void (const Channel &,IdentificationCode *)> construction_method)
+pair<uint64_t,long double> simulate(Channel &channel, uint64_t loglog_number_of_messages, uint64_t block_length, uint64_t number_of_encoding_iterations, ID_CodeGenerator* construction_method)
 {
     // create the identification code
     IdentificationCode Rc = IdentificationCode(loglog_number_of_messages, block_length,number_of_encoding_iterations);

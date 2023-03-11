@@ -13,10 +13,10 @@ IdentificationCode::~IdentificationCode()
 {
 }
 
-void IdentificationCode::constructID_Code(const Channel &channel, function<void(const Channel &, IdentificationCode *)> construction_method)
+void IdentificationCode::constructID_Code(const Channel &channel, ID_CodeGenerator* construction_method)
 {
     *getOutputStream() << "Creating the code!\n";
-    construction_method(channel, this);
+    (*(construction_method))(channel, this);
     this->valid_construction = true;
     *getOutputStream() << "Code Created!\n";
 }

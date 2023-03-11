@@ -35,7 +35,7 @@ private:
 public:
     IdentificationCode(uint64_t loglog_number_of_messages, uint64_t block_length, uint64_t number_of_encoding_iteration);
     ~IdentificationCode();
-    void constructID_Code(const Channel & channel, function<void (const Channel &,IdentificationCode *)> construction_method);
+    void constructID_Code(const Channel & channel, function<void (const Channel& , IdentificationCode* )>* construction_method);
     uint64_t getLogLogNumberOfMessages();
     uint64_t getBlockLength();
     uint64_t getNumberOfEncodingIteration();
@@ -50,3 +50,5 @@ public:
     long double decode(const vector<chnl_output> &received); // gives the log of the number of messages the could be identified with {received}
     bool identify(const vector<chnl_output> &received, mpz_t message); // does the {received} identifies {message} 
 };
+
+typedef function<void (const Channel& , IdentificationCode* )> ID_CodeGenerator; 

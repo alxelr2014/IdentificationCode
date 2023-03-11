@@ -12,5 +12,5 @@
 
 
 pair<uint64_t, long double>  simulate(Channel & channel,uint64_t loglog_number_of_messages , uint64_t block_length, uint64_t number_of_encoding_iterations,
-      function<void (const Channel &,IdentificationCode *)> construction_method);
+      ID_CodeGenerator* construction_method);
 /* randomly generate a messages from N= {0,2, ... , N-1} and  transmit it over the given channel with the given code*/

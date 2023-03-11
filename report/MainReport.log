@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.27)  8 MAR 2023 17:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.27)  11 MAR 2023 17:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -658,27 +658,48 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 {c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]) (./pnt.tex
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 2.
 Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 11.
-) (./MainReport.bbl)
+) (./3step.tex
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 10.
+ [3]
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 38.
+Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 56.
+ [4] [5] [6]
+<graphic/primarymessage.png, id=203, 462.528pt x 346.896pt>
+File: graphic/primarymessage.png Graphic file (type png)
+<use graphic/primarymessage.png>
+Package pdftex.def Info: graphic/primarymessage.png  used on input line 234.
+(pdftex.def)             Requested size: 373.6152pt x 280.19846pt.
+<graphic/primaryerror.png, id=206, 462.528pt x 346.896pt>
+File: graphic/primaryerror.png Graphic file (type png)
+<use graphic/primaryerror.png>
+Package pdftex.def Info: graphic/primaryerror.png  used on input line 238.
+(pdftex.def)             Requested size: 373.6152pt x 280.19846pt.
+<graphic/primarytime.png, id=208, 462.528pt x 346.896pt>
+File: graphic/primarytime.png Graphic file (type png)
+<use graphic/primarytime.png>
+Package pdftex.def Info: graphic/primarytime.png  used on input line 242.
+(pdftex.def)             Requested size: 373.6152pt x 280.19846pt.
+ [7] [8 <./graphic/primarymessage.png> <./graphic/primaryerror.png>]) (./MainReport.bbl)
 \tf@thm=\write4
 \openout4 = `MainReport.thm'.
 
- [3] (./MainReport.aux)
+ [9 <./graphic/primarytime.png>] (./MainReport.aux)
 Package rerunfilecheck Info: File `MainReport.out' has not changed.
-(rerunfilecheck)             Checksum: E85D27C24FFE3B94259DF8C74B8D9EE6;675.
+(rerunfilecheck)             Checksum: A8CC6DAA7B03B5B4114ED0E58444C955;1354.
  ) 
 Here is how much of TeX's memory you used:
- 16849 strings out of 475071
- 275914 string characters out of 5782907
- 661831 words of memory out of 5000000
- 37982 multiletter control sequences out of 15000+600000
- 476190 words of font info for 57 fonts, out of 8000000 for 9000
+ 16980 strings out of 475071
+ 277935 string characters out of 5782907
+ 674831 words of memory out of 5000000
+ 38033 multiletter control sequences out of 15000+600000
+ 476525 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  87i,16n,91p,738b,573s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on MainReport.pdf (3 pages, 148939 bytes).
+{c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on MainReport.pdf (9 pages, 281061 bytes).
 PDF statistics:
- 158 PDF objects out of 1000 (max. 8388607)
- 129 compressed objects within 2 object streams
- 50 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 338 PDF objects out of 1000 (max. 8388607)
+ 276 compressed objects within 3 object streams
+ 121 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

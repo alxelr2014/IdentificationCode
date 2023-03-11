@@ -63,11 +63,15 @@ vector<pair<mpz_t,uint64_t>> millerMethod(uint64_t loglog_number_of_messages, ui
     // return pair<uint64_t,uint64_t>(keyK,keyQ);
 }
 
-void NoiselessBSC_ID(const Channel &channel, IdentificationCode *id_code)
+ID_CodeGenerator* generateNoiselessBSC_ID(long double alpha){
+    auto ret = new ID_CodeGenerator(bind(NoiselessBSC_ID,alpha,placeholders::_1, placeholders::_2));
+    return ret;
+}
+
+void NoiselessBSC_ID(long double alpha,const Channel &channel, IdentificationCode *id_code)
 {
     // M := number_of_messages,  n := block_length, alpha := alpha
     // pi_k := keys.first, pi_l := keys.second
-    double alpha = 1.1;
     vector<pair<mpz_t,uint64_t>> keys = millerMethod(id_code->getLogLogNumberOfMessages(), id_code->getNumberOfEncodingIteration(), alpha);
 
     uint64_t block_length = keys[id_code->getNumberOfEncodingIteration() - 1].second;

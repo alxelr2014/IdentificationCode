@@ -1,5 +1,5 @@
 \section{Prime Number Generation}
-\subsection{Uniform prime generation}
+\subsection{Uniform prime generation}\label{subsec:unifprime}
 The original 3-step algorithm [cite], in essence, generates two random prime numbers that are distributed uniformly in a given interval. Ahlswede then uses the fact that the primes are uniform to bound the second kind error probability. [The relaxation of this assumption complicates the error analysis. Explore this in subsection x.]. 
 
 To generate uniform primes on the interval \(\opcl{1}{\pi_K}\), Ahlswede picks a random index \(k \gets \set{1, \dots, K}\) and then calculates \(\pi_k\). Although this method minimizes the number random bits and generates exactly uniform primes, it is computationally expensive with state-of-the-art algorithms compute \(\pi_k\) in \(2^{\bigO{K}}\)[cite]. 
@@ -87,7 +87,7 @@ The probability that the result of \(GMR(N,s,k)\) is composite, given it is not 
 	&= \sum_{i = 1}^s \condProb{\func{MR}{n_i, k} = 1}{ n_i \notin P }\prob{n_i \notin P}\\
 	&= \sum_{i = 1}^s 4^{-k} \bracket{1 - \dfrac{\func{\pi}{N}}{N}}\\
 	&= s 4^{-k}\bracket{1 - \dfrac{\func{\pi}{N}}{N}}\\
-	&\approx s4^{-k}\bracket{1 - \dfrac{1}{\ln N}} && \text{(PNT)}
+	&\approx s4^{-k}\bracket{1 - \dfrac{1}{\ln N}} &&& \text{(PNT)}
 \end{align}
 If we bound this error probability with \(\delta\), then we get the following bound on \(s\).
 \begin{equation}
