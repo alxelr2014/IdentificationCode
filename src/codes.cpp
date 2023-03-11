@@ -88,5 +88,5 @@ void NoiselessBSC_ID(long double alpha,const Channel &channel, IdentificationCod
     id_code->setEncoder(enc);
     id_code->setDecoder(dec);
     id_code->setIdentifier(idn);
-    id_code->setSecondKindError(1);
+    id_code->setSecondKindError(1.0/((long double) (mpz_get_ui(keys[keys.size() - 1].first)) ) );
 }

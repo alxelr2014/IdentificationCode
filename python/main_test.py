@@ -40,7 +40,7 @@ def run_experiments():
     log_avg_errors = []
     avg_block_length = []
     avg_time = []
-    number_of_experiments = 150
+    number_of_experiments = 200
 
     for _i in range(number_of_experiments):
         # sets up the commandline prompt to run the simulation
