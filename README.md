@@ -23,4 +23,10 @@
 - add explanation, elaboration
 - add example
 - add decoder
--
+- references for the modified lemmas.
+- meausre of smoothness of the curve (MSC , RMS, other statistics?!)
+- trend of the second kind error
+- legends, tick marks, and grid for the curves 
+-  check other id code for benchmarking
+- Checkout Rabin-Yao paper
+- DMC channel generalization
