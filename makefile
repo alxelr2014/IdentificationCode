@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -Wall -g
-BUILDFLAGS = -lgmpxx -lgmp 2>&1 | cat
+BUILDFLAGS = -lgmpxx -lgmp
 RM = rm -f
 INC = include/
 OUT = out/

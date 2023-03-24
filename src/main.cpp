@@ -33,7 +33,9 @@ int main(int argv, char *argc[])
     gmp_random_seed = (argv >= 9) ? argc[8]: "";
 
     init_gmp_generator();
-    long double avg_error = 0;
+    mpq_t avg_error;
+    mpq_init(avg_error);
+    mpq_canonicalize(avg_error);
     uint64_t avg_block_length = 0;
     high_resolution_clock::time_point start,end;
     uint64_t avg_time;
@@ -41,15 +43,17 @@ int main(int argv, char *argc[])
     for (uint64_t i = 0; i < number_of_simulation; i++)
     {
         start = high_resolution_clock::now();
-        pair<uint64_t,long double> result =  simulate(loglog_number_of_messages,number_of_encoding_iteration,alpha);
+        uint64_t result =  simulate(loglog_number_of_messages,number_of_encoding_iteration,alpha,avg_error);
         end = high_resolution_clock::now();
 
         avg_time += duration_cast<std::chrono::microseconds>(end-start).count();
-        avg_block_length += result.first;
-        avg_error += result.second;
+        avg_block_length += result;
     }
-
-    cout <<  round(avg_block_length,number_of_simulation) << " " << avg_error / number_of_simulation << " " << avg_time / number_of_simulation;
+    mpq_t q_num_sims;
+    mpq_init(q_num_sims);
+    mpq_set_ui(q_num_sims,number_of_simulation,1);
+    mpq_div(avg_error,avg_error, q_num_sims);
+    cout <<  round(avg_block_length,number_of_simulation) << " " << mpq_get_d(avg_error) << " " << avg_time / number_of_simulation;
     *getOutputStream() << "LogLog of Number of Messages:" <<  loglog_number_of_messages << endl;
     *getOutputStream() << "End\n" << endl;
     getOutputStream()->flush();

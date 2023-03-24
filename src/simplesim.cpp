@@ -23,7 +23,7 @@ void uniform_primes(mpz_ptr rop, mp_bitcnt_t n, uint32_t s, uint32_t k)
     }
 }
 
-pair<uint64_t, long double> simulate(uint64_t loglog_number_of_messages,uint64_t number_of_encoding_iterations, long double alpha)
+uint64_t simulate(uint64_t loglog_number_of_messages,  uint64_t number_of_encoding_iterations, long double alpha, mpq_ptr avg_error)
 {
     uint32_t l = 10, q = 10;
     uint64_t bit1 = loglog_number_of_messages + ((uint64_t)(log2l(alpha))) + 1;
@@ -47,6 +47,12 @@ pair<uint64_t, long double> simulate(uint64_t loglog_number_of_messages,uint64_t
     *getOutputStream() << "The first key is " << prime1 << " with " << bit1 << " bits." << '\n';
     *getOutputStream() << "The second key is " << prime2 << " with " << bit2 << " bits." << '\n';
 
+    mpq_t error;
+    mpq_init(error);
+    mpq_set_z(error,prime2);
+    mpq_canonicalize(error);
+    mpq_inv(error,error);
+    mpq_add(avg_error,avg_error,error);
     uint64_t block_length = bit1 + 2 * bit2;
-    return {block_length,0};
+    return block_length;
 }

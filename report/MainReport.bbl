@@ -26,6 +26,12 @@ E.~Bach, J.O. Shallit, and P.J. Shallit.
 \newblock {\em Algorithmic Number Theory: Efficient algorithms}.
 \newblock Number v. 1 in Algorithmic Number Theory. MIT Press, 1996.
 
+\bibitem{hardy}
+G.H. Hardy, E.M. Wright, D.R. Heath-Brown, R.~Heath-Brown, J.~Silverman, and
+  A.~Wiles.
+\newblock {\em An Introduction to the Theory of Numbers}.
+\newblock Oxford mathematics. OUP Oxford, 2008.
+
 \bibitem{lagarias}
 Jeffrey~C Lagarias and Andrew~M. Odlyzko.
 \newblock Computing $\pi$ (x): An analytic method.

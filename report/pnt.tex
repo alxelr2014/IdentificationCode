@@ -18,3 +18,15 @@ Moreover, we may frequently use these exact bounds on \(\pi(x)\).
 		\dfrac{1}{6} n \ln n \leq p_n \leq 12 (n \ln n + n \ln \frac{12}{e})
 	\end{equation*}
 \end{lemma}
+
+Let \(\func{\omega}{n}\) denote the number of distinct prime factors of \(n\). For example, \(\func{\omega}{24} = \func{\omega}{2^3 \cdot 3} = 2\) and \(\func{\omega}{105} = \func{\omega}{3 \cdot 5 \cdot 7} = 3\). 
+
+\begin{theorem}[Chapter 22.10 Theorem 430 \cite{hardy}]\label{thm:uniqueprimeorder}
+	For almost all natural numbers \footnote{
+		That is, as \(x \to \infty\) the ratio of the number of natural numbers \(n \leq x\) that do not satisfy the given property, to \(x\), approaches 0.
+	} and for all \(\delta > 0\)
+	\begin{equation*}
+		\abs{\func{\omega}{n} - \ln \ln n} < \bracket{\ln \ln}^{1/2 + \delta}
+	\end{equation*} 
+	holds.
+\end{theorem}
