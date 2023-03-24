@@ -11,18 +11,18 @@
 
 ## TODO List
 :heavy_check_mark: :o: :x:
-- Miller-Rabin error analysis 
-- Improve the Miller-Rabin in the code and improve the code for BSC
-- Pictorial representation of sieve of Eratosthenes 
+- Miller-Rabin error analysis :heavy_check_mark:
+- Improve the Miller-Rabin in the code and improve the code for BSC :o:
+- Pictorial representation of sieve of Eratosthenes  :x:
 - Sources of randomness and determining the required randomness in the PNG
-- proof Mertens' second theorem
-- PNT statement, variations, corollary, history of proof, proof sketch
+- proof Mertens' second theorem :x:
+- PNT statement, variations, corollary, history of proof, proof sketch :o:
 - Adding the code and the algorithms to the report
-- Generate an error curve for noiseless BSC
+- Generate an error curve for noiseless BSC :heavy_check_mark:
 - curves: add theoretical + points := add second upperbound2.
-- add explanation, elaboration
-- add example
-- add decoder
+- add explanation, elaboration :heavy_check_mark:
+- add example   :o:
+- add decoder   :x:
 - references for the modified lemmas.
 - meausre of smoothness of the curve (MSC , RMS, other statistics?!)
 - trend of the second kind error

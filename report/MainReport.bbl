@@ -16,9 +16,25 @@ Tom~M. Apostol.
 \newblock {\em Introduction to Analytic Number Theory}.
 \newblock Springer New York, 1976.
 
-\bibitem{clrs}
-Thomas~H. Cormen, Charles~E. Leiserson, Ronald~L. Rivest, and Clifford Stein.
-\newblock {\em Introduction to Algorithms, Third Edition}.
-\newblock The MIT Press, 3rd edition, 2009.
+\bibitem{atkin}
+Arthur Atkin and Daniel Bernstein.
+\newblock Prime sieves using binary quadratic forms.
+\newblock {\em Mathematics of Computation}, 73(246):1023--1030, 2004.
+
+\bibitem{bach}
+E.~Bach, J.O. Shallit, and P.J. Shallit.
+\newblock {\em Algorithmic Number Theory: Efficient algorithms}.
+\newblock Number v. 1 in Algorithmic Number Theory. MIT Press, 1996.
+
+\bibitem{lagarias}
+Jeffrey~C Lagarias and Andrew~M. Odlyzko.
+\newblock Computing $\pi$ (x): An analytic method.
+\newblock {\em Journal of Algorithms}, 8(2):173--191, 1987.
+
+\bibitem{lenstra}
+Hendrik~W Lenstra~Jr and Carl~B Pomerance.
+\newblock Primality testing with gaussian periods.
+\newblock {\em Journal of the European Mathematical Society}, 21(4):1229--1269,
+  2019.
 
 \end{thebibliography}

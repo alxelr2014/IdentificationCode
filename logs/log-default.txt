@@ -1,213 +1,63 @@
-Creating the code!
-The 1th key is 873779283772104982651332780322107662492080991255677074941477064160824602804066640054077788566968617 with 330 bits.
-The 2th key is 179 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 961618423703049642067693946125514248693837552114966466441428659313202521962496652920154374968330367 with 330 bits.
-The 2th key is 37 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 583965216698090903312582855010056508046570238524144527448740505449649587495177894462312470201427419 with 330 bits.
-The 2th key is 89 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 1473841366743436816394538948125627041505685588628615219206917941513481787685419037754586110894653133 with 330 bits.
-The 2th key is 241 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 562064821419314657973332642751754296462564651046466435375853365525155127529901892891599368400976041 with 330 bits.
-The 2th key is 277 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 1314371901007492095871649550906389289609712393861710986292948554773186757164573987206133551068787983 with 330 bits.
-The 2th key is 401 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 314165321229004787279108488140705154527164875171563105354684114073186353953848227638427276734920481 with 330 bits.
-The 2th key is 277 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 1351638338171843778409987630841638892315461540643505029124396387589436111233479265067863151427983543 with 330 bits.
-The 2th key is 31 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 1041018215329781081944929462503498808759634807147851025355683883073190668736035394432428726770368073 with 330 bits.
-The 2th key is 103 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 793158436664381487263120887461877302272148934959685415406788750783368956773553137881074555599751263 with 330 bits.
-The 2th key is 211 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 438695366562953322049454231250743765562185582151349454157762140576660553757596242761133716707533011 with 330 bits.
-The 2th key is 89 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 1216790652815372850725339645190237625702925922165876332591354098933814656441968667986841037980460653 with 330 bits.
-The 2th key is 163 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 199177669562416196496456458153478559670115781793032213249206345069749095112800113999875932439749579 with 330 bits.
-The 2th key is 37 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 627155270991461206322252581605940502946911890069548492918765677120994933771396456662372776922501977 with 330 bits.
-The 2th key is 499 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 358326309995097163083455537217900075143947158660983333126867763084275036406752811493282623289843289 with 330 bits.
-The 2th key is 73 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 1156469820956337329466414184958582524076721452875115098458598220158346802772750826642295228195979007 with 330 bits.
-The 2th key is 347 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 731691695197923204428652099359320704731770135617176018976198738402093965511082299247513318078123573 with 330 bits.
-The 2th key is 373 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 1373420118268064446356163480210095583004386689897908205573757686894376281325316578440823216318990643 with 330 bits.
-The 2th key is 59 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 1022086776414210652789529152494315115584519855448546008043929402438573579570373738668019664301534433 with 330 bits.
-The 2th key is 139 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 954168548089510929091377679205791460674618340978983071284782925750237693911024339411782924317318969 with 330 bits.
-The 2th key is 433 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 1344983961930984803872283753718886140271538823811289228439509584204042374580755031704816597741522793 with 330 bits.
-The 2th key is 491 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 255405017466527992717667800323987488565566148362763523302133081960880516878842926666351205838534039 with 330 bits.
-The 2th key is 227 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 1953491868155715206692378761015731525006175431907550441892532110898082335659447926775782553652753779 with 330 bits.
-The 2th key is 29 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 1853613337442356054270598629060707657463182959884288622527483588469158604526929158103838056485989191 with 330 bits.
-The 2th key is 317 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 2039281911144479914769228600737550210751870121796725623715697932105357530392823813073649911447619423 with 330 bits.
-The 2th key is 233 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 943778703268701395286995048404464961017704682836995739724967757939105787937188351975246666419166331 with 330 bits.
-The 2th key is 241 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 1171374201543102377036945611326936570413381325765853476438623629912926114000211291731068012633990377 with 330 bits.
-The 2th key is 359 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 1906135020465878575789575521600584018877554815886493200020370032961459555109835323788373740979360269 with 330 bits.
-The 2th key is 401 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 1839341181323023246360487512060192709865810341987217652596489744810043144897693235131370120349374287 with 330 bits.
-The 2th key is 43 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-Creating the code!
-The 1th key is 1784760328088042955052697360601140011264069084290509193085189860682467404696054796741617376866449477 with 330 bits.
-The 2th key is 401 with 9 bits.
-Code Created!
-The block length is 348
-The average second kind error is 1
------------------------
-LogLog of Number of Messages:300
+The first key is 7 with 5 bits.
+The second key is 2 with 3 bits.
+The first key is 23 with 5 bits.
+The second key is 3 with 3 bits.
+The first key is 17 with 5 bits.
+The second key is 2 with 3 bits.
+The first key is 13 with 5 bits.
+The second key is 5 with 3 bits.
+The first key is 13 with 5 bits.
+The second key is 7 with 3 bits.
+The first key is 13 with 5 bits.
+The second key is 3 with 3 bits.
+The first key is 23 with 5 bits.
+The second key is 2 with 3 bits.
+The first key is 17 with 5 bits.
+The second key is 2 with 3 bits.
+The first key is 13 with 5 bits.
+The second key is 7 with 3 bits.
+The first key is 3 with 5 bits.
+The second key is 3 with 3 bits.
+The first key is 23 with 5 bits.
+The second key is 7 with 3 bits.
+The first key is 19 with 5 bits.
+The second key is 3 with 3 bits.
+The first key is 19 with 5 bits.
+The second key is 3 with 3 bits.
+The first key is 31 with 5 bits.
+The second key is 5 with 3 bits.
+The first key is 7 with 5 bits.
+The second key is 5 with 3 bits.
+The first key is 19 with 5 bits.
+The second key is 7 with 3 bits.
+The first key is 5 with 5 bits.
+The second key is 5 with 3 bits.
+The first key is 17 with 5 bits.
+The second key is 5 with 3 bits.
+The first key is 11 with 5 bits.
+The second key is 5 with 3 bits.
+The first key is 2 with 5 bits.
+The second key is 2 with 3 bits.
+The first key is 31 with 5 bits.
+The second key is 7 with 3 bits.
+The first key is 2 with 5 bits.
+The second key is 7 with 3 bits.
+The first key is 19 with 5 bits.
+The second key is 3 with 3 bits.
+The first key is 7 with 5 bits.
+The second key is 2 with 3 bits.
+The first key is 31 with 5 bits.
+The second key is 3 with 3 bits.
+The first key is 7 with 5 bits.
+The second key is 2 with 3 bits.
+The first key is 19 with 5 bits.
+The second key is 3 with 3 bits.
+The first key is 7 with 5 bits.
+The second key is 3 with 3 bits.
+The first key is 7 with 5 bits.
+The second key is 2 with 3 bits.
+The first key is 7 with 5 bits.
+The second key is 5 with 3 bits.
+LogLog of Number of Messages:4
 End
 
