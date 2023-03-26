@@ -4,7 +4,7 @@ import string
 import random
 import numpy
 import math
-from plotting import plotting,error_graph,msg_graph,time_graph
+from plotting import plotting,error_graph,error_graphwo,msg_graph,time_graph
 from tqdm import tqdm
 from configparser import ConfigParser
 
@@ -18,7 +18,7 @@ base_address = str(config_object['DEFAULT']['base_address'])
 exe_address = base_address + "bin/main"
 string_set = string.ascii_uppercase	+ string.ascii_lowercase + string.ascii_letters	+ string.digits
 remove = False
-alpha = 1.01
+alpha = 0.5
 graph_path = str(config_object['DEFAULT']['graph_path'])
 curr_graph_num = str(config_object['DEFAULT']['graph_number'])
 def delete_files(n):
@@ -29,14 +29,14 @@ def delete_files(n):
 def run_experiments():
     # the block length is determined by the primes
     block_length = 0 
-    number_of_repeats = 100
+    number_of_repeats = 200
     loglog_number_of_messages = [10]
     number_of_encoding_iteration = 2
     increments = 10
     log_avg_errors = []
     avg_block_length = []
     avg_time = []
-    number_of_experiments = 60
+    number_of_experiments = 300
     
 
     for _i in tqdm(range(number_of_experiments)):
@@ -63,13 +63,13 @@ def run_experiments():
 
 
 block_length, loglog_messages, error, avg_time = run_experiments()
-thx = numpy.linspace(block_length[1], block_length[-1], 400)
+thx = numpy.linspace(block_length[0], block_length[-1], 400)
 thy = 1/alpha * thx
-ethy = [1/(xp/9)**alpha for xp in thx]
+ethy = [alpha/(xp)**(alpha-1) for xp in thx]
 
 
 
-data_msg = {"x": block_length, "y": loglog_messages, "color": '-b' , "label": "Average of Simulations"}
+data_msg = {"x": block_length, "y": loglog_messages, "color": '-b' , "label": "Average of Simulations", "color_p" : 'go'}
 data_theorymsg = {"x": thx, "y": thy, "color": '-r' , "label": "Theoretical limit 1/alpha"}
 data_error = {"x": block_length, "y": error, "color": '-b', "label": "Average of Simulations"}
 data_theoryerror = {"x": thx, "y": ethy, "color": '-r' , "label": "Approximate upperbound"}
@@ -80,6 +80,7 @@ data_time = {"x": block_length, "y": avg_time, "color": '-b', "label": "Average 
 plotting([data_msg,data_theorymsg], msg_graph(data_msg), graph_path+"msg"+curr_graph_num)
 
 plotting([data_error,data_theoryerror], error_graph(data_error),graph_path+"err"+curr_graph_num)
+plotting([data_error], error_graphwo(data_error),graph_path+"errwo"+curr_graph_num)
 
 plotting([data_time], time_graph(data_time),graph_path+"time"+curr_graph_num)
 

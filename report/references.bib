@@ -108,3 +108,70 @@ edition        = {1st},
   year={2008},
   publisher={OUP Oxford}
 }
+
+@Article{ramanujan,
+ Author = {Hardy, G. H. and Ramanujan, S.},
+ Title = {The normal number of prime factors of a number {{\(n\)}}.},
+ FJournal = {The Quarterly Journal of Pure and Applied Mathematics},
+ Journal = {Quart. J.},
+ Volume = {48},
+ Pages = {76--92},
+ Year = {1917},
+ Language = {English},
+ zbMATH = {2610444},
+ JFM = {46.0262.03}
+}
+
+@article{derebeyoglu,
+  author    = {Sencer Derebeyoglu and
+               Christian Deppe and
+               Roberto Ferrara},
+  title     = {Performance Analysis of Identification Codes},
+  journal   = {CoRR},
+  volume    = {abs/2007.06372},
+  year      = {2020},
+  url       = {https://arxiv.org/abs/2007.06372},
+  eprinttype = {arXiv},
+  eprint    = {2007.06372},
+  timestamp = {Tue, 21 Jul 2020 12:53:33 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-2007-06372.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@article{carter,
+title = {Universal classes of hash functions},
+journal = {Journal of Computer and System Sciences},
+volume = {18},
+number = {2},
+pages = {143-154},
+year = {1979},
+issn = {0022-0000},
+doi = {https://doi.org/10.1016/0022-0000(79)90044-8},
+url = {https://www.sciencedirect.com/science/article/pii/0022000079900448},
+author = {J.Lawrence Carter and Mark N. Wegman},
+abstract = {This paper gives an input independent average linear time algorithm for storage and retrieval on keys. The algorithm makes a random choice of hash function from a suitable class of hash functions. Given any sequence of inputs the expected time (averaging over all functions in the class) to store and retrieve elements is linear in the length of the sequence. The number of references to the data base required by the algorithm for any input is extremely close to the theoretical minimum for any possible hash function with randomly distributed inputs. We present three suitable classes of hash functions which also can be evaluated rapidly. The ability to analyze the cost of storage and retrieval without worrying about the distribution of the input allows as corollaries improvements on the bounds of several algorithms.}
+}
+
+@article{dietzfelbinger,
+title = {A Reliable Randomized Algorithm for the Closest-Pair Problem},
+journal = {Journal of Algorithms},
+volume = {25},
+number = {1},
+pages = {19-51},
+year = {1997},
+issn = {0196-6774},
+doi = {https://doi.org/10.1006/jagm.1997.0873},
+url = {https://www.sciencedirect.com/science/article/pii/S0196677497908737},
+author = {Martin Dietzfelbinger and Torben Hagerup and Jyrki Katajainen and Martti Penttonen},
+abstract = {The following two computational problems are studied: Duplicate grouping:Assume thatnitems are given, each of which is labeled by an integer key from the set {0,…,U−1}. Store the items in an array of sizensuch that items with the same key occupy a contiguous segment of the array. Closest pair:Assume that a multiset ofnpoints in thed-dimensional Euclidean space is given, whered≥1 is a fixed integer. Each point is represented as ad-tuple of integers in the range {0,…,U−1} (or of arbitrary real numbers). Find a closest pair, i.e., a pair of points whose distance is minimal over all such pairs. In 1976, Rabin described a randomized algorithm for the closest-pair problem that takes linear expected time. As a subroutine, he used a hashing procedure whose implementation was left open. Only years later randomized hashing schemes suitable for filling this gap were developed. In this paper, we return to Rabin's classic algorithm to provide a fully detailed description and analysis, thereby also extending and strengthening his result. As a preliminary step, we study randomized algorithms for the duplicate-grouping problem. In the course of solving the duplicate-grouping problem, we describe a new universal class of hash functions of independent interest. It is shown that both of the foregoing problems can be solved by randomized algorithms that useO(n) space and finish inO(n) time with probability tending to 1 asngrows to infinity. The model of computation is a unit-cost RAM capable of generating random numbers and of performing arithmetic operations from the set {+,−,∗,div,log2,exp2}, wheredivdenotes integer division andlog2andexp2are the mappings from N to N∪{0} withlog2(m)=⌊log2m⌋ andexp2(m)=2mfor allm∈N. If the operationslog2andexp2are not available, the running time of the algorithms increases by an additive term ofO(loglogU). All numbers manipulated by the algorithms consist ofO(logn+logU) bits. The algorithms for both of the problems exceed the time boundO(n) orO(n+loglogU) with probability 2−nΩ(1). Variants of the algorithms are also given that use onlyO(logn+logU) random bits and have probabilityO(n−α) of exceeding the time bounds, where α≥1 is a constant that can be chosen arbitrarily. The algorithms for the closest-pair problem also works if the coordinates of the points are arbitrary real numbers, provided that the RAM is able to perform arithmetic operations from {+,−,∗,div} on real numbers, whereadivbnow means ⌊a/b⌋. In this case, the running time isO(n) withlog2andexp2andO(n+loglog(δmax/δmax)) without them, where δmaxis the maximum and δminis the minimum distance between any two distinct input points.}
+}
+@article{stinson,
+  author          = {Stinson, D. R.},
+  journal         = {Designs, Codes and Cryptography},
+  title           = {Universal hashing and authentication codes},
+  volume          = {4},
+  year            = {1994},
+  pages           = {369-380},
+  abstract        = {In this paper, we study the application of universal hashing to the construction of unconditionally secure authentication codes without secrecy. This idea is most useful when the number of authenticators is exponentially small compared to the number of possible source states (plaintext messages). We formally define some new classes of hash functions and then prove some new bounds and give some general constructions for these classes of hash functions. Then we discuss the implications to authentication codes.},
+  doi             = {https://doi.org/10.1007/BF01388651}
+}

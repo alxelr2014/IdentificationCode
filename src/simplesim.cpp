@@ -56,3 +56,55 @@ uint64_t simulate(uint64_t loglog_number_of_messages,  uint64_t number_of_encodi
     uint64_t block_length = bit1 + 2 * bit2;
     return block_length;
 }
+
+uint64_t simulate_nonprime(uint64_t loglog_number_of_messages,  uint64_t number_of_encoding_iterations, long double alpha, mpq_ptr avg_error)
+{
+    uint64_t bit1 = loglog_number_of_messages + ((uint64_t)(log2l(alpha))) + 1;
+    uint64_t bit2 = (uint64_t)(log2l(alpha) + log2l(bit1)) + 1;
+
+    mpz_t prime1;
+    mpz_t prime2;
+    mpz_init(prime1);
+    mpz_init(prime2);
+
+    mpz_urandomb(prime1, gmp_generator, bit1);
+    mpz_setbit(prime1,bit1 - 1);
+    mpz_urandomb(prime2, gmp_generator, bit2);
+    mpz_setbit(prime2,bit2 - 1);
+
+    // is it the actual number of bit ?!
+    *getOutputStream() << "The first key is " << prime1 << " with " << bit1 << " bits." << '\n';
+    *getOutputStream() << "The second key is " << prime2 << " with " << bit2 << " bits." << '\n';
+
+    mpq_t error;
+    mpq_init(error);
+    mpq_set_z(error,prime2);
+    mpq_canonicalize(error);
+    mpq_inv(error,error);
+    mpq_add(avg_error,avg_error,error);
+    uint64_t block_length = bit1 + 2 * bit2;
+    return block_length;
+}
+
+uint64_t simulate_hash(uint64_t loglog_number_of_messages,  uint64_t number_of_encoding_iterations, mpq_ptr avg_error)
+{
+    uint64_t m= loglog_number_of_messages/2, w = loglog_number_of_messages - m;
+    mpz_t a;
+    mpz_init(a);
+
+    mpz_urandomb(a, gmp_generator, w);
+    mpz_setbit(a,0);
+
+    // is it the actual number of bit ?!
+    *getOutputStream() << "The hash key is " << a << " with " << w << " bits." << '\n';
+
+    /*mpq_t error;
+    mpq_init(error);
+    mpq_set_z(error,prime2);
+    mpq_canonicalize(error);
+    mpq_inv(error,error);
+    mpq_add(avg_error,avg_error,error);
+    uint64_t block_length = bit1 + 2 * bit2;*/
+    uint64_t block_length = loglog_number_of_messages;
+    return block_length;
+}
