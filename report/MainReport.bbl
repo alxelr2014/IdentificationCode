@@ -26,6 +26,18 @@ E.~Bach, J.O. Shallit, and P.J. Shallit.
 \newblock {\em Algorithmic Number Theory: Efficient algorithms}.
 \newblock Number v. 1 in Algorithmic Number Theory. MIT Press, 1996.
 
+\bibitem{bierbrauer}
+J{\"u}rgen Bierbrauer, Thomas Johansson, Gregory Kabatianskii, and Ben Smeets.
+\newblock On families of hash functions via geometric codes and concatenation.
+\newblock In Douglas~R. Stinson, editor, {\em Advances in Cryptology ---
+  CRYPTO' 93}, pages 331--342, Berlin, Heidelberg, 1994. Springer Berlin
+  Heidelberg.
+
+\bibitem{carter}
+J.Lawrence Carter and Mark~N. Wegman.
+\newblock Universal classes of hash functions.
+\newblock {\em Journal of Computer and System Sciences}, 18(2):143--154, 1979.
+
 \bibitem{derebeyoglu}
 Sencer Derebeyoglu, Christian Deppe, and Roberto Ferrara.
 \newblock Performance analysis of identification codes.
@@ -47,9 +59,10 @@ Hendrik~W Lenstra~Jr and Carl~B Pomerance.
 \newblock {\em Journal of the European Mathematical Society}, 21(4):1229--1269,
   2019.
 
-\bibitem{stinson}
-D.~R. Stinson.
-\newblock Universal hashing and authentication codes.
-\newblock {\em Designs, Codes and Cryptography}, 4:369--380, 1994.
+\bibitem{verdu}
+S.~Verdu and V.K. Wei.
+\newblock Explicit construction of optimal constant-weight codes for
+  identification via channels.
+\newblock {\em IEEE Transactions on Information Theory}, 39(1):30--36, 1993.
 
 \end{thebibliography}

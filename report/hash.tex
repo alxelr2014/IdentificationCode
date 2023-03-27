@@ -1,78 +1,85 @@
 \section{Generalizations of 3-step algorithm}
-In the 3-step algorithm, we produce two random prime numbers and then compute a function of the message based on these two primes. In general, this is viewed as producing a local randomness \(j\) and computing a message specific tag function \(T_i\) with input \(j\), \(\func{T_i}{j}\) \cite{derebeyoglu}. When working with a noiseless, the tagging function determines the second kind error probability. For example, the probability that the receiver identifies \(\hat{i}\) when \(i\) is sent is calaculated as 
-\begin{equation*}
+In the 3-step algorithm, we produce two random prime numbers and then compute a function of the message based on these two primes. In general, this is viewed as producing a local randomness \(j\) and computing a message specific tag function \(T_i\) with input \(j\), \(\func{T_i}{j}\) \cite{derebeyoglu}. When working with a noiseless channel, the tagging function determines the second kind error probability. For example, the probability that the receiver identifies \(\hat{i}\) when \(i\) is sent is calaculated as 
+\begin{equation}
     \func{P_{e,2}}{i,\hat{i}} = \prob{\func{T_i}{j} = \func{T_{\hat{i}}}{j}}.
-\end{equation*} 
-When \(j\) is chosen uniformly, this probability can be viewed as the probability of the collision of the hash function \(\func{h_j}{x} = \func{T_x}{j}\). The families of hash function for which this probability of collision is bounded are called \textit{almost universal}. A formal definition is given as follows in \cite{stinson}.
+\end{equation} 
+When \(j\) is chosen uniformly, this probability can be viewed as the probability of the collision of the hash function \(\func{h_j}{x} = \func{T_x}{j}\). The families of hash function for which this probability of collision is bounded are called \textit{almost universal}. A formal definition was first given in \cite{carter} which is as follows.
 \begin{definition}
     Let \(H = \set{h : X \to Y}\) be a family of hash functions from \(X\) to \(Y\) and let \(\epsilon\) be a positive real number. \(H\) is said to be \(\epsilon\)-almost universal if for all distinct \(x_1, x_2 \in X\) 
-    \begin{equation*}
+    \begin{equation}
         \set<h \in H>{\func{h}{x_1} = \func{h}{x_2}} \leq \epsilon \abs{H}
-    \end{equation*}
+    \end{equation}
     If \(h \gets H\) uniformly, 
-    \begin{equation*}
+    \begin{equation}
         \prob{\func{h}{x_1} = \func{h}{x_2}} \leq \epsilon
-    \end{equation*}
+    \end{equation}
 \end{definition}
 
 Consider the following identification scheme for noiseless channels that uses almost universal functions.
 
 \begin{definition}\label{def:hash3step}
-    Let \(\mathcal{M} = \set{1 , \dots,  M}\) and \(H = \set{h_{a} : X \to Y}_{a \in I}\) be a family of \(\epsilon\)-almost universal hash functions indexed by the set \(I\). A round of communication round works as follows.
+    Let \(\mathcal{M} = \set{1 , \dots,  M}\) and \(H = \set{h_{a} : X \to Y}_{a \in [I]}\) be a family of \(\epsilon\)-almost universal hash functions indexed by the set \([I] = \set{0, 1 , \dots , I - 1}\). A round of communication round works as follows.
     \begin{enumerate}
-        \item The sender chooses \(a \gets I\) uniformly. Then, he sends the code \((a, \func{h_a}{m})\) to the receiver.
+        \item The sender chooses \(a \gets [I]\) uniformly. Then, he sends the code \((a, \func{h_a}{m})\) to the receiver.
         \item Upon receiving the code \((a, \func{h_a}{m})\), the receiver calculates \(\func{h_a}{\hat{m}}\) and identifies \(\hat{m}\) whenever \(\func{h_a}{m} = \func{h_a}{\hat{m}}\). 
     \end{enumerate}  
 \end{definition}
 The blocklength of the identification scheme in \Cref{def:hash3step} is 
-\begin{equation*}
-    n = \lg \abs{I} + \lg \abs{Y}
-\end{equation*}
+\begin{equation}
+    n = \lg I + \lg \abs{Y}
+\end{equation}
 The number of random bits required is 
-\begin{equation*}
-    r = \lg \abs{I}
-\end{equation*}
+\begin{equation}
+    r = \lg I
+\end{equation}
 And the second kind error probability is given by 
-\begin{equation*}
+\begin{equation}
     \condProb{\func{h_a}{m} = \func{h_a}{\hat{m}}}{m \neq \hat{m}} \leq \epsilon
-\end{equation*}
+\end{equation}
+\begin{theorem}
+    If there exists a class of \(\epsilon\)-almost universal hash functions \(H = \set{h_a : \mathbb{F}_q^n \to \mathbb{F}_q}_{a \in [I]}\), then there exists a \((\lg I + \lg q, q^n,0, \epsilon )\) identification code for noiseless binary channel.
+\end{theorem}
 
-\subsection{Explicit Construction}
+\subsection{Formulation of 3-step algorithm in terms of universal hash function}
 
-%  We now give an explicit constuction of the \Cref{def:hash3step}. Let \(\func{A}{n} = \set{1,2, \dots, 2^n }\), \(\func{B}{n} = \set{1,2, \dots ,n }\), \(K = \set{\frac{n}{2} , \dots, n}\), and \(\func{H}{n} = \set<h_k : A \to B>{k \in K}\) given as follows.
-%  \begin{equation}
-%     \func{h_k}{a} = \squareBracket{a \mod k} + 1
-%  \end{equation}
-%  \begin{lemma}\label{lmm:hashuniv}
-%     The class \(\func{H}{n}\) described above is \(\frac{4}{n}\)-almost universal.
-%  \end{lemma}
+ We now give an explicit constuction of the \Cref{def:hash3step} according to the \Cref{subsec:modified3step}. Let \(\func{A}{n} = \set{1,2, \dots, 2^n }\), \(\func{B}{n} = \set{1,2, \dots ,n^{\alpha} }\) for some \(\alpha > 1\), \(K = \set{2, 3, \dots, p_{\func{\pi}{n^{\alpha}}}}\), and \(\func{H}{n} = \set<h_k : A \to B>{k \in K}\) given as follows.
+ \begin{equation}
+    \func{h_p}{a} = \squareBracket{a \mod p} + 1
+ \end{equation}
+ \begin{lemma}\label{lmm:hashuniv}
+    The class \(\func{H}{n}\) described above is \(\frac{\alpha}{n^{\alpha - 1}}\)-almost universal.
+ \end{lemma}
 
-%  \begin{proof}
-%     Suppose \(x , y \in A\) are distinct. 
-%     \begin{equation*}
-%         \prob{\func{h_k}{x} = \func{h_k}{y}} = \dfrac{2}{b} \abs{\set{k \in K : k \mid  \abs{x-y}}}
-%     \end{equation*}
-%     Let \(z = \abs{x - y}\) and assume that a key \(k\) satisfies \(k \mid z\). Since \(z \neq 0\), then it must necessarily be greater than \(k \geq \frac{n}{2}\). Moreover, \(z \leq n\) and hence, if \(qk = z\) for some positive integer \(q\), it must be that \(q \in \set{1,2}\). Therefore, there are at most two keys that satisfy \(k \mid z\). Consquently,
-%     \begin{equation*}
-%         \prob{\func{h_k}{x} = \func{h_k}{y}} \leq \dfrac{4}{b}
-%     \end{equation*}
-%  \end{proof}
-%  Note that, \(H\) digests input exponentially, therefore, if we use \(H\) twice we can achieve double exponential compression. Firstly, consider the follwoing composition lemma.
-%  \begin{lemma}\label{lmm:hashcomp}
-%     Suppose \(H_1: A \to B\) and \(H_2: B \to C\) are \(\epsilon_1\) and \(\epsilon_2\)-almost universal, respectively. The hash famliy \(H = H_2 \circ H_1 : A \to C = \set<h_2 \circ h_1>{h_1 \in H_1, h_2 \in H_2}\) is \(\epsilon = \epsilon_1 + \epsilon_2\)-almost unviersal.
-%  \end{lemma}
+ \begin{proof}
+    Suppose \(x , y \in A\) are distinct. 
+    \begin{align}
+        \prob{\func{h_p}{x} = \func{h_p}{y}} &= \dfrac{1}{\func{\pi}{n^{\alpha}}} \abs{\set{p \in K : p \mid  \abs{x-y}}}\\
+        & \leq \dfrac{\func{\omega}{x - y}}{\func{\pi}{n^{\alpha}}}\\
+        & \approx \dfrac{\alpha}{n^{\alpha - 1}}
+    \end{align}
+ \end{proof}
+ Note that, \(H\) digests input exponentially, therefore, if we use \(H\) twice we can achieve double exponential compression. Firstly, consider the follwoing composition lemma.
+ \begin{lemma}\label{lmm:hashcomp}
+    Suppose \(H_1: A \to B\) and \(H_2: B \to C\) are \(\epsilon_1\) and \(\epsilon_2\)-almost universal, respectively. The hash famliy \(H = H_2 \circ H_1 : A \to C = \set<h_2 \circ h_1>{h_1 \in H_1, h_2 \in H_2}\) is \(\epsilon = \epsilon_1 + \epsilon_2\)-almost unviersal.
+ \end{lemma}
 
-% \begin{proof}
-%     Let \(x, y \in A\) be two distinct elements.
-%     \begin{align}
-%         \prob{\func{h_2}{\func{h_1}{x}} = \func{h_2}{\func{h_1}{y}}} 
-%         &\leq \condProb{\func{h_2}{\func{h_1}{x}} = \func{h_2}{\func{h_1}{y}}}{\func{h_1}{x} \neq \func{h_1}{y}} +  \prob{\func{h_1}{x} = \func{h_1}{y}}\\
-%         &\leq \epsilon_2 + \epsilon_1
-%     \end{align}
-% \end{proof}
+\begin{proof}
+    Let \(x, y \in A\) be two distinct elements.
+    \begin{align}
+        \prob{\func{h_2}{\func{h_1}{x}} = \func{h_2}{\func{h_1}{y}}} 
+        &\leq \condProb{\func{h_2}{\func{h_1}{x}} = \func{h_2}{\func{h_1}{y}}}{\func{h_1}{x} \neq \func{h_1}{y}} +  \prob{\func{h_1}{x} = \func{h_1}{y}}\\
+        &\leq \epsilon_2 + \epsilon_1
+    \end{align}
+\end{proof}
 
-% By \Cref{lmm:hashuniv} and \Cref{lmm:hashcomp}, the hash family \(\func{H^2}{n} = \func{H}{n} \circ \func{H}{2^n}\) is
-% \begin{equation}
-%     \epsilon = \frac{4}{n} + \frac{4}{2^n} \approx \frac{4}{n}
-% \end{equation}
-% almost universal which maps \(A = \set{0, 1, \dots, 2^{2^n}}\)
+By \Cref{lmm:hashuniv} and \Cref{lmm:hashcomp}, the hash family \(\func{H^2}{n} = \func{H}{n} \circ \func{H}{2^n}\) is
+\begin{equation}
+    \epsilon = \frac{\alpha}{n^{\alpha - 1}} + \frac{\alpha}{2^{n \bracket{\alpha - 1}}} = \bigO{\dfrac{1}{n^{\alpha - 1}}}
+\end{equation}
+almost universal which maps \(A = \set{0, 1, \dots, 2^{2^n}}\) to \(C = \set{1, \dots, n^{\alpha}}\). \footnote{there are some mistakes here, fix later}.
+\subsection{Current Directions}
+One way to construct identification codes is by re-purposing error correcting code \cite{verdu,derebeyoglu}. The methods described in \cite{verdu,derebeyoglu} use the error correction codes to construct a tag function. As a matter of fact, Bierbrauer \textit{et al} \cite{bierbrauer} has shown the equivalence between error correcting codes and almost universal hash function. 
+
+\begin{theorem}
+    If there is a \([n,k,d]_q\) code, then there exists a \(1- \frac{d}{n}\)-almost universal hash family \(H = \set{h_a : \mathbb{F}_q^k \to \mathbb{F}_q}_{a \in [n]}\) and conversely, if there is a \(\epsilon\)-almost universal hash family \(H = \set{h_a :  \mathbb{F}_q^k \to \mathbb{F}_q}_{a \in [n]}\), then there exists a \([n, k,n(1- \epsilon)]_q\) code.
+\end{theorem}
