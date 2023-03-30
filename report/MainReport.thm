@@ -1,25 +1,25 @@
-\contentsline {theorem}{{Theorem}{1}{\cite {apostol}}}{3}{otheorem.1}%
-\contentsline {lemma}{{Lemma}{2}{\cite {apostol}}}{3}{otheorem.2}%
-\contentsline {definition}{{Definition}{1}{Identification code}}{3}{definition.1}%
+\contentsline {theorem}{{Theorem}{1}{{\cite [Chapter~4]{apostol}}}}{1}{otheorem.1}%
+\contentsline {theorem}{{Theorem}{2}{{\cite [Theorem~4.6,4.7]{apostol}}}}{1}{otheorem.2}%
+\contentsline {theorem}{{Theorem}{3}{\cite {ramanujan}}}{1}{otheorem.3}%
+\contentsline {definition}{{Definition}{1}{Identification code}}{4}{definition.1}%
 \contentsline {example}{{Example}{1}{}}{4}{oexample.1}%
-\contentsline {theorem}{{Theorem}{3}{\cite {multiway}}}{4}{otheorem.3}%
-\contentsline {proof}{{Proof}{1}{}}{4}{proof.1}%
-\contentsline {lemma}{{Lemma}{4}{}}{4}{otheorem.4}%
-\contentsline {proof}{{Proof}{2}{}}{4}{proof.2}%
-\contentsline {lemma}{{Lemma}{5}{}}{4}{otheorem.5}%
-\contentsline {proof}{{Proof}{3}{}}{4}{proof.3}%
-\contentsline {theorem}{{Theorem}{6}{}}{5}{otheorem.6}%
-\contentsline {proof}{{Proof}{4}{}}{6}{proof.4}%
+\contentsline {theorem}{{Theorem}{4}{\cite {multiway}}}{4}{otheorem.4}%
+\contentsline {proof}{{Proof}{1}{}}{5}{proof.1}%
+\contentsline {lemma}{{Lemma}{5}{}}{5}{otheorem.5}%
+\contentsline {proof}{{Proof}{2}{}}{5}{proof.2}%
+\contentsline {lemma}{{Lemma}{6}{}}{5}{otheorem.6}%
+\contentsline {proof}{{Proof}{3}{}}{5}{proof.3}%
 \contentsline {theorem}{{Theorem}{7}{}}{6}{otheorem.7}%
+\contentsline {proof}{{Proof}{4}{}}{6}{proof.4}%
 \contentsline {theorem}{{Theorem}{8}{}}{6}{otheorem.8}%
 \contentsline {lemma}{{Lemma}{9}{}}{6}{otheorem.9}%
 \contentsline {proof}{{Proof}{5}{}}{6}{proof.5}%
 \contentsline {proof}{{Proof}{6}{}}{7}{proof.6}%
-\contentsline {definition}{{Definition}{2}{}}{8}{definition.2}%
-\contentsline {definition}{{Definition}{3}{}}{8}{definition.3}%
-\contentsline {theorem}{{Theorem}{10}{}}{8}{otheorem.10}%
-\contentsline {lemma}{{Lemma}{11}{}}{8}{otheorem.11}%
-\contentsline {proof}{{Proof}{7}{}}{8}{proof.7}%
-\contentsline {lemma}{{Lemma}{12}{}}{9}{otheorem.12}%
-\contentsline {proof}{{Proof}{8}{}}{9}{proof.8}%
-\contentsline {theorem}{{Theorem}{13}{}}{9}{otheorem.13}%
+\contentsline {definition}{{Definition}{2}{}}{9}{definition.2}%
+\contentsline {definition}{{Definition}{3}{}}{9}{definition.3}%
+\contentsline {theorem}{{Theorem}{10}{}}{10}{otheorem.10}%
+\contentsline {lemma}{{Lemma}{11}{}}{10}{otheorem.11}%
+\contentsline {proof}{{Proof}{7}{}}{10}{proof.7}%
+\contentsline {lemma}{{Lemma}{12}{}}{10}{otheorem.12}%
+\contentsline {proof}{{Proof}{8}{}}{10}{proof.8}%
+\contentsline {theorem}{{Theorem}{13}{}}{10}{otheorem.13}%

@@ -1,18 +1,18 @@
 \section{Identification Codes}
-Identification is a communication paradigm introduced by Ahlswede \cite{idfeedback}. In identification schemes the receiver wants to know whether a certain message has been send or not. This is in contrast to the Shannon's transmission paradigm where the receiver wants to know the content of the message. 
+Identification is a communication paradigm introduced by Ahlswede \textit{et al} \cite{idfeedback}. In identification schemes the receiver wants to know whether a certain message has been sent or not. This is in contrast to the Shannon's transmission schemes where the receiver wants to know the content of the message. 
 
-More formally, the sender and the receiver both have the message set \(\mathcal{M}\) and the receiver is interested in some message \(m \in \mathcal{M}\). Ofcourse, when the sender knows \(m\), he can send a bit to indicate that he intends to send \(m\) or not. We may then assume that sender does not know \(m\). 
+More formally, the sender and the receiver both have the message set \(\mathcal{M}\) and the receiver is interested in some message \(m \in \mathcal{M}\). Ofcourse, when the sender knows \(m\), he can send a bit to indicate that he intends to send \(m\) or not. Thus, we assume that the sender does not know \(m\). 
 
-This problem can be trivially addressed by transmission codes, the receiver decodes the received code to \(\hat{m}\) and then decides if \(\hat{m} = m\). However, the  Ahlswede's identification codes require exponentially shorter blocklength to identify the same number of messages. This improvement is achieved mainly by relaxing the condition that the decoding sets need be disjoint. By allowing the decoding sets to have slight overlap, Ahlswede \cite{idfeedback} has shown that there exists coding schemes that can identify \(2^{2^{nC}}\) messages where \(C\) is the Shannon capacity of the DMC channel.
+This problem can be trivially addressed by transmission codes, the receiver decodes the received code to \(\hat{m}\) and then decides if \(\hat{m} = m\). However, the   identification codes require exponentially shorter blocklength to identify the same number of messages. This improvement is achieved mainly by relaxing the condition that the decoding sets need be disjoint. By allowing the decoding sets to have slight overlap, Ahlswede \textit{et al} \cite{idfeedback} have shown that there exists coding schemes that can identify \(2^{2^{nC}}\) messages where \(C\) is the Shannon capacity of the DMC channel.
 
 There are two kinds of errors associated with an identification scheme. The first kind happens when the sender sends \(m\) but the receiver fails to identify it and hence \textit{misses} the identification. The second kind happens when the sender send \(m' \neq m\) and the receiver \textit{falsely} identifies \(m\) instead.
 
 \begin{definition}[Identification code]\label{def:idcode}
-	An identification code \((n, N,\lambda_1, \lambda_2)\) for a DMC channel \(\func{\mathcal{W}^n}{\mathcal{X}^n | \mathcal{Y}^n}\) is a set \(\set{ (\func{Q}{ \cdot |i} ,\mathcal{D}_i)}_{i \in [N]}\) where \(\func{Q}{ \cdot |i}\) is a distribution over \(\mathcal{X}^n\) to that encodes \(i\) -- for determinstic encoder \(\func{Q}{ x_i |i} = 1\) for some \(x_i \in \mathcal{X}^n\), and \(\mathcal{D}_i \subset \mathcal{Y}^n\) is the decoding set of \(i\). The first and second kind errors are bounded by \(\lambda_1\) and \(\lambda_2\), respectively.
-	\begin{align*}
+	An identification code \((n, N,\lambda_1, \lambda_2)\) for a DMC channel \(\func{\mathcal{W}^n}{\mathcal{X}^n | \mathcal{Y}^n}\) is a set \(\set{ (\func{Q}{ \cdot |i} ,\mathcal{D}_i)}_{i \in [N]}\) where \(\func{Q}{ \cdot |i}\) is a distribution over \(\mathcal{X}^n\) to that encodes the message \(i\) -- for determinstic encoder \(\func{Q}{ x_i |i} = 1\)  for some \(x_i \in \mathcal{X}^n\)-- and \(\mathcal{D}_i \subset \mathcal{Y}^n\) is the decoding set of the message \(i\). The first and second kind errors are bounded by \(\lambda_1\) and \(\lambda_2\), respectively.
+	\begin{align}
 		\func{P_{e,1}}{i} &= \sum_{x^n \in \mathcal{X}^n} \func{Q}{ x^n |i} \func{\mathcal{W}^n}{\mathcal{D}_i^c | x^n} \leq \lambda_1 \\
 		\func{P_{e,2}}{i,j}&=\sum_{x^n \in \mathcal{X}^n} \func{Q}{ x^n |j} \func{\mathcal{W}^n}{\mathcal{D}_i | x^n} \leq \lambda_2
-	\end{align*}
+	\end{align}
 	For all \(1 \leq i,j \leq N\) and \(j \neq i\).
 \end{definition}
 
@@ -20,12 +20,12 @@ There are two kinds of errors associated with an identification scheme. The firs
 The 3-step algorithm as described in \cite{multiway} defines the following parameters.
 \begin{itemize}
 	\item Let \(\mathcal{M} = \set{1,2, \dots, M }\) be the message set and \(\alpha > 1\). Let \(K = \ceil{\bracket{\lg M}^{\alpha}}\).
-	\item Let \(\pi_i\) denote the \(i_{\mathrm{th}}\) prime. Let \(\mathcal{M}' = \set{1, 2, 3 ,\dots, \pi_K}\) and \(K' = \ceil{\bracket{\lg \pi_K}^{\alpha}}\). 
+	\item Let \(p_i\) denote the \(i_{\mathrm{th}}\) prime. Let \(\mathcal{M}' = \set{1, 2, 3 ,\dots, p_K}\) and \(K' = \ceil{\bracket{\lg p_K}^{\alpha}}\). 
 	\item Let us denote the set \(\{1,2, \dots, \pi_l \}\) by \(\mathbb{Z}^+_l\).  Define the function \(\phi_l: \mathbb{N} \to \mathbb{Z}_{l}^+ \) as follows.
 	\begin{equation}
-		\func{\phi_l}{n} = [n \mod \pi_l] + 1
+		\func{\phi_l}{n} = [n \mod p_l] + 1
 	\end{equation}
-	Where \([n \mod \pi_l]\) is equal to the remainder of the division of \(n\) by \(\pi_l\).
+	Where \([n \mod p_l]\) is equal to the remainder of the division of \(n\) by \(p_l\).
 \end{itemize}
 A round of communication in this scheme is as follows.
 \begin{enumerate}
@@ -58,9 +58,9 @@ A round of communication in this scheme is as follows.
 		Any positive integers \(m\) has at most \(\floor{\lg m}\) unique prime factors. 
 	\end{lemma}
 	\begin{proof}
-		Suppose \(p_1, \dots, p_k\) are all the prime factors of \(m\). Then for some \(\alpha_1, \dots, \alpha_k \geq 1\)
+		Suppose \(q_1, \dots, q_k\) are all the prime factors of \(m\). Then for some \(\alpha_1, \dots, \alpha_k \geq 1\)
 		\begin{equation*}
-			m = \prod_{i = 1}^k p_i^{\alpha_i} \geq \prod_{i = 1}^{k} 2^{\alpha_i} \geq 2^k
+			m = \prod_{i = 1}^k q_i^{\alpha_i} \geq \prod_{i = 1}^{k} 2^{\alpha_i} \geq 2^k
 		\end{equation*}
 		As a result, \(k \leq \floor{\lg m}\) as required.
 	\end{proof}
@@ -71,7 +71,7 @@ A round of communication in this scheme is as follows.
 		\end{equation}
 	\end{lemma}
 	\begin{proof}
-		The given set is the set of common prime factors of \(m\) and \(\hat{m}\) that are less than or equal to \(\pi_K\). The inequality immediatly follows from the fact that \(m,\hat{m} \leq M\) and \(M\) has at most \(\lg M\) prime factors.
+		The given set is the set of common prime factors of \(m\) and \(\hat{m}\) that are less than or equal to \(p_K\). The inequality immediatly follows from the fact that \(m,\hat{m} \leq M\) and \(M\) has at most \(\lg M\) prime factors.
 	\end{proof}
 	We can derive an upper bound for the second kind error.
 	\begin{align}
@@ -80,24 +80,24 @@ A round of communication in this scheme is as follows.
 		& \qquad \condProb{\func{\phi_l}{\func{\phi_k}{m}} = \func{\phi_l}{\func{\phi_k}{\hat{m}}}}{\func{\phi_k}{m} \neq \func{\phi_k}{\hat{m}}, m \neq \hat{m}} \condProb{\func{\phi_k}{m} \neq \func{\phi_k}{\hat{m}}}{ m \neq \hat{m}}\\
 		&\leq \condProb{\func{\phi_k}{m} = \func{\phi_k}{\hat{m}}}{ m \neq \hat{m}} + \condProb{\func{\phi_l}{\func{\phi_k}{m}} = \func{\phi_l}{\func{\phi_k}{\hat{m}}}}{\func{\phi_k}{m} \neq \func{\phi_k}{\hat{m}}} \\
 		&\leq \dfrac{\lg M}{K} + \dfrac{\lg M'}{K'} \\
-		&= \dfrac{\lg M}{\ceil{\bracket{\lg M}^{\alpha}}} + \dfrac{\lg \pi_K}{\ceil{\bracket{\lg \pi_K}^{\alpha}}}\\
-		&= \dfrac{1}{\bracket{\lg M}^{\alpha - 1}} + \dfrac{1}{\bracket{\lg \pi_K}^{\alpha - 1}}
+		&= \dfrac{\lg M}{\ceil{\bracket{\lg M}^{\alpha}}} + \dfrac{\lg p_K}{\ceil{\bracket{\lg p_K}^{\alpha}}}\\
+		&\leq \dfrac{1}{\bracket{\lg M}^{\alpha - 1}} + \dfrac{1}{\bracket{\lg p_K}^{\alpha - 1}}
 	\end{align}
-	By the prime number theorem, \Cref{thm:pnt}, \(\pi_K \sim K \ln K\). As a result, \(\lambda_2 \to 0\) as \(M \to \infty\).
+	By the prime number theorem, \Cref{thm:pnt}, \(p_K \sim K \ln K\). As a result, \(\lambda_2 \to 0\) as \(M \to \infty\).
 	\begin{equation*}
-		\bracket{\lg \pi_K}^{\alpha - 1} \sim \bracket{\lg K + \lg \lg K - \lg \lg e}^{\alpha - 1} \approx \bracket{\alpha \lg \lg M + \lg\lg\lg M + \lg \alpha - \lg\lg e}^{\alpha - 1}
+		\bracket{\lg p_K}^{\alpha - 1} \sim \bracket{\lg K + \lg \lg K - \lg \lg e}^{\alpha - 1} \approx \bracket{\alpha \lg \lg M + \lg\lg\lg M + \lg \alpha - \lg\lg e}^{\alpha - 1}
 	\end{equation*}
-	Finally, the blocklength is calculated by \(n = \ceil{\lg K} + \ceil{\lg K'} + \ceil{\lg \pi_{K'}}\). By applying the prime number theorem \ref{lmm:ineqpnt}
+	Finally, the blocklength is calculated by \(n = \ceil{\lg K} + \ceil{\lg K'} + \ceil{\lg p_{K'}}\). By applying the prime number theorem \ref{thm:ineqpnt}
 	\begin{align*}
-		n &= \ceil{\lg K}  + \ceil{\lg K'} + \ceil{\lg \pi_{K'}}\\
-		&= \ceil{\lg \ceil{(\lg M)^{\alpha}}} + \ceil{\lg \ceil{(\lg \pi_K)^{\alpha}}} + \ceil{\lg \pi_{K'}}\\
-		&\approx \alpha \lg \lg M + \alpha \lg\lg \pi_K + \lg \pi_{K'}\\
+		n &= \ceil{\lg K}  + \ceil{\lg K'} + \ceil{\lg p_{K'}}\\
+		&= \ceil{\lg \ceil{(\lg M)^{\alpha}}} + \ceil{\lg \ceil{(\lg p_K)^{\alpha}}} + \ceil{\lg p_{K'}}\\
+		&\approx \alpha \lg \lg M + \alpha \lg\lg p_K + \lg p_{K'}\\
 		&\approx \alpha \lg \lg M + (1 + o(1))\lg\lg\lg M + (\alpha + o(1)) \lg \lg \pi_K \\
 		&\approx \alpha (1 + o(1)) \lg\lg M
 	\end{align*}
 	which was what was wanted.
 \end{proof}
-This scheme requires both sender and receiver to have access to a prime generation algorithm that given \(k\) computes the \(k_{\mathrm{th}}\) prime, \(\pi_k\). As we have mentioned earlier, this problem does not have polynomial algorithm yet. To alleviate these inefficiencies we propose the following modifications.
+This scheme requires both sender and receiver to have access to a prime generation algorithm that given \(k\) computes the \(k_{\mathrm{th}}\) prime, \(p_k\). As we have mentioned earlier, this problem does not have polynomial algorithm yet. To alleviate these inefficiencies we propose the following modifications.
 
 \subsection{Modified 3-step algorithm}\label{subsec:modified3step}
 Consider the following parameters.
@@ -137,24 +137,17 @@ A round of communication in this scheme is as follows.
 \end{theorem}
 
 \begin{proof}
-	The blocklength is calculated by \(n = \ceil{\lg \abs{\mathcal{K}}} + 2\ceil{\lg \abs{\mathcal{K}'}}\).
+	The blocklength is calculated by \(n = \ceil{\lg K} + \ceil{\lg K'} + \ceil{\lg l}\).
 	\begin{align}
-		n &= \ceil{\lg \abs{\mathcal{K}}} + 2\ceil{\lg \abs{\mathcal{K}'}}\\
-		&= \ceil{\lg K} + 2\ceil{\lg K'} \\
+		n &= \ceil{\lg K} + \ceil{\lg K'} + \ceil{\lg l}\\
+		&\approx \ceil{\lg K} + 2\ceil{\lg K'} \\
 		&\approx \alpha\lg\lg M +  2 \alpha \lg \lg K \\
 		&\approx \alpha\lg \lg M + 2\alpha \lg \lg \lg M + 2 \alpha \lg \alpha \\
 		&\approx \alpha(1 + \littleO{1}) \lg\lg M
 	\end{align}
 	which was what was wanted.
 \end{proof}
-The error analysis this code depends on the prime number generator. We will be using a simple prime number generator based on the Miller-Rabin primality test.
-\begin{theorem}\label{thm:modified3step}
-	The modified 3-step algorithm produces a \((n = \func{n}{M,\alpha}, M, \lambda_1 = 0, \lambda_2)\) identification code -- per \Cref{def:idcode}-- such that \(\lambda_2 \to 0\) as \(M \to \infty\). Moreover, this coding scheme is optimal.
-	\begin{equation}
-		\lim_{M \to \infty} \dfrac{\lg \lg M}{n(M)} = \frac{1}{\alpha}
-	\end{equation}
-\end{theorem}
-We employ the same techniques used by Ahlswede by first calculating the following probability.
+The error analysis this code depends on the prime number generator. We will be using the simple prime number generator \Cref{alg:GMR} based on the Miller-Rabin primality test.
 
 % \begin{lemma}
 % 	For any \(m,m' \in \mathcal{M} = \set{1,2, \dots,M}\) such that \(m \neq \hat{m}\)
@@ -227,26 +220,21 @@ We employ the same techniques used by Ahlswede by first calculating the followin
 \end{lemma}
 
 \begin{proof}
-Let \(\func{\omega}{n}\) denote the number of distinct prime factors of \(n\). For example, \(\func{\omega}{24} = \func{\omega}{2^3 \cdot 3} = 2\) and \(\func{\omega}{105} = \func{\omega}{3 \cdot 5 \cdot 7} = 3\).  It has been show that \cite{ramanujan} for all \(\epsilon > 0\) and sufficiently large values of \(n\)
+From \Cref{thm:uniqueprimeorder}, for all \(\delta > 0\) and sufficiently large \(n\),
 \begin{equation}
-	\abs{\func{\omega}{n} - \dfrac{\ln n}{\ln \ln n}} \leq \epsilon
+	\func{\omega}{n}\leq   \dfrac{\ln n}{\ln \ln n} +\delta
 \end{equation}
 Then, by the previous argument
     \begin{equation}
-        \dfrac{\abs{\set<\pi \leq K>{\func{\phi_{\pi}}{m} = \func{\phi_{\pi}}{\hat{m}}} }}{\abs{\set{\pi \leq K}}} \leq \dfrac{\max_{c \in \mathcal{M}}\func{\omega}{c}}{\func{\pi}{K}} \approx \dfrac{\lg M}{\func{\pi}{K} \lg \lg M} 
+        \dfrac{\abs{\set<\pi \leq K>{\func{\phi_{\pi}}{m} = \func{\phi_{\pi}}{\hat{m}}} }}{\abs{\set{\pi \leq K}}} \leq \dfrac{\max_{c \in \mathcal{M}}\func{\omega}{c}}{\func{\pi}{K}} \leq \dfrac{\lg M}{\func{\pi}{K} \lg \lg M} 
     \end{equation}
-    and by prime number theorem 
-    \begin{equation*}
-        \func{\pi}{K} =\dfrac{K}{\lg K}
-    \end{equation*}
-    As a result, 
+    Therefore,
     \begin{align}
         \condProb{\func{\phi_p}{m} = \func{\phi_p}{\hat{m}}}{ m\neq \hat{m} } &= \condProb{\func{\phi_p}{m} = \func{\phi_p}{\hat{m}}}{ p \in \mathcal{P}, m\neq \hat{m} }\prob{p \in \mathcal{P}} \\
         &\qquad + \condProb{\func{\phi_p}{m} = \func{\phi_p}{\hat{m}}}{ p \notin \mathcal{P}, m\neq \hat{m} }\prob{p \notin \mathcal{P}}\\
         &\leq \condProb{\func{\phi_p}{m} = \func{\phi_p}{\hat{m}}}{ p \in \mathcal{P}, m\neq \hat{m} } + \epsilon\\
-        &\leq \dfrac{\lg M}{\func{\pi}{K} \lg \lg M}  + \epsilon\\
-        &\approx \dfrac{\lg M \lg K}{K \lg \lg M} + \epsilon
-    \end{align}
+        &\leq \dfrac{\lg M}{\func{\pi}{K} \lg \lg M}  + \epsilon
+	\end{align}
 \end{proof}
 
 The proof of \Cref{thm:modified3step} works as follows.
@@ -261,15 +249,15 @@ The proof of \Cref{thm:modified3step} works as follows.
          &\qquad \condProb{ \func{\phi_k}{m} \neq  \func{\phi_k}{\hat{m}} }{m \neq \hat{m}}\nonumber\\
 		 &\leq \condProb{ \func{\phi_k}{m} = \func{\phi_k}{\hat{m}} }{m \neq \hat{m}} + \condProb{\func{\phi_l}{\func{\phi_k}{m}} = \func{\phi_l}{\func{\phi_k}{\hat{m}}} }{ \func{\phi_k}{m} \neq \func{\phi_k}{\hat{m}}} \\
 		 &\leq \dfrac{\lg M}{\func{\pi}{K} \lg\lg M} + \dfrac{\lg K}{\func{\pi}{K'} \lg\lg K} + 2\epsilon &&& \text{(\Cref{lmm:modified})}  \\
-		 &\approx \dfrac{\func{\lg}{M} \func{\lg}{K}}{ K \lg\lg M }+ \dfrac{\func{\lg}{K} \func{\lg}{K'}}{ K' \lg\lg K }  + 2\epsilon &&& \text{(PNT)}\\
-		 &\approx \dfrac{ \alpha \lg \lg M}{ \bracket{\lg M}^{\alpha-1} \lg\lg M }+ \dfrac{ \alpha \lg \lg K}{ \bracket{\lg K}^{\alpha-1} \lg\lg K }   + 2\epsilon\\
-		 &= \dfrac{ \alpha}{ \bracket{\lg M}^{\alpha-1}}+ \dfrac{ \alpha }{ \bracket{\lg K}^{\alpha-1}} +2\epsilon
+		 &\leq \dfrac{6\func{\lg}{M} \func{\lg}{K}}{ K \lg\lg M }+ \dfrac{6\func{\lg}{K} \func{\lg}{K'}}{ K' \lg\lg K }  + 2\epsilon &&& \text{(\Cref{thm:ineqpnt})}\\
+		 &\approx \dfrac{6 \alpha \lg \lg M}{ \bracket{\lg M}^{\alpha-1} \lg\lg M }+ \dfrac{6 \alpha \lg \lg K}{ \bracket{\lg K}^{\alpha-1} \lg\lg K }   + 2\epsilon\\
+		 &= \dfrac{6 \alpha}{ \bracket{\lg M}^{\alpha-1}}+ \dfrac{6 \alpha }{ \bracket{\lg K}^{\alpha-1}} +2\epsilon
 	\end{align}
 	Since \(\epsilon\) can be chosen as small as possible, then \(\lambda_2 \to 0\) as \(M \to \infty\). 
 \end{proof}
 
 \subsection{Performance}
-As oppose to the original 3-step algorithm of Ahlswede, in our revision most of the work is done by the transmitter. Specifically, the transmitter runs the prime number generator \(\mathcal{A}\) twice. Suppose the simple \Cref{alg:trivialRPNG} is used with Miller-Rabin primality test. By the analysis given in the \Cref{subsec:unifprime}, this algorithm in average runs in \(\bigO{\bracket{\lg n}^4}\) where \(n\) is its input. Therefore, on input \(K\), the algorithm runs in 
+As oppose to the original 3-step algorithm of Ahlswede, in our revision, most of the work is done by the transmitter. Specifically, the transmitter runs the prime number generator \(\mathcal{A}\) twice. Suppose the simple \Cref{alg:GMR} is used with Miller-Rabin primality test. By the analysis given in the \Cref{subsec:unifprime}, this algorithm in average terminate in \(\bigO{\bracket{\lg n}^4}\) where \(n\) is its input. Therefore, on input \(K\), the algorithm runs in 
 \begin{equation*}
     \bigO{\bracket{\lg K}^4} = \bigO{\bracket{\alpha \lg \lg M }^4} = \bigO{n^4}
 \end{equation*}
@@ -277,19 +265,19 @@ and on input \(K'\), it runs in
 \begin{equation*}
     \bigO{\bracket{\lg K'}^4} = \bigO{\bracket{\alpha \lg \lg K }^4} = \bigO{\bracket{\lg n}^4}
 \end{equation*}
-All together, we have significantly improved time complexity of the scheme without affecting its error probability or blocklength. 
+All together, we have significantly improved time complexity of the scheme without affecting its error probability or blocklength. We should mention that this is the time complexity to generate prime numbers. To compute the actual code, we need to divide a \(2^n\)-bit message by an \(n\)-bit prime. However, this is common in all identification schemes as we are required to process exponentially larges messages. 
 \subsection{Simulation}
 We have implemented a code that mainly runs the \Cref{alg:trivialRPNG} to produce two probable prime numbers. Then it calculates the blocklength, error probability, and the running time of the simulation. On \(\alpha = 1.01\) we get the following curves.
-% \begin{figure}
-% 	\includegraphics*[height = 0.4 \textheight]{graphic/primarymessage.png}
-% 	\caption{The \(\lg \lg \) of the number of message vs block length curve}
-% \end{figure}
-% \begin{figure}
-% 	\includegraphics*[height = 0.4 \textheight]{graphic/primaryerror.png}
-% 	\caption{The average second kind error vs block length curve}
-% \end{figure}
-% \begin{figure}
-% 	\includegraphics*[height = 0.4 \textheight]{graphic/primarytime.png}
-% 	\caption{The average running time vs block length curve}
-% \end{figure}
+\begin{figure}
+	\includegraphics*[height = 0.4 \textheight]{graphic/msg26.png}
+	\caption{The block length vs \(\lg \lg \) of the number of messages curve. The block length is calculated as the \(\ceil{\lg k} + 2 \ceil{\lg l}\) where \(k,l\) are the probable primes generated. The \(\lg \lg \) of the number of messages are incremented by 100.}
+\end{figure}
+\begin{figure}
+	\includegraphics*[height = 0.4 \textheight]{graphic/errwo26.png}
+	\caption{The average second kind error vs  \(\lg \lg \) of the number of messages curve. The second kind error is calculated as \(1/l\) where \(l\) is the second probable prime generated. Furthermore, the average taken over 600 rounds of simulation. The \(\lg \lg \) of the number of messages are incremented by 100.}
+\end{figure}
+\begin{figure}
+	\includegraphics*[height = 0.4 \textheight]{graphic/time26.png}
+	\caption{The average time vs \(\lg \lg \) of the number of messages curve. The time it takes to generate two probable primes and the average taken over 600 rounds of simulation. The \(\lg \lg \) of the number of messages are incremented by 100.}
+\end{figure}
 \newpage

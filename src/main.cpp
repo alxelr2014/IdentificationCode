@@ -23,7 +23,7 @@ uint64_t round(uint64_t dividend, uint64_t divisor){
 
 int main(int argv, char *argc[])
 {
-    uint64_t loglog_number_of_messages = (argv >= 2) ? stoull(argc[1]) : 4;
+    uint64_t loglog_number_of_messages = (argv >= 2) ? stoull(argc[1]) : 3;
     uint64_t block_length = (argv >= 3) ? atoi(argc[2]) : 0;
     uint64_t number_of_simulation = (argv >= 4) ? atoi(argc[3]) : 30;
     uint64_t number_of_encoding_iteration = (argv >= 5) ? atoi(argc[4]) : 2;
@@ -43,7 +43,7 @@ int main(int argv, char *argc[])
     for (uint64_t i = 0; i < number_of_simulation; i++)
     {
         start = high_resolution_clock::now();
-        uint64_t result =  simulate_nonprime(loglog_number_of_messages,number_of_encoding_iteration,alpha,avg_error);
+        uint64_t result =  simulate(loglog_number_of_messages,number_of_encoding_iteration,alpha,avg_error);
         end = high_resolution_clock::now();
 
         avg_time += duration_cast<std::chrono::microseconds>(end-start).count();

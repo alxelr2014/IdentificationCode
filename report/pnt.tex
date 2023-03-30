@@ -1,31 +1,29 @@
 \subsection{Prime Number Theorem}
-\begin{theorem}[\cite{apostol}]\label{thm:pnt}
+\begin{theorem}[{{\cite[Chapter~4]{apostol}}}]\label{thm:pnt}
 	Let \(\pi(x)\) denote the number of primes less than or equal to \(x \geq 1\). The prime number theorem states that 
-	\begin{equation*}
+	\begin{equation}
 		\lim_{x \to \infty} \dfrac{\pi(x) \ln x}{x} = 1
-	\end{equation*}
+	\end{equation}
 	That is, \(\pi(x) \sim \dfrac{x}{\ln x}\). This implies that \(n\)-th prime \(p_n\) is asymptotically given by \(p_n \sim n \ln n\).
 \end{theorem}
 
 Moreover, we may frequently use these exact bounds on \(\pi(x)\).
-\begin{lemma}[\cite{apostol}]\label{lmm:ineqpnt}
+\begin{theorem}[{{\cite[Theorem~4.6,4.7]{apostol}}}]\label{thm:ineqpnt}
 	For any \(n \geq 2\), 
-	\begin{equation*}
+	\begin{equation}
 		\dfrac{1}{6} \dfrac{n}{\ln n} \leq \pi(n) \leq 6 \dfrac{n}{\ln n}
-	\end{equation*}
+	\end{equation}
 	and for any \(n \geq 1\),
-	\begin{equation*}
+	\begin{equation}
 		\dfrac{1}{6} n \ln n \leq p_n \leq 12 (n \ln n + n \ln \frac{12}{e})
-	\end{equation*}
-\end{lemma}
+	\end{equation}
+\end{theorem}
 
+\begin{theorem}[\cite{ramanujan}]\label{thm:uniqueprimeorder}
+	Let \(\func{\omega}{n}\) denote the number of distinct prime factors of \(n\).  For all \(\epsilon > 0\) and sufficiently large values of \(n\)
+\begin{equation}
+	\func{\omega}{n}  \leq \dfrac{\ln n}{\ln \ln n} + \epsilon
+\end{equation}
+\end{theorem}
 
-% \begin{theorem}[Chapter 22.10 Theorem 430 \cite{hardy}]\label{thm:uniqueprimeorder}
-% 	For almost all natural numbers \footnote{
-% 		That is, as \(x \to \infty\) the ratio of the number of natural numbers \(n \leq x\) that do not satisfy the given property, to \(x\), approaches 0.
-% 	} and for all \(\delta > 0\)
-% 	\begin{equation*}
-% 		\abs{\func{\omega}{n} - \ln \ln n} < \bracket{\ln \ln}^{1/2 + \delta}
-% 	\end{equation*} 
-% 	holds.
-% \end{theorem}
+%For example, \(\func{\omega}{24} = \func{\omega}{2^3 \cdot 3} = 2\) and \(\func{\omega}{105} = \func{\omega}{3 \cdot 5 \cdot 7} = 3\).

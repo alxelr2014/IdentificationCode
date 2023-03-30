@@ -44,8 +44,8 @@ uint64_t simulate(uint64_t loglog_number_of_messages,  uint64_t number_of_encodi
 
 
     // is it the actual number of bit ?!
-    *getOutputStream() << "The first key is " << prime1 << " with " << bit1 << " bits." << '\n';
-    *getOutputStream() << "The second key is " << prime2 << " with " << bit2 << " bits." << '\n';
+    *getOutputStream() << "The first key is " << prime1 << " with " <<  mpz_sizeinbase(prime1,2) << " bits.\n";
+    *getOutputStream() << "The second key is " << prime2 << " with " <<  mpz_sizeinbase(prime2,2) << " bits.\n";
 
     mpq_t error;
     mpq_init(error);
@@ -53,7 +53,7 @@ uint64_t simulate(uint64_t loglog_number_of_messages,  uint64_t number_of_encodi
     mpq_canonicalize(error);
     mpq_inv(error,error);
     mpq_add(avg_error,avg_error,error);
-    uint64_t block_length = bit1 + 2 * bit2;
+    uint64_t block_length =  mpz_sizeinbase(prime1,2) + 2 *  mpz_sizeinbase(prime2,2);
     return block_length;
 }
 

@@ -61,8 +61,8 @@ def get_sigdig(n):
 
 def msg_graph(data):
     graph_dict = {}
-    graph_dict["x_label"] =  "Block Length"
-    graph_dict["y_label"] = "LogLog2 of the Number of Messages"
+    graph_dict["x_label"] =  "LogLog2 of the Number of Messages"
+    graph_dict["y_label"] = "Block Length"
     graph_dict["legend_loc"] = 'upper left'
 
     x_max = np.max(data["x"])
@@ -85,7 +85,7 @@ def msg_graph(data):
 
 def error_graph(data):
     graph_dict = {}
-    graph_dict["x_label"] =  "Block Length"
+    graph_dict["x_label"] = "LogLog2 of the Number of Messages"
     graph_dict["y_label"] = "Second Kind Error"
     graph_dict["legend_loc"] = 'upper left'
 
@@ -104,7 +104,7 @@ def error_graph(data):
 
 def error_graphwo(data):
     graph_dict = {}
-    graph_dict["x_label"] =  "Block Length"
+    graph_dict["x_label"] =  "LogLog2 of the Number of Messages"
     graph_dict["y_label"] = "Second Kind Error"
     graph_dict["legend_loc"] = 'upper left'
 
@@ -129,7 +129,7 @@ def error_graphwo(data):
 
 def time_graph(data):
     graph_dict = {}
-    graph_dict["x_label"] =  "Block Length"
+    graph_dict["x_label"] =  "LogLog2 of the Number of Messages"
     graph_dict["y_label"] = "Average Simulation Time(µs)"
     graph_dict["legend_loc"] = 'upper left'
     
