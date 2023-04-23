@@ -1,8 +1,8 @@
 \section{Prime Number Generation}
 \subsection{Uniform prime generation}\label{subsec:unifprime}
-The original 3-step algorithm \cite{multiway} generates two random prime numbers that are distributed uniformly in a given interval. Ahlswede \textit{el al} use these prime numbers to encrypt the message which is represented by a number. This encryption achieves the channel capacity in the case of noiseless binary symmetric channel. Moreover, it can be shown that the second kind error probability of this scheme tends to zero asymptotically. 
+The original 3-step algorithm \cite{multiway} generates two random prime numbers that are distributed uniformly in a given interval. Ahlswede \textit{el al} use these prime numbers to encrypt the message which is represented by a number. This encryption achieves the channel capacity in the case of noiseless binary symmetric channel. Moreover, it is shown that the second kind error probability of this scheme tends to zero asymptotically. 
 
-To generate uniform primes on the interval \(\opcl{1}{p_K}\), Ahlswede \textit{et al} pick a random index \(k \gets \set{1, \dots, K}\) and then calculate \(p_k\). Although this method minimizes the number random bits and generates exactly uniform primes, it is computationally expensive as the current best algorithms computing the first \(K\) primes in subexponential time in number of bits of \(K\). For example, the Atkin's sieve \cite{atkin} runs in \(\bigO{K / \lg \lg K}\). Even if we restrict ourselves to only computing \(p_k\), the best algorithms are still subexponential. In \cite[Chapter 9.9]{bach}, it is shown that \(\pi_k\) can be computed efficiently given an oracle that compute \(\func{\pi}{x}\) and vice versa. The current best algorithm for computing \(\func{\pi}{x}\) runs in \(\bigO{x^{1/2 + \epsilon}}\)\cite{lagarias} for any \(\epsilon > 0\) which is still subexponential in the number of bits of \(x\).  
+To generate uniform primes on the interval \(\opcl{1}{p_K}\), Ahlswede \textit{et al} pick a random index \(k \gets \set{1, \dots, K}\) and then calculate \(p_k\). Although this method minimizes the number random bits and generates exactly uniform primes, it is computationally expensive as the current best algorithms computing the first \(K\) primes in subexponential time in the size of the input, the number of bits of \(K\). For example, the Atkin's sieve \cite{atkin} runs in \(\bigO{K / \lg \lg K}\). Even if we restrict ourselves to only computing \(p_k\), the best algorithms are still subexponential. In \cite[Chapter 9.9]{bach}, it is shown that \(p_k\) can be computed efficiently given an oracle that compute \(\func{\pi}{x}\) and vice versa. The current best algorithm for computing \(\func{\pi}{x}\) runs in \(\bigO{x^{1/2 + \epsilon}}\)\cite{lagarias} for any \(\epsilon > 0\) which is still subexponential in the number of bits of \(x\).  
 
 To improve the time complexity of the encryption scheme, we look for polynomial time algorithms that produce \textit{almost} uniform primes with the least number of random bits possible. A trivial algorithms for producing uniform primes is given in \Cref{alg:trivialPNG}.
 \begin{algorithm}
@@ -23,7 +23,7 @@ When we use a deterministic primality test in \cref{line:primality} of \Cref{alg
 \begin{equation}
     \dfrac{\func{\pi}{n}}{n} \sim \dfrac{1}{\ln n}
 \end{equation}
-Hence, on average after \(\bigO{\lg n}\) steps a prime number \(p\) is chosen. As a result, \Cref{alg:trivialPNG} uses an average of \(\bigO{\bracket{\lg n}^2}\) random bits. The current state-of-the-art deterministic primality tests, AKS, runs in \(\logBigO{\bracket{\lg n}^6}\) \cite{lenstra} which means that on average \Cref{alg:trivialPNG} terminates in \(\logBigO{\bracket{\lg n}^7}\). 
+Hence, on average in \(\bigO{\lg n}\) steps a prime number \(p\) is chosen. As a result, \Cref{alg:trivialPNG} uses an average of \(\bigO{\bracket{\lg n}^2}\) random bits. The current state-of-the-art deterministic primality tests, AKS, runs in \(\logBigO{\bracket{\lg n}^6}\) \cite{lenstra} which means that on average \Cref{alg:trivialPNG} terminates in \(\logBigO{\bracket{\lg n}^7}\). 
 
 We can further improve the time complexity of the \Cref{alg:trivialPNG} if we use randomized primality tests. These tests can determine whether a number \(p\) is prime with high probability. 
 \begin{algorithm}
@@ -40,12 +40,12 @@ We can further improve the time complexity of the \Cref{alg:trivialPNG} if we us
     \label{alg:trivialRPNG}
 \end{algorithm}
 
-For example, the Miller-Rabin test might declare a composite number as a prime, however, this happens with low probability, as low as desired. The output of the \Cref{alg:trivialRPNG} is not a unifrom prime number as it can be composite, however, the distribution of prime numbers is equiprobable over all primes. Each round of the Miller-Rabin test, it uses \(\lg p\) random bits where \(p\) is the number that is to be tested. Therefore, we still use an average of \(\bigO{\bracket{\lg n}^2}\) random bits. The test itself runs in \(\bigO{\bracket{\lg n}^3}\) \cite{bach} hence, the \Cref{alg:trivialRPNG} terminates in \(\bigO{\bracket{\lg n}^4}\).
+For example, the Miller-Rabin test might declare a composite number as a prime, however, this happens with low probability, as low as desired. The output of the \Cref{alg:trivialRPNG} is not a unifrom prime number as it can be composite, however, the distribution of prime numbers is equiprobable over all primes less than \(n\). Each round of the Miller-Rabin test, it uses \(\lg p\) random bits where \(p\) is the number that is to be tested. Therefore, we still use an average of \(\bigO{\bracket{\lg n}^2}\) random bits. The test itself runs in \(\bigO{\bracket{\lg n}^3}\) \cite{bach} thus, the \Cref{alg:trivialRPNG} terminates in \(\bigO{\bracket{\lg n}^4}\).
 
 In this report, we implement the Miller-Rabin test since it is more efficient and easier to implement. Furthermore, by exectuing this test an appropriate number of rounds, we can ensure that the resulting distribution is statistically close to the uniform distribution over primes.
 
 \subsection{Miller-Rabin analysis}
-Miller-Rabin is a well-known random primality test algorithm. Let \(\func{MR}{n,k}\) be the distribution of Miller-Rabin algorithm on the prime candidate \(n\) with \(k\) repeats. Let \(\mathcal{P}\) be the set of primes, then from \cite[Theorem~9.4.5]{bach} we have the following probabilities.
+Miller-Rabin is a well-known random primality test algorithm. Let \(\func{MR}{n,k}\) be the distribution of Miller-Rabin algorithm on the prime candidate \(n\) with \(k\) tests. Let \(\mathcal{P}\) be the set of primes, then from \cite[Theorem~9.4.5]{bach} we have the following probabilities.
 \begin{align}
 	&\condProb{\func{MR}{n,k} = 1}{n \in \mathcal{P}} = 1\\
 	&\condProb{\func{MR}{n,k} = 1}{n \notin \mathcal{P}} \leq 4^{-k}
@@ -83,11 +83,11 @@ for sufficiently large \(N\) by the Taylor series approximation.
 
 The probability that the result of \(GMR(N,s,k)\) is composite, given that it is not \(\perp\) is as follows.
 \begin{align}
-	\condProb{\func{GMR}{N,s,k} \notin P}{\func{GMR}{N,s,k} \neq \perp} &\leq \sum_{i = 1}^s \prob{\func{MR}{n_i, k} = 1, n_i \notin P } &&& \text{(Union bound)}\\
+	\condProb{\func{GMR}{N,s,k} \notin P}{\func{GMR}{N,s,k} \neq \perp} &\leq \sum_{i = 1}^s \prob{\func{MR}{n_i, k} = 1, n_i \notin P } && \text{(Union bound)} \nonumber\\
 	&= \sum_{i = 1}^s \condProb{\func{MR}{n_i, k} = 1}{ n_i \notin P }\prob{n_i \notin P}\\
 	&\leq \sum_{i = 1}^s 4^{-k} \bracket{1 - \dfrac{\func{\pi}{N}}{N}}\\
 	&= s 4^{-k}\bracket{1 - \dfrac{\func{\pi}{N}}{N}}\\
-	&\leq s4^{-k}\bracket{1 - \dfrac{1}{6\ln N}} &&& \text{(\Cref{thm:ineqpnt})}
+	&\leq s4^{-k}\bracket{1 - \dfrac{1}{6\ln N}} &&\text{(\Cref{thm:ineqpnt})} \nonumber
 \end{align}
 If we bound this error probability with \(\delta\), then we get the following bound on \(s\).
 \begin{equation}

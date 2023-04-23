@@ -3,6 +3,10 @@ import math
 import numpy as np
 
 
+
+plt.rc('axes', labelsize=12)    # fontsize of the x and y labels
+plt.rc('legend', fontsize=12)    # legend fontsize
+
 def get_good_point(data):
     size_list = len(data["x"])
     num_points = 10
@@ -32,7 +36,7 @@ def plotting(data, graph,path):
     if "y_label" in graph:
         plt.ylabel(graph["y_label"])
 
-    ax.tick_params(axis = 'both', which = 'major', labelsize = 6)
+    ax.tick_params(axis = 'both', which = 'major', labelsize = 10)
     ax.tick_params(axis = 'both', which = 'minor', labelsize = 0)
 
     ax.tick_params(which = 'both', direction = 'out')    
@@ -61,7 +65,7 @@ def get_sigdig(n):
 
 def msg_graph(data):
     graph_dict = {}
-    graph_dict["x_label"] =  "LogLog2 of the Number of Messages"
+    graph_dict["x_label"] =  "LgLg of the Number of Messages"
     graph_dict["y_label"] = "Block Length"
     graph_dict["legend_loc"] = 'upper left'
 
@@ -85,7 +89,7 @@ def msg_graph(data):
 
 def error_graph(data):
     graph_dict = {}
-    graph_dict["x_label"] = "LogLog2 of the Number of Messages"
+    graph_dict["x_label"] = "LgLg of the Number of Messages"
     graph_dict["y_label"] = "Second Kind Error"
     graph_dict["legend_loc"] = 'upper left'
 
@@ -104,7 +108,7 @@ def error_graph(data):
 
 def error_graphwo(data):
     graph_dict = {}
-    graph_dict["x_label"] =  "LogLog2 of the Number of Messages"
+    graph_dict["x_label"] =  "LgLg of the Number of Messages"
     graph_dict["y_label"] = "Second Kind Error"
     graph_dict["legend_loc"] = 'upper left'
 
@@ -129,8 +133,8 @@ def error_graphwo(data):
 
 def time_graph(data):
     graph_dict = {}
-    graph_dict["x_label"] =  "LogLog2 of the Number of Messages"
-    graph_dict["y_label"] = "Average Simulation Time(µs)"
+    graph_dict["x_label"] =  "LgLg2 of the Number of Messages"
+    graph_dict["y_label"] = "Average Simulation Time(ms)"
     graph_dict["legend_loc"] = 'upper left'
     
     x_max = np.max(data["x"])

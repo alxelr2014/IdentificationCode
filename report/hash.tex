@@ -3,11 +3,11 @@ In the 3-step algorithm, we produce two random prime numbers and then compute a 
 \begin{equation}
     \func{P_{e,2}}{i,\hat{i}} = \prob{\func{T_i}{j} = \func{T_{\hat{i}}}{j}}.
 \end{equation} 
-When \(j\) is chosen uniformly, this probability can be viewed as the probability of the collision of the hash function \(\func{h_j}{x} = \func{T_x}{j}\). The families of hash function for which this probability of collision is bounded are called \textit{almost universal}. A formal definition was first given in \cite{carter} which is as follows.
+When \(j\) is chosen uniformly, this probability can be viewed as the probability of the collision of the hash function \(\func{h_j}{x} = \func{T_x}{j}\). The families of hash functions for which this probability of collision is bounded are called \textit{almost universal}. A formal definition was first given in \cite{carter} which is as follows.
 \begin{definition}
     Let \(H = \set{h : X \to Y}\) be a family of hash functions from \(X\) to \(Y\) and let \(\epsilon\) be a positive real number. \(H\) is said to be \(\epsilon\)-almost universal if for all distinct \(x_1, x_2 \in X\) 
     \begin{equation}
-        \set<h \in H>{\func{h}{x_1} = \func{h}{x_2}} \leq \epsilon \abs{H}
+        \abs{\set<h \in H>{\func{h}{x_1} = \func{h}{x_2}}} \leq \epsilon \abs{H}
     \end{equation}
     If \(h \gets H\) uniformly, 
     \begin{equation}
@@ -36,13 +36,14 @@ And the second kind error probability is given by
 \begin{equation}
     \condProb{\func{h_a}{m} = \func{h_a}{\hat{m}}}{m \neq \hat{m}} \leq \epsilon
 \end{equation}
+Thus, we have shown the following statement.
 \begin{theorem}
-    If there exists a class of \(\epsilon\)-almost universal hash functions \(H = \set{h_a : \mathbb{F}_q^n \to \mathbb{F}_q}_{a \in [I]}\), then there exists a \((\lg I + \lg q, q^n,0, \epsilon )\) identification code for noiseless binary channel.
+    If there exists a class of \(\epsilon\)-almost universal hash functions \(H = \set{h_a : \mathbb{F}_q^n \to \mathbb{F}_q}_{a \in [I]}\) then there exists a \((\lg I + \lg q, q^n,0, \epsilon )\) identification code for noiseless binary channel.
 \end{theorem}
 
 \subsection{Formulation of 3-step algorithm in terms of universal hash function}
 
- We now give an explicit constuction of the \Cref{def:hash3step} according to the \Cref{subsec:modified3step}. Let \(\func{A}{n} = \set{1,2, \dots, 2^n }\), \(\func{B}{n} = \set{1,2, \dots ,n^{\alpha} }\) for some \(\alpha > 1\), \(K = \set{2, 3, \dots, p_{\func{\pi}{n^{\alpha}}}}\), and \(\func{H}{n} = \set<h_k : A \to B>{k \in K}\) given as follows.
+ We now give an explicit constuction of the \Cref{def:hash3step} according to the \Cref{subsec:modified3step}. Let \(\func{A}{n} = \set{1,2, \dots, 2^n }\), \(\func{B}{n} = \set{1,2, \dots ,n^{\alpha} }\) for some \(\alpha > 1\), \(K = \set{2, 3, \dots, p_{\func{\pi}{n^{\alpha}}}}\), and define hash family \(\func{H}{n} = \set<h_k : A \to B>{k \in K}\) given as follows.
  \begin{equation}
     \func{h_p}{a} = \squareBracket{a \mod p} + 1
  \end{equation}
@@ -60,7 +61,7 @@ And the second kind error probability is given by
  \end{proof}
  Note that, \(H\) digests input exponentially, therefore, if we use \(H\) twice we can achieve double exponential compression. Firstly, consider the follwoing composition lemma.
  \begin{lemma}\label{lmm:hashcomp}
-    Suppose \(H_1: A \to B\) and \(H_2: B \to C\) are \(\epsilon_1\) and \(\epsilon_2\)-almost universal, respectively. The hash famliy \(H = H_2 \circ H_1 : A \to C = \set<h_2 \circ h_1>{h_1 \in H_1, h_2 \in H_2}\) is \(\epsilon = \epsilon_1 + \epsilon_2\)-almost unviersal.
+    Suppose \(H_1: A \to B\) and \(H_2: B \to C\) are \(\epsilon_1\) and \(\epsilon_2\)-almost universal, respectively. The hash famliy \(H = H_2 \circ H_1 : A \to C = \set<h_2 \circ h_1>{h_1 \in H_1, h_2 \in H_2}\) is \(\epsilon =( \epsilon_1 + \epsilon_2)\)-almost unviersal. It is shown that \(H\) is \((\epsilon_1 + \epsilon_2 - \epsilon_1\epsilon_2)\)-almost universal \cite{bierbrauer}.
  \end{lemma}
 
 \begin{proof}
@@ -72,14 +73,56 @@ And the second kind error probability is given by
     \end{align}
 \end{proof}
 
-By \Cref{lmm:hashuniv} and \Cref{lmm:hashcomp}, the hash family \(\func{H^2}{n} = \func{H}{n} \circ \func{H}{2^n}\) is
+By \Cref{lmm:hashuniv} and \Cref{lmm:hashcomp}, the hash family \(\func{H^2}{n} = \func{H}{\alpha n} \circ \func{H}{2^n}\) is
 \begin{equation}
-    \epsilon = \frac{\alpha}{n^{\alpha - 1}} + \frac{\alpha}{2^{n \bracket{\alpha - 1}}} = \bigO{\dfrac{1}{n^{\alpha - 1}}}
+    \epsilon = \frac{\alpha}{(\alpha n)^{\alpha - 1}} + \frac{\alpha}{2^{n \bracket{\alpha - 1}}} = \bigO{\dfrac{1}{n^{\alpha - 1}}}
 \end{equation}
-almost universal which maps \(A = \set{0, 1, \dots, 2^{2^n}}\) to \(C = \set{1, \dots, n^{\alpha}}\). \footnote{there are some mistakes here, fix later}.
+-almost universal which maps \(A = \set{0, 1, \dots, 2^{2^n}}\) to \(C = \set{1, \dots, (\alpha n)^{\alpha}}\).
 \subsection{Current Directions}
-One way to construct identification codes is by re-purposing error correcting code \cite{verdu,derebeyoglu}. The methods described in \cite{verdu,derebeyoglu} use the error correction codes to construct a tag function. As a matter of fact, Bierbrauer \textit{et al} \cite{bierbrauer} has shown the equivalence between error correcting codes and almost universal hash function. 
+One way to construct identification codes is by re-purposing error correcting codes \cite{verdu,derebeyoglu}. The methods described in \cite{verdu,derebeyoglu} use the error correction codes to construct a tag function. As a matter of fact, Bierbrauer \textit{et al} \cite{bierbrauer} has shown the equivalence between error correcting codes and almost universal hash function. 
 
-\begin{theorem}
-    If there is a \([n,k,d]_q\) code, then there exists a \(1- \frac{d}{n}\)-almost universal hash family \(H = \set{h_a : \mathbb{F}_q^k \to \mathbb{F}_q}_{a \in [n]}\) and conversely, if there is a \(\epsilon\)-almost universal hash family \(H = \set{h_a :  \mathbb{F}_q^k \to \mathbb{F}_q}_{a \in [n]}\), then there exists a \([n, k,n(1- \epsilon)]_q\) code.
+\begin{theorem}\label{thm:hasheqid}
+    If there is a \([n,k,d]_q\) code, then there exists a \((1- \frac{d}{n})\)-almost universal hash family \(H = \set{h_a : \mathbb{F}_q^k \to \mathbb{F}_q}_{a \in [n]}\) and conversely, if there is a \(\epsilon\)-almost universal  \(H = \set{h_a :  \mathbb{F}_q^k \to \mathbb{F}_q}_{a \in [n]}\) then there exists a \([n, k,n(1- \epsilon)]_q\) code.
 \end{theorem}
+
+This theorem gives us the framework needed to compare code-based identification schemes such as \cite{derebeyoglu}.
+
+\begin{example}
+    The 3-step algorithm is equivalent to almost universal hash family \(H^2\), as described above. The hash functions are indexed by
+    \begin{equation}
+        I = \set<(p_i,p_j)>{1 \leq i \leq \func{\pi}{2^{n\alpha}},\; 1 \leq j \leq (\alpha n)^{\alpha} }
+    \end{equation}
+    Instead of transmitting the indicies \((i,j)\) we transmit the actual key \((p_i,p_j)\). Thus, to transmit a key pair we need send \(n_1\) bits.
+    \begin{align}
+        n_1 &= \lg p_{\func{\pi}{2^{n\alpha}}} + \lg p_{\func{\pi}{(\alpha n)^{\alpha}}}\\
+        &\sim \lg \func{\pi}{2^{n\alpha}} + \lg \ln \func{\pi}{2^{n\alpha}} + \lg \func{\pi}{(\alpha n)^{\alpha}} + \lg \ln \func{\pi}{(\alpha n)^{\alpha}}\\
+        &= \bracket{1 + \littleO{1}} \lg \func{\pi}{2^{n\alpha}}\\
+        &\sim \bracket{1 + \littleO{1}} \bracket{\lg {2^{n\alpha}} - \lg \ln 2^{n\alpha}}\\
+        &= \bracket{1 + \littleO{1}} \alpha n
+    \end{align}
+    The output set is \(\set{1,\dots, (\alpha n)^{\alpha}}\) which requires \(\alpha \lg \alpha n\) bits to transmit. Therefore, the total blocklength is \(n' = \bracket{1 + \littleO{1}} \alpha n\). The input set is \(\set{1,\dots, 2^{2^n}}\) and the probability of collision is bounded by \(\bigO{\frac{1}{n^{\alpha - 1}}}\). As a result, we have an 
+    \begin{equation}
+        \bracket{\bracket{1 + \littleO{1}} \alpha n,\; 2^{2^n},\; 0,\; \bigO{\dfrac{1}{n^{\alpha - 1}}}}
+    \end{equation}
+    identification scheme.
+\end{example}
+
+\begin{example}
+    The identification code in \cite{derebeyoglu} is constructed from a double Reed-Solomon code
+\begin{equation}
+    [q^{k+1}, k q^{k- \delta}, (q-k+1)(q^k - q^{k-\delta} +1)]_q
+\end{equation}
+    By \Cref{thm:hasheqid}, there exists an almost universal \(H = \set{h_a : \mathbb{F}_q^{kq^{k - \delta}} \to \mathbb{F}_q}_{a \in [q^{k+1}]}\) with the collision probability bounded by 
+    \begin{equation}
+        1 - \dfrac{(q-k+1)(q^k - q^{k-\delta} +1)}{q^{k+1}} \leq \dfrac{k-1}{q} + \dfrac{1}{q^{\delta}}
+    \end{equation}
+    Therefore, the resulting identification code is 
+    \begin{equation}
+        \bracket{(k+2)\lg q,\; q^{kq^{k - \delta}},\; 0 ,\; \dfrac{k-1}{q} + q^{-\delta}}
+    \end{equation}
+    % Suppose \(\set{(\func{q}{n},\func{k}{n},\func{\delta}{n})}\) characterizes a family of optimal capacity achieving code. Then, \(\func{q}{n}\) and \(\func{k}{n}\) must be increasing functions satisfying \cite{derebeyoglu}
+    % \begin{align}
+    %     \lim_{n \to \infty} \dfrac{\func{k}{n}}{\func{q}{n}} &= 0 & \lim_{n \to \infty} \dfrac{\func{\delta}{n}}{\func{k}{n}} &= 0 
+    % \end{align}
+\end{example}
+

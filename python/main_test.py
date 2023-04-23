@@ -29,7 +29,7 @@ def delete_files(n):
 def run_experiments():
     # the block length is determined by the primes
     block_length = 0 
-    number_of_repeats = 600
+    number_of_repeats = 300
     loglog_number_of_messages = [100]
     number_of_encoding_iteration = 2
     increments = 100
@@ -76,7 +76,7 @@ ethy = [alpha/(xp)**(alpha-1) for xp in thx]
 # data_time = {"x": block_length, "y": avg_time, "color": '-b', "label": "Average of Simulations"}
 
 data_msg = {"x": loglog_messages, "y": block_length, "color": '-b' , "label": "Average of Simulations"}#, "color_p" : 'go'}
-data_theorymsg = {"x": thx, "y": thy, "color": '-r' , "label": "Theoretical limit 1/alpha"}
+data_theorymsg = {"x": thx, "y": thy, "color": '-r' , "label": "Theoretical limit alpha"}
 data_error = {"x": loglog_messages, "y": error, "color": '-b', "label": "Average of Simulations"}
 # data_theoryerror = {"x": thx, "y": ethy, "color": '-r' , "label": "Approximate upperbound"}
 data_time = {"x": loglog_messages, "y": avg_time, "color": '-b', "label": "Average of Simulations"}

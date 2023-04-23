@@ -46,7 +46,7 @@ int main(int argv, char *argc[])
         uint64_t result =  simulate(loglog_number_of_messages,number_of_encoding_iteration,alpha,avg_error);
         end = high_resolution_clock::now();
 
-        avg_time += duration_cast<std::chrono::microseconds>(end-start).count();
+        avg_time += duration_cast<std::chrono::milliseconds>(end-start).count();
         avg_block_length += result;
     }
     mpq_t q_num_sims;

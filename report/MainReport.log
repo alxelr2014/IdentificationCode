@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.27)  30 MAR 2023 18:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.27)  23 APR 2023 17:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -567,15 +567,15 @@ LaTeX Font Info:    ... okay on input line 9.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * bindingoffset: 14.45377pt
 * modes: 
-* h-part:(L,W,R)=(43.36243pt, 496.32925pt, 43.36243pt)
-* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* h-part:(L,W,R)=(72.26999pt, 438.51413pt, 72.26999pt)
+* v-part:(T,H,B)=(86.72377pt, 686.05309pt, 72.26999pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=496.32925pt
-* \textheight=700.50687pt
-* \oddsidemargin=-14.4538pt
-* \evensidemargin=-28.90756pt
-* \topmargin=-37.0pt
+* \textwidth=438.51413pt
+* \textheight=686.05309pt
+* \oddsidemargin=14.45377pt
+* \evensidemargin=0.0pt
+* \topmargin=-22.54622pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -657,58 +657,68 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 2.
 ) (./png.tex [1
 
-{c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2])) (./3step.tex [3]
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 10.
-Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 38.
-Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 56.
-Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 58.
- [4] [5] [6]
-<graphic/msg26.png, id=271, 409.0482pt x 308.5929pt>
-File: graphic/msg26.png Graphic file (type png)
-<use graphic/msg26.png>
-Package pdftex.def Info: graphic/msg26.png  used on input line 272.
-(pdftex.def)             Requested size: 371.44176pt x 280.19846pt.
-<graphic/errwo26.png, id=274, 411.2163pt x 308.5929pt>
-File: graphic/errwo26.png Graphic file (type png)
-<use graphic/errwo26.png>
-Package pdftex.def Info: graphic/errwo26.png  used on input line 276.
-(pdftex.def)             Requested size: 373.41052pt x 280.19846pt.
-<graphic/time26.png, id=276, 416.2752pt x 308.5929pt>
-File: graphic/time26.png Graphic file (type png)
-<use graphic/time26.png>
-Package pdftex.def Info: graphic/time26.png  used on input line 280.
-(pdftex.def)             Requested size: 378.00435pt x 280.19846pt.
- [7] [8 <./graphic/msg26.png> <./graphic/errwo26.png>]) (./hash.tex [9 <./graphic/time26.png>]
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 79.
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 79.
-
-Overfull \hbox (22.09102pt too wide) in paragraph at lines 84--85
-[]\OT1/cmr/m/it/10 If there is a $\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 n; k; d\OT1/cmr/m/n/10 ][]$ \OT1/cmr/m/it/10 code, then there ex-ists a $\OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^@ []$\OT1/cmr/m/it/10 -almost uni-ver-sal hash fam-ily $\OML/cmm/m/it/10 H \OT1/cmr/m/n/10 = [][][]$
+{c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Overfull \hbox (17.59396pt too wide) detected at line 91
+[]
  []
 
-) (./MainReport.bbl [10])
+[3])) (./3step.tex
+Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 10.
+
+Overfull \hbox (17.21666pt too wide) in paragraph at lines 11--12
+[]\OT1/cmr/m/n/10 An iden-ti-fi-ca-tion code $(\OML/cmm/m/it/10 n; N; ^^U[]; ^^U[]\OT1/cmr/m/n/10 )$ for a DMC chan-nel $\OMS/cmsy/m/n/10 W[][][]$
+ []
+
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 38.
+[4]
+Package hyperref Info: bookmark level for unknown proof defaults to 0 on input line 56.
+Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 58.
+ [5] [6]
+Overfull \hbox (17.27206pt too wide) detected at line 255
+[]
+ []
+
+[7]
+<graphic/msg47.png, id=284, 422.0568pt x 315.0972pt>
+File: graphic/msg47.png Graphic file (type png)
+<use graphic/msg47.png>
+Package pdftex.def Info: graphic/msg47.png  used on input line 272.
+(pdftex.def)             Requested size: 367.5664pt x 274.41704pt.
+<graphic/errwo47.png, id=287, 424.9476pt x 315.0972pt>
+File: graphic/errwo47.png Graphic file (type png)
+<use graphic/errwo47.png>
+Package pdftex.def Info: graphic/errwo47.png  used on input line 276.
+(pdftex.def)             Requested size: 370.08398pt x 274.41704pt.
+<graphic/time47.png, id=289, 415.5525pt x 315.0972pt>
+File: graphic/time47.png Graphic file (type png)
+<use graphic/time47.png>
+Package pdftex.def Info: graphic/time47.png  used on input line 280.
+(pdftex.def)             Requested size: 361.90186pt x 274.41704pt.
+) (./hash.tex [8 <./graphic/msg47.png>] [9 <./graphic/errwo47.png> <./graphic/time47.png>] [10] [11]) (./MainReport.bbl) [12]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 20.
+ (./codes/simplesim.cpp
+consecutive:
+)
 \tf@thm=\write4
 \openout4 = `MainReport.thm'.
 
- [11] (./MainReport.aux)
+ [13] (./MainReport.aux)
 Package rerunfilecheck Info: File `MainReport.out' has not changed.
-(rerunfilecheck)             Checksum: CC152DBA56BA0AEC081E381EB7E03905;2464.
+(rerunfilecheck)             Checksum: 58C17726B3C5861E7AE246441AC9C122;2587.
  ) 
 Here is how much of TeX's memory you used:
- 17107 strings out of 475071
- 279281 string characters out of 5782907
- 674831 words of memory out of 5000000
- 38091 multiletter control sequences out of 15000+600000
- 482015 words of font info for 80 fonts, out of 8000000 for 9000
+ 17581 strings out of 475071
+ 284166 string characters out of 5782907
+ 854827 words of memory out of 5000000
+ 38520 multiletter control sequences out of 15000+600000
+ 476693 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,16n,91p,1068b,651s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on MainReport.pdf (11 pages, 349906 bytes).
+ 87i,16n,91p,1093b,1480s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on MainReport.pdf (13 pages, 365610 bytes).
 PDF statistics:
- 479 PDF objects out of 1000 (max. 8388607)
- 387 compressed objects within 4 object streams
- 166 named destinations out of 1000 (max. 500000)
- 154 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 555 PDF objects out of 1000 (max. 8388607)
+ 462 compressed objects within 5 object streams
+ 220 named destinations out of 1000 (max. 500000)
+ 162 words of extra memory for PDF output out of 10000 (max. 10000000)
 
