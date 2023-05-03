@@ -1,0 +1,97 @@
+\scalebox{.7}{
+\begin{tikzpicture}[scale=.7][thick]
+\draw[dashed] (.07,.4) circle (4.8cm);
+
+\draw (0,3) circle (1.5cm);
+\draw (2,1.5) circle (1.5cm);
+\draw (2,-.5) circle (1.5cm);
+\draw (-2,2) circle (1.5cm);
+\draw (-.1,.6) circle (1.5cm);
+\draw (+.5,-1.7) circle (1.5cm);
+\draw (-1.8,-.8) circle (1.5cm);
+
+%\node at (-.5,-1.5) {$\ldots$};
+\node at (0,3) {$\E_2$};
+\node at (2,1.5) {$\E_i$};
+\node at (2,-.5) {$\E_j$};
+\node at (-2,2) {$\E_1$};
+\node at (-.1,.6) {$\E_{\cdots}$};
+\node at (+.5,-1.7) {$\E_{N_n-1}$};
+\node at (-1.8,-.8) {$\E_{N_n}$};
+
+\draw[->] (0,5.3) -- ++(0,1.5)  node [fill=white,inner sep=6pt](a){$\X^n$};
+%\draw[fill=gray] (0,0) circle (1.5cm);
+\draw [fill=cyan, fill opacity=0.5, name path=i] (0,3) circle (1.5cm);
+\draw [fill=orange, fill opacity=0.5, name path=j] (2,1.5) circle (1.5cm);
+\draw [fill=yellow, fill opacity=0.5,name path=l] (2,-.5) circle (1.5cm);
+\draw [fill=gray, fill opacity=0.5, name path=k] (-2,2) circle (1.5cm);
+\draw [fill=green, fill opacity=0.5, name path=k] (-.1,.6) circle (1.5cm);
+\draw [fill=blue, fill opacity=0.3, name path=k] (+.5,-1.7) circle (1.5cm);
+\draw [fill=red, fill opacity=0.4, name path=k] (-1.8,-.8) circle (1.5cm);
+
+
+\path (0,4) edge [-> , thick, green!30!black, bend left] node [sloped,midway,above,font=\small] {correct identification}(15,4);
+
+
+\path (3,1.5) edge [-> , thick, red!100!black, bend left] node [sloped,midway,above,font=\small] {type I error}(13,1.4);
+
+
+\path (1.4,-1.4) edge [-> , thick, red!40!black, bend left] node [sloped,midway,above,font=\small] {type II error}(16.5,-1.4);
+
+
+
+
+
+
+\path [name intersections={of=i and j,by=cs}];
+%\draw (cs) -- ++(1.5,2) node [fill=white,inner sep=2pt](c){$\propto \lambda_2^{(i,j)}$};
+%\draw (cs)+(-.35,-.5) -- ++(1.5,2) node [fill=white,inner sep=2pt](c){$\propto \lambda_2^{(i,j)}$};
+\path [name intersections={of=l and j,by=ct}];
+%\draw (ct)+(-.5,0) -- ++(4,0) node [fill=white,inner sep=1pt](d){$\propto \lambda_2^{(j,l)}$};
+\path [name intersections={of=i and k,by=cu}];
+%\draw (cu)+(.2,.2) -- ++(-3,1) node [fill=white,inner sep=5pt](e){$\propto \lambda_2^{(i,k)}$};
+%\draw[dotted] (-2,-2.5) arc (-130:-160:5) ;
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\draw[dashed] (15.07,.4) circle (4.8cm);
+
+\draw (0+15.07,3) circle (1.5cm);
+\draw (2+15.07,1.5) circle (1.5cm);
+\draw (2+15.07,-.5) circle (1.5cm);
+\draw (-2+15.07,2) circle (1.5cm);
+\draw (-.1+15.07,.6) circle (1.5cm);
+\draw (+.5+15.07,-1.7) circle (1.5cm);
+\draw (-1.8+15.07,-.8) circle (1.5cm);
+
+%\node at (-.5,-1.5) {$\ldots$};
+\node at (0+15.07,3) {$\D_2$};
+\node at (2+15.07,1.5) {$\D_i$};
+\node at (2+15.07,-.5) {$\D_j$};
+\node at (-2+15.07,2) {$\D_1$};
+\node at (-.1+15.07,.6) {$\D_{\cdots}$};
+\node at (+.5+15.07,-1.7) {$\D_{N_n-1}$};
+\node at (-1.8+15.07,-.8) {$\D_{N_n}$};
+
+\draw[->] (0+15.07,5.3) -- ++(0,1.5)  node [fill=white,inner sep=6pt](a){$\Y^n$};
+%\draw[fill=gray] (0,0) circle (1.5cm);
+\draw [fill=cyan, fill opacity=0.5, name path=i] (0+15.07,3) circle (1.5cm);
+\draw [fill=orange, fill opacity=0.5, name path=j] (2+15.07,1.5) circle (1.5cm);
+\draw [fill=yellow, fill opacity=0.5,name path=l] (2+15.07,-.5) circle (1.5cm);
+\draw [fill=gray, fill opacity=0.5, name path=k] (-2+15.07,2) circle (1.5cm);
+\draw [fill=green, fill opacity=0.5, name path=k] (-.1+15.07,.6) circle (1.5cm);
+\draw [fill=blue, fill opacity=0.3, name path=k] (+.5+15.07,-1.7) circle (1.5cm);
+\draw [fill=red, fill opacity=0.4, name path=k] (-1.8+15.07,-.8) circle (1.5cm);
+
+\path [name intersections={of=i and j,by=cs}];
+
+\path [name intersections={of=l and j,by=ct}];
+
+\path [name intersections={of=i and k,by=cu}];
+
+\end{tikzpicture}
+}

@@ -1,0 +1,146 @@
+\chapter{Introduction}
+\label{chap:introduction}
+In the classic transmission introduced by Shannon, the sender sends a message to the receiver with the aim of retrieving the message \cite{S48}. If we take the example of tow people communicating in the transmission scheme the person B is interested to know what the person A sent. For this transmission scheme the person A employs a deterministic encoder to select the codeword  corresponding to the message i. The person B at the decoder side observes a noisy observation $\Y$ of the codeword $\fu_{i}$. The decoder task in this scheme is to estimate the original message by processing the received vector $\Y$. However The identification scheme has a  completely different goal \cite{AD89,Ahlswede21_Book}. In Identification scheme, proposed by Ahlswede and Dueck \cite{AD89,Ahlswede21_Book}, the sent message is not recovered instead it is compared with a target message and returns a binary (yes/no) response, i.e. the person B in this case is only interested in whether or not the person A sent a specific message.
+
+Ahlswede and Dueck introduced the randomized identification \cite{AD89,Ahlswede21_Book} with a coding scheme allowing the encoder to use distribution and still ensure a reliable identification. The randomization at the encoder has major consequences on the code size of bloc length $N$, as it allows it to grow double exponential $\sim 2^{2^{N R}}$, which significantly differ from the the code size in transmission $\sim 2^{N R}$. However implementing such code scheme with randomization at the encoder can be difficult and expensive.
+
+\begin{figure}[b]
+    \centering
+    \input{Fig/ID.tex}
+    \caption{Standard identification scheme. Receiver verifies a comparison.}
+    \label{Fig.ID}
+\end{figure}
+
+For the standard deterministic identification scheme only the the encoding rule is different, see Figure~\ref{Fig.ID}. Here the process of the mapping of each message to the corresponding code-word occurs with a predefined function. As a consequence the code size doesn't grow double exponentially as for the randomized identification, it grows exponentially $\sim 2^{N R}$ as for transmission. Although both transmission and deterministic identification share the same scale for the code size, a reliable deterministic identification over a Binary Symmetric Channel can be achieved easier than for transmission \cite{J85}. deterministic Identification can be applied in event triggered systems, where the receiver is not interested to know the content of the event but rather know if a particular event has happened. Furthermore it is of great interest in distributed computation in VLSI Circuits where two processor aims to check if the two strings that they had coincide or not \cite{ja1984}. deterministic identification is also applied in the communication complexity for verification of the hamming distance, where tow processing units want to verify if the hamming distance of two codewords is the same or not \cite{paturi186}.
+
+% ---------------------
+\chapter{Related Works}
+\section{Previous Capacity Results}
+\label{chap:Related_Works}
+In this chapter, we review briefly the previous works and results that are conducted in the field of identification ...
+
+% ---------
+\section{Randomized and Deterministic Identification}
+let's first highlight the difference between randomized and deterministic identification. the following figures presents in a simple drawing both types of identification. The figures accentuate the difference between randomized and deterministic identification, which is the encoding rule; the process by which the mapping of each message to the corresponding code-word occurs. For the randomization the encoding occurs with probability distribution $\Q(u_i|i)$ for each message $ i\in\M\ $, with $\M$ defined as the message set, see Figure~\ref{RandomizedID}. On the other hand the encoding function for deterministic identification is predefined. This difference of the encoding rule leads to a difference in the code size. The code size for randomized identification is double exponential $\M = 2^{2^{NR}}$ \cite{AD89,Ahlswede21_Book}, with $N$ the block length of the code and $R$ the Rate. The code size for deterministic identification is $\M = 2^{NR}$. Now let's explain what both identifications have in common; In both figure above the encoder injects the codeword $u_1$ of the message $i=1$ into a channel and depending in which decoding region the channel output is, it will be concluded if an error or a correct identification occurred. In identification the receiver is interested in whether or not the sent message is identical to the target or desired message. The decoding region on the contrary to transmission are not disjoint. Three events for the channel output are represented in Fig.~\ref{RandomizedID} and Fig.~\ref{DeterministicID}.
+
+In the following we discuss about the codebook sizes for different setups of transmission and identification (see Figure~\ref{Fig.Coding_Scale}). Aside from the classical exponential and double exponential codebook sizes for message transmission \cite{S48} and randomized identification \cite{AD89,Ahlswede21_Book}, respectively, different non-usual codebook sizes are reported for other communication tasks, such as \emph{covert communication} \cite{Bloch16} or \emph{covert identification} \cite{ZT20} for the binary-input DMC (BIDMC), where the codebook size scales as $2^{\sqrt{n}R}$ and $2^{2^{\sqrt{n}R}}$, respectively. For the Gaussian DI channel with feedback \cite{Labidi21}, the codebook size can be arbitrarily large. In \cite{Wiese22} the result is generalized for channels with non-discrete additive white noise and positive message transmission feedback capacity.
+\begin{figure}[t]
+\centerline{\input{Fig/RI_Geo.tex}}
+\caption{Geometry of randomized identification, adopted from \cite{COCO20_Talk}}
+\label{RandomizedID}
+\end{figure}
+\begin{figure}[!b]
+\centerline{\input{Fig/DI_Geo.tex}}
+\caption{Geometry of deterministic identification, adopted and enhanced from \cite{NEWCOM20_Talk}}
+\label{DeterministicID}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{Fig/Coding_Scales.tex}
+    \caption{Spectrum of codebook sizes for various setups, adopted from \cite{MAMOKO22_Talk}}
+    \label{Fig.Coding_Scale}
+\end{figure}
+% -------------------
+\chapter{Definitions}
+Throughout this chapter relevant definitions and notation will be introduced.
+\subsubsection{Notations}
+%Throughout this report, probability distributions are denoted by Pr. Codewords are sequence of 
+Let $\M=\{1,2,\cdots,M\}$ be the message set and
+Let the $\C = \{(\fu_\text{i},D_\text{i})|i\in\M\}$ the decoding set, where $\fu_\text{i}$ denote the codeword for the sent message $i$ and $D
+_\text{i}$ the decoding region for $i$. The decoding region is defined through a Hamming sphere with radius  $r= d_\text{H}(\fy,\fu_\text{j})$, where $\fy$ represents the output vector of the channel and $j$ the target message, a more precise definition of the decoder is given later on.
+
+The Method used to show the existence of the $(M,N)$-Code with block-length $N$ is \emph{the Gilbert bound }
+\begin{definition} [see {\cite{G52,V57}}]
+\label{Th.Gilbert_Bound}
+Let $A_{\text{q}}(n,d)$ denote the maximum possible code size of a $q$-ary code $\C$ with code length $N$ and $\underset{\fu_{\text{i}}\neq\fu_{\text{j}}}{\min} d_{\text{H}}(\fu_{\text{i}},\fu_{\text{j}}) = d $ then,
+%%%
+\begin{align}
+    A_{\text{q}}(n,d) \geq \frac{q^n}{\sum_{i=0}^{d-1} \binom{n}{i} (q-1)^{i}}
+\end{align}
+\end{definition}
+%%%
+\begin{remark}
+For binary codes $ \sum_{i=0}^{d-1} \binom{n}{i}$ denote the volume of Hamming sphere with radius $d-1$ over $\mathbb{F}_2^n$. Let  $A_2(n,d)=M$ then Ineq.~\ref{Ineq.GilbertBound} is obtained.
+
+%%%
+\begin{align}
+\label{Eq.GB2}
+    M \sum_{i=0}^{d-1} \binom{N}{i} \geq 2^N,
+\end{align}
+\end{remark}
+\begin{remark}
+ $d-1$ is chosen over $d$ to avoid another codeword  landing in the perimeter of the sphere with codeword $\fu_{\text{i}}$ as center.
+\end{remark}
+
+%%%
+
+A relevant and important term that will be encountered throughout this paper is the error Probability denoted by $P_\text{e}$. The four  types of error are defined as follow:
+%\begin{definition}[Correct identification]
+%The channel output belongs to the correct decoding region only which is $\D_1$.
+%\end{definition}
+%%%
+\begin{definition}[Type I error]
+\label{TypeIerror}
+The output channel $\fy$ does not belong to the correct decoding region $\D_i$, i.e., it belongs to the complement region of the decoding set $\D_i^c$.
+\begin{align}
+   P_{{\text{e}},1}(i) = W\left(\D_{\text{i}}^c|\fu_{\text{i}}\right) = \Pr\left(\fy\in\D_\text{i}^c|\fu_\text{i}\right)\,.\,
+\end{align}
+\end{definition}
+%%%
+\begin{definition}[Type II error]
+\label{TypeIIerror}
+The channel output $\fy$ belongs to the intersection of two decoder or in exclusively one other different decoding region.
+\begin{align}
+   P_{{\text{e}},2}(i,j) = W\left(\D_\text{j}|\fu_\text{i}\right)=\Pr\left(\fy\in\D_\text{j}|\fu_\text{i}\right)\,.\,
+\end{align}
+\end{definition}
+%%%%%%%
+\begin{definition}[Maximum error probability]
+\label{maxerror1}
+The maximum type I error probability is the maximum of type I error probability over all possible messages $i \in M$
+\begin{align}
+   P_{{\text{e}},1}^{\text{max}}(i) =\max_{\text{i}\in\M}\left(W\left(\D_\text{i}^c|\fu_\text{i}\right)\right)\,.\,
+\end{align}
+The maximum type II error probability is the maximum of type II error probability  over all possible messages $i,j \in M$
+\begin{align}
+   P_{{\text{e}},2}^{\text{max}}\left(i,j\right) =\max_{{{\text{i}}\in\M}, {{\text{j}}\in\M}}\left(W\left(\D_{\text{j}}|\fu_{\text{i}}\right)\right)\,.\,
+\end{align}
+\end{definition}
+%%%%%%%%%
+\begin{definition}[Average error probability]
+\label{Average.error}
+The average Type I error Probability is the sum over all messages $i \in M $ of type I error probability divided by the Code-size $M$
+\begin{align}
+   P_{{\text{e}},1}^{\text{ave}}(i) =\frac{1}{M}\sum_{{\text{i}}=1}^M \left(W\left(\D_{\text{i}}^c|\fu_{\text{i}}\right)\right)\,.\,
+\end{align}
+The average Type II error Probability is the sum over all messages $i \in M $ and over all possible messages $j \in M $ of type II error probability divided by the Code-size $M$
+\begin{align}
+   P_{{\text{e}},2}^{\text{ave}}(i,j) =\frac{1}{M}\sum_{{\text{i}}=1}^M \sum_{{\text{j}}=1}^M \left(W\left(\D_{\text{j}}|\fu_{\text{i}}\right)\right)\,.\,
+\end{align}
+\end{definition}
+%%%%%%%%%%%
+% ---
+Throughout out the proof of the theorems introduced in this paper, we aim to find an upper and lower bound for the achievable rate.
+\begin{definition} {\cite[see ]{YS04}}
+\label{Def.Rate}
+An $(N,M,\epsilon)$ Code is a code whose block length is $N$, whose number of codewords is $M$, and whose average probability of error ist larger than $\epsilon$. the rate of the code is
+% ---
+\begin{align}
+    R= \frac{\log{M}}{N} \quad \text{bits/channel use} \,,\,
+\end{align}
+% ---
+where the logarithm is of base 2.
+\end{definition}
+% ---
+\begin{definition}
+[\cite{Th.M99}, see P.~195]
+\label{Def.Ach_Rate}
+A rate R is said to be achievable if there exists a sequence of $(\ceil{2^{NR}},n)$ codes such that the maximum probability of error $\lambda^{(n)}$ tends to zero as $N\longrightarrow \infty$.
+\end{definition}
+From the above definition it was derived in \cite{YS04} that a rate $R \geq 0$ is called an $\epsilon-$achievable rate if, for every $\delta>0$, and sufficiently large $N$, there exist an $(N,M,\epsilon)$ Code with rate
+ \begin{align}
+    \label{Ineq.Achiev_Rate}
+    \frac{\log{M}}{N} > R - \delta  \,.\,
+\end{align}
+

@@ -1,0 +1,31 @@
+\begin{tikzpicture}[
+  declare function={
+    func(\x)= and(\x >= 0, \x <= 1) * (-\x*log2(\x)-(1-\x)*log2(1-\x)) + (\x >= .5) * (1);
+  }]
+\begin{axis}[
+            xtick={0,.5,1},xticklabels={$0$,$\frac{1}{2}$,$1$},
+            ytick={0,1},
+            xlabel= \text{Cross-over probability, $\epsilon$} ,
+			ylabel= Transmission Capacity,
+			xmin = 0,
+			xmax = 1.1,
+			ymin = 0,
+			ymax = 1.22,
+			width= 80mm,
+			height = 60mm,
+			%legend rows=1,
+			axis x line = bottom,
+			axis y line = left,
+            legend style={%fill=orange!15!,%anchor=north,
+            at={(1.2,1.2)}},
+            domain=0:1,samples=1000,
+]
+\addplot [blau_2b, thick] {1+\x*log2(\x)+(1-\x)*log2(1-\x)};
+\addlegendentry{$\mathcal{C}_T(BSC)$}
+
+
+%\addplot [blau_2b, thick] {func(x)};
+% \legend{,$H_2(A)$,$\mathbb{C}_{DI}(\mathcal{W})$}
+\addlegendentry{$\mathbb{C}_{DI}(\mathcal{W})$}
+\end{axis}
+\end{tikzpicture} 

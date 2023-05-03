@@ -26,17 +26,17 @@ void uniform_primes(mpz_ptr rop, mp_bitcnt_t n, uint32_t s, uint32_t k)
 uint64_t simulate(uint64_t loglog_number_of_messages,  uint64_t number_of_encoding_iterations, long double alpha, mpq_ptr avg_error)
 {
     uint32_t l = 10, q = 10;
-    uint64_t bit1 = loglog_number_of_messages + ((uint64_t)(log2l(alpha))) + 1;
-    uint64_t bit2 = (uint64_t)(log2l(alpha) + log2l(bit1)) + 1;
-
+    uint64_t bit1 =(uint64_t) (loglog_number_of_messages * alpha) ;
+    uint64_t bit2 = (uint64_t) (log2l(bit1) * alpha);
+    
     uint32_t s1 = l / 2 * bit1, s2 = l / 2 * bit2;
     uint32_t k1 = (3 + (uint64_t)log2l(bit1) + q) / 2,
              k2 = (3 + (uint64_t)log2l(bit2) + q) / 2;
 
     mpz_t prime1;
     mpz_t prime2;
-         mpz_init(prime1);
-         mpz_init(prime2);
+    mpz_init(prime1);
+    mpz_init(prime2);
 
 
     uniform_primes(prime1, bit1, s1, k1);
@@ -44,8 +44,8 @@ uint64_t simulate(uint64_t loglog_number_of_messages,  uint64_t number_of_encodi
 
 
     // is it the actual number of bit ?!
-    *getOutputStream() << "The first key is " << prime1 << " with " <<  mpz_sizeinbase(prime1,2) << " bits.\n";
-    *getOutputStream() << "The second key is " << prime2 << " with " <<  mpz_sizeinbase(prime2,2) << " bits.\n";
+    *getOutputStream() << "The first key is "  << " with " <<  mpz_sizeinbase(prime1,2) << " bits.\n";
+    *getOutputStream() << "The second key is " << " with " <<  mpz_sizeinbase(prime2,2) << " bits.\n";
 
     mpq_t error;
     mpq_init(error);
@@ -53,14 +53,14 @@ uint64_t simulate(uint64_t loglog_number_of_messages,  uint64_t number_of_encodi
     mpq_canonicalize(error);
     mpq_inv(error,error);
     mpq_add(avg_error,avg_error,error);
-    uint64_t block_length =  mpz_sizeinbase(prime1,2) + 2 *  mpz_sizeinbase(prime2,2);
+    uint64_t block_length =  bit1 + 2 *  bit2;
     return block_length;
 }
 
 uint64_t simulate_nonprime(uint64_t loglog_number_of_messages,  uint64_t number_of_encoding_iterations, long double alpha, mpq_ptr avg_error)
 {
-    uint64_t bit1 = loglog_number_of_messages + ((uint64_t)(log2l(alpha))) + 1;
-    uint64_t bit2 = (uint64_t)(log2l(alpha) + log2l(bit1)) + 1;
+    uint64_t bit1 = loglog_number_of_messages * ((uint64_t)alpha) ;
+    uint64_t bit2 = bit1 * ((uint64_t)alpha);
 
     mpz_t prime1;
     mpz_t prime2;

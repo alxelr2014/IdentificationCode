@@ -1,0 +1,34 @@
+\scalebox{1}{
+\tikzstyle{farbverlauf} = [ top color=white, bottom color=white!80!gray]
+\tikzstyle{block1} = [draw,top color=white, middle color=cyan!30, rectangle, rounded corners,
+minimum height=2em, minimum width=2.5em]
+
+\tikzstyle{block2} = [draw,top color=white, middle color=cyan!30, rectangle, rounded corners,
+minimum height=2em, minimum width=2.5em]
+
+\tikzstyle{input} = [coordinate]
+\tikzstyle{sum} = [draw, circle,inner sep=0pt, minimum size=5mm,  thick]
+\tikzstyle{arrow}=[draw,->]
+
+\begin{tikzpicture}[auto, node distance=2cm,>=latex']
+\node[] (M) {$i$};
+\node[block1,right=.5cm of M] (enc) {Enc};
+\node[sum, right=3cm of enc] (channel) {$+$};
+
+\node[below=.5mm of channel] (mod2) {$\text{\scriptsize mod 2}$};
+
+\node[block2, right=1.5cm of channel] (dec) {Dec};
+\node[below=.5cm of dec] (Target) {$j$};
+\node[right=.5cm of dec] (Output) {$\text{\small Yes/No}$};
+
+\node[above=.7cm of channel] (noise) {$\textbf{Z}\sim \text{Ber($\epsilon$)}$};
+\draw[->] (M) -- (enc);
+\draw[->] (enc) --node[above]{$\textbf{u}_i$} (channel);
+\draw[->] (noise) -- (channel);
+\draw[->] (channel) --node[above]{$\textbf{Y}$} (dec);
+
+\draw[->] (dec) -- (Output);
+\draw[->] (Target) -- (dec);
+
+\end{tikzpicture}
+}

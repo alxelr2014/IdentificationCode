@@ -269,14 +269,14 @@ All together, we have significantly improved time complexity of the scheme witho
 \subsection{Simulation}
 We have implemented a code that mainly runs the \Cref{alg:trivialRPNG} to produce two probable prime numbers. Then it calculates the blocklength, error probability, and the running time of the simulation. On \(\alpha = 1.01\) we get the following curves.
 \begin{figure}
-	\includegraphics*[height = 0.4 \textheight]{graphic/msg47.png}
+	\includegraphics*[height = 0.4 \textheight]{graphic/msg50.png}
 	\caption{The block length vs \(\lg \lg \) of the number of messages curve. The block length is calculated as the \(\ceil{\lg k} + 2 \ceil{\lg l}\) where \(k,l\) are the probable primes generated. The \(\lg \lg \) of the number of messages are incremented by 100.}
 \end{figure}
 \begin{figure}
-	\includegraphics*[height = 0.4 \textheight]{graphic/errwo47.png}
+	\includegraphics*[height = 0.4 \textheight]{graphic/errwo50.png}
 	\caption{The average second kind error vs  \(\lg \lg \) of the number of messages curve. The second kind error is calculated as \(1/l\) where \(l\) is the second probable prime generated. Furthermore, the average taken over 600 rounds of simulation. The \(\lg \lg \) of the number of messages are incremented by 100.}
 \end{figure}
 \begin{figure}
-	\includegraphics*[height = 0.4 \textheight]{graphic/time47.png}
+	\includegraphics*[height = 0.4 \textheight]{graphic/time50.png}
 	\caption{The average time vs \(\lg \lg \) of the number of messages curve. The time it takes to generate two probable primes and the average taken over 600 rounds of simulation. The \(\lg \lg \) of the number of messages are incremented by 100.}
 \end{figure}

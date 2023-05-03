@@ -90,26 +90,30 @@ def msg_graph(data):
 def error_graph(data):
     graph_dict = {}
     graph_dict["x_label"] = "LgLg of the Number of Messages"
-    graph_dict["y_label"] = "Second Kind Error"
+    graph_dict["y_label"] = "Probability of Collision"
     graph_dict["legend_loc"] = 'upper left'
 
     x_max = np.max(data["x"])
     x_sig = get_sigdig(x_max)
     x_sig1 = x_sig//10
-    x_parts = x_max // x_sig1
+    x_parts = math.floor(x_max / x_sig1)
     x_subdiv = 5
     graph_dict["x_major_ticks"] = [x_sig1 * z for z in range(x_parts + 1)]
     graph_dict["x_minor_ticks"] = [x_sig1//x_subdiv * z for z in range(x_subdiv*x_parts + 1)]
 
-    y_sig = get_sigdig(1)
-    graph_dict["y_major_ticks"] =  [y_sig/15 * z for z in range(16)]
-    graph_dict["y_minor_ticks"] =  [y_sig/75 * z for z in range(76)]
+    y_max = np.max(data["y"])
+    y_sig = get_sigdig(y_max)
+    y_sig1 = y_sig/10
+    y_parts = round(y_max / y_sig1)
+    y_subdiv = 5
+    graph_dict["y_major_ticks"] = [y_sig1 * z for z in range(y_parts + 1)]
+    graph_dict["y_minor_ticks"] = [y_sig1/y_subdiv * z for z in range(y_subdiv*y_parts + 1)]
     return graph_dict
 
 def error_graphwo(data):
     graph_dict = {}
     graph_dict["x_label"] =  "LgLg of the Number of Messages"
-    graph_dict["y_label"] = "Second Kind Error"
+    graph_dict["y_label"] = "Probability of Collision"
     graph_dict["legend_loc"] = 'upper left'
 
     x_max = np.max(data["x"])
@@ -121,6 +125,32 @@ def error_graphwo(data):
     graph_dict["x_minor_ticks"] = [x_sig1//x_subdiv * z for z in range(x_subdiv*x_parts + 1)]
 
     y_max = np.max(data["y"])
+    y_sig = get_sigdig(y_max)
+    y_sig1 = y_sig/10
+    y_parts = round(y_max / y_sig1)
+    y_subdiv = 5
+    graph_dict["y_major_ticks"] = [y_sig1 * z for z in range(y_parts + 1)]
+    graph_dict["y_minor_ticks"] = [y_sig1/y_subdiv * z for z in range(y_subdiv*y_parts + 1)]
+    return graph_dict
+
+
+def error_graphth(data):
+    graph_dict = {}
+    graph_dict["x_label"] =  "LgLg of the Number of Messages"
+    graph_dict["y_label"] = "Second Kind Error"
+    graph_dict["legend_loc"] = 'upper left'
+
+    x_max = np.max(data["x"])
+    x_sig = get_sigdig(x_max)
+    x_sig1 = x_sig//10
+    x_parts =  math.floor(x_max / x_sig1)
+    x_subdiv = 5
+    graph_dict["x_major_ticks"] = [x_sig1 * z for z in range(x_parts + 1)]
+    graph_dict["x_minor_ticks"] = [x_sig1//x_subdiv * z for z in range(x_subdiv*x_parts + 1)]
+
+    y_max = np.max(data["y"])
+    if y_max > 0.7:
+        y_max= 1.3
     y_sig = get_sigdig(y_max)
     y_sig1 = y_sig/10
     y_parts = round(y_max / y_sig1)

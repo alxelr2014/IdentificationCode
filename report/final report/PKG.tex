@@ -1,0 +1,328 @@
+
+
+
+\usepackage{tgpagella}
+\usepackage[T1]{fontenc}
+\usepackage{mdframed}
+
+\setcounter{footnote}{0}
+
+\let\svtikzpicture\tikzpicture
+\def\tikzpicture{\noindent\svtikzpicture}
+% \usepackage[center]{caption}
+\usepackage[caption=false]{subfig}
+\usepackage{caption}
+\captionsetup{font=small}
+\captionsetup[subfigure]{labelformat=empty}
+% \usepackage{etex}
+% \usepackage[thinc]{esdiff}
+% \hyphenation{op-tical net-works semi-conduc-tor}
+\usepackage{commath,amsmath,amssymb,amsfonts}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{algorithmic}
+\usepackage{pgfplots} 
+\pgfplotsset{compat=1.15}
+\usepackage{graphicx}
+\usepackage{pgfgantt}
+\usepackage{pdflscape}
+\usepackage{pst-plot}
+\usepackage{xfrac}
+\usepackage{colortbl}
+\usepackage{cancel}
+\usepgfplotslibrary{fillbetween}
+\usepackage{amssymb,bm}
+\usepackage{float}
+\usepackage{amsmath}
+% \usepackage{hyperref}
+\usepackage[draft=false]{hyperref}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{mathrsfs}
+\usepackage{bbm}
+
+\usepackage{cite} 
+
+\usepackage{comment}
+
+
+
+% \input{tikz-includes.tex}#
+%Matlab
+% \documentclass{beamer}
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{ 
+	language=Matlab,                		% choose the language of the code
+%	basicstyle=10pt,       				% the size of the fonts that are used for the code
+	numbers=left,                  			% where to put the line-numbers
+	numberstyle=\footnotesize,      		% the size of the fonts that are used for the line-numbers
+	stepnumber=1,                   			% the step between two line-numbers. If it's 1 each line will be numbered
+	numbersep=5pt,                  		% how far the line-numbers are from the code
+%	backgroundcolor=\color{white},  	% choose the background color. You must add \usepackage{color}
+	showspaces=false,               		% show spaces adding particular underscores
+	showstringspaces=false,         		% underline spaces within strings
+	showtabs=false,                 			% show tabs within strings adding particular underscores
+%	frame=single,	                			% adds a frame around the code
+%	tabsize=2,                				% sets default tabsize to 2 spaces
+%	captionpos=b,                   			% sets the caption-position to bottom
+	breaklines=true,                			% sets automatic line breaking
+	breakatwhitespace=false,        		% sets if automatic breaks should only happen at whitespace
+	escapeinside={\%*}{*)}          		% if you want to add a comment within your code
+}
+%%%%%%%%%%%%%%%%
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{subfigure}
+\usepackage{mwe}
+\usepackage{trfsigns}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{bbm}
+% \usepackage{hyperref}
+\usepackage{hyperref}
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={My title},    % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfcreator={Creator},   % creator of the document
+    pdfproducer={Producer}, % producer of the document
+    pdfkeywords={keyword1, key2, key3}, % list of keywords
+    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=false,       % false: boxed links; true: colored links
+    linkcolor=red,          % color of internal links (change box color with linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=cyan,         % color of file links
+    urlcolor=magenta        % color of external links
+}
+
+\lstdefinestyle{mlab}{language=Matlab, numbers=left, numberstyle=\tiny,%5
+basicstyle={\ttfamily},%
+ keywordstyle={\color{blue}},%
+ commentstyle=\color{mlgreen},%
+ stringstyle=\color{mlviolett},%
+ %breaklines=true,
+ }
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  %numbers=none,
+  numbers=left,
+  numberstyle=\tiny,
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+
+\usepackage{mathrsfs}
+%\usepackage{subcaption}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+% Packages used in LNTthesis class:
+% package[english]{babel}   % english language / Englische Sprache
+% package{LNTthesis}        % LNT specific definitions / LNT spezifische Definitionen
+% package{graphicx}         % for using eps images / Einbinden von EPS Grafiken
+% package{verbatim}         % for quickly commenting out large parts of your text / Um viel Text schnell auskommentieren zu koennen
+% package{amssymb}          % additional math symbols / Zusaetzliche mathematische Symbole
+% package{amsmath}          % additional math commands / Zusaetzliche mathematische Befehle
+% package{amsxtra}          % even more math symbols / Noch mehr mathematische Symbole
+% package{amsthm}           % theorem environment etc / Theorem Umgebung usw
+% more information on amsmath: http://www.ctan.org/get/macros/latex/required/amslatex/math/amsldoc.pdf
+% package{psfrag}           % psfrag: http://www.ctan.org/get/macros/latex/contrib/psfrag/pfgguide.pdf
+% package{subfigure}        % enable subfigures / Ermoeglicht Subfigures (mehrere Figures neben/untereinander)
+% !! PLEASE READ THE LATEX HELP IF YOU HAVE ANY QUESTIONS !!
+% http://tobi.oetiker.ch/lshort/lshort.pdf
+% Macros:
+\newcommand{\eq}[1]{Equation (\ref{#1})}        % \eg{eq:golomb}  --> Equation (2.15)
+\newcommand{\eref}[1]{(\ref{#1})}               % \eg{eq:golomb}  --> (2.15)
+\newcommand{\fig}[1]{Figure \ref{#1}}           % \fig{fig:golomb}--> Figure 2.15
+\newcommand{\tab}[1]{Table \ref{#1}}            % \tab{tab:lala}  --> Table 2.15
+\newtheorem{prop}{Proposition}
+% Abbreviations
+\newcommand{\equivalent}{\triangleq}
+\newcommand{\given}{\:\!\vert\:\!}
+\usepackage{eucal}
+
+\def \A{\mathcal{A}}
+\def \B{\mathcal{B}}
+\def \C{\mathcal{C}}
+\def \D{\mathcal{D}}
+\def \E{\mathcal{E}}
+\def \F{\mathcal{F}}
+\def \G{\mathcal{G}}
+\def \H{\mathcal{H}}
+\def \I{\mathcal{I}}
+\def \J{\mathcal{J}}
+\def \K{\mathcal{K}}
+\def \L{\mathcal{L}}
+\def \M{\mathcal{M}}
+\def \N{\mathcal{N}}
+\def \O{\mathcal{O}}
+\def \P{\mathcal{P}}
+\def \Q{\mathcal{Q}}
+\def \R{\mathcal{R}}
+\def \S{\mathcal{S}}
+\def \T{\mathcal{T}}
+\def \U{\mathcal{U}}
+\def \V{\mathcal{V}}
+\def \W{\mathcal{W}}
+\def \X{\mathcal{X}}
+\def \Y{\mathcal{Y}}
+\def \Z{\mathcal{Z}}
+\def \sG {\mathscr{G}}
+\def \sU {\mathscr{U}}
+\def \sT {\mathscr{T}}
+\def \fG{\mathbf{G}}
+\def \fa{\mathbf{a}}
+\def \fb{\mathbf{b}}
+\def \fg{\mathbf{g}}
+\def \fu{\mathbf{u}}
+\def \fv{\mathbf{v}}
+\def \fx{\mathbf{x}}
+\def \fy{\mathbf{y}}
+\def \fz{\mathbf{z}}
+\def \fU{\mathbf{U}}
+\def \fV{\mathbf{V}}
+\def \fX{\mathbf{X}}
+\def \fY{\mathbf{Y}}
+\def \fZ{\mathbf{Z}}
+\def \f0{\mathbf{0}}
+\def \tX{\widetilde{X}}
+%
+\definecolor{blau_1a}{RGB}{93,133,195}
+\definecolor{blau_2a}{RGB}{0,156,218}
+\definecolor{gruen_3a}{RGB}{80,182,149}
+\definecolor{gruen_4a}{RGB}{175,204,80}
+\definecolor{gruen_5a}{RGB}{221,223,72}
+\definecolor{orange_6a}{RGB}{255,224,92}
+\definecolor{orange_7a}{RGB}{248,186,60}
+\definecolor{rot_8a}{RGB}{238,122,52}
+\definecolor{rot_9a}{RGB}{233,80,62}
+\definecolor{lila_10a}{RGB}{201,48,142}
+\definecolor{lila_11a}{RGB}{128,69,151}
+
+% Farbpalette B
+\definecolor{blau_1b}{RGB}{0,90,169}
+\definecolor{blau_2b}{RGB}{0,131,204}
+\definecolor{gruen_3b}{RGB}{0,157,129}
+\definecolor{gruen_4b}{RGB}{153,192,0}
+\definecolor{gruen_5b}{RGB}{201,212,0}
+\definecolor{orange_6b}{RGB}{253,202,0}
+\definecolor{orange_7b}{RGB}{245,163,0}
+\definecolor{rot_8b}{RGB}{236,101,0}
+\definecolor{rot_9b}{RGB}{230,0,26}
+\definecolor{lila_10b}{RGB}{166,0,132}
+\definecolor{lila_11b}{RGB}{114,16,133}
+
+\definecolor{mycolor1}{rgb}{0.0, 0.18, 0.39}
+\definecolor{mycolor2}{RGB}{87,108,67}
+\definecolor{mycolor3}{RGB}{8,133,161}
+\definecolor{mycolor4}{RGB}{80,91,161}
+\definecolor{mycolor5}{RGB}{98,122,157}
+\definecolor{mycolor6}{RGB}{255,163,67}
+\definecolor{mycolor7}{RGB}{152,205,225}
+\definecolor{mycolor8}{RGB}{242,204,48}
+\definecolor{mycolor9}{rgb}{0,.5,0}
+\definecolor{mycolor10}{rgb}{.59,.44,.09}
+%
+\definecolor{mycolor11}{RGB}{231,199,31} % Yellow
+\definecolor{mycolor12}{RGB}{8,133,161} % Cyan
+\definecolor{mycolor13}{RGB}{157,188,64} % Yellow Green
+\definecolor{mycolor14}{RGB}{194,150,130} % Light Skin
+\definecolor{mycolor15}{RGB}{98,122,157} % Blue Sky
+\definecolor{mycolor16}{RGB}{160,160,160} % Neutral
+\definecolor{mycolor17}{RGB}{115,82,68} % Dark Skin
+\definecolor{mycolor18}{RGB}{94,60,108} % Purple
+\definecolor{mycolor19}{RGB}{115,82,68} % Dark Skin
+\definecolor{mycolor20}{RGB}{255,183,30} % Dark Gold
+
+\definecolor{mlgreen}{rgb}{.035,.6,.251}
+\definecolor{mlviolett}{rgb}{.643,.259,.804}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\theoremstyle{remark}	\newtheorem{theorem}{Theorem}
+\theoremstyle{remark}	\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}	\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}	\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark} \newtheorem{definition}{Definition}
+\theoremstyle{remark} \newtheorem{remark}{Remark}
+\theoremstyle{remark} \newtheorem{example}{Example}
+%
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\bigceil}[1]{\Bigl \lceil #1 \Bigr \rceil}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\bigfloor}[1]{\Bigl \lfloor #1 \Bigr \rfloor}
+%
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{pgfplots} 
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{commath}
+\usepackage{eucal}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\pgfplotsset{compat=1.15}
+\usepackage{graphicx}
+\usepackage{capt-of}
+\usepackage{lipsum}
+\usepackage{float}
+\usepackage{pgfgantt}
+
+% \renewcommand{\epsilon}{\varepsilon}
+\usepackage{diffcoeff}
+
+\usepackage{autobreak}
+\allowdisplaybreaks
+
+% \documentclass{amsart}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+
+\usepackage{silence}
+\WarningFilter{ctable}{Transparency disabled:}
+\usepackage{ctable}
+
+\usepackage{pgfplots}
+
+
+
+
+\usepackage{amsbsy}
+\usepackage{bm}
+\usepackage{fixmath}
+
+\usepackage{silence}
+\WarningFilter{ctable}{Transparency disabled:}
+\usepackage{ctable}
+
+\usepackage{pst-node,pst-plot}
+
+\usetikzlibrary{shapes.geometric}
+
+\usepackage{mathdots}
+
+% \usepackage{pgf,tikz}
+
+\usetikzlibrary{math}

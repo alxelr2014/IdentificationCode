@@ -1,0 +1,186 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LNTbeamer.sty - LaTeX2e beamer class for LNT, TUM.
+%% Version 1.23 written by Joschi Brauchle, Tobias Lutz
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  v1.23, March 2011:	- added option to disable header and footer: 
+%%			  Use \setbeamertemplate{headline}[] \setbeamertemplate{footline}[] to remove
+%%  v1.22, June 2009:	- added Tobi's colors
+%%  v1.21, May 2009:	- support for empty \author command
+%%  v1.20, May 2009:	- replaced LNT Logo with TUMCD
+%%  v1.10, Nov 2008:	- added LaTeX and PDFLaTeX support
+%%			- added German language support
+%%
+%%  v1.00, Nov 2007:	- initial version by Tobias Lutz
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Identification
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{LNTbeamer}[2011/03/01 LNT Beamer Class]
+
+\typeout{}
+\typeout{--------------------------------------------------------------}
+\typeout{  LNTbeamer Class (LNTbeamer.sty) Version 1.23, March 2011 }
+\typeout{           Lehrstuhl fuer Nachrichtentechnik}
+\typeout{           Technische Universitaet Muenchen}
+\typeout{--------------------------------------------------------------}
+
+
+% Class options
+\newif\if@LNTGermanLanguage
+\@LNTGermanLanguagefalse
+\DeclareOption{german}{  \PassOptionsToPackage{ngerman}{babel} \@LNTGermanLanguagetrue} 
+\DeclareOption{ngerman}{ \PassOptionsToPackage{ngerman}{babel} \@LNTGermanLanguagetrue}
+\DeclareOption{english}{ \PassOptionsToPackage{english}{babel} \@LNTGermanLanguagefalse}%
+\DeclareOption*{ \PackageWarning{LNTbeamer}{Unknown option â€˜\CurrentOptionâ€™} }
+
+\ExecuteOptions{english}
+% Process options 
+\ProcessOptions\relax
+
+% Language settings:
+\if@LNTGermanLanguage
+\typeout{Setting German language...}
+\RequirePackage[ngerman]{babel}
+\RequirePackage{lmodern}		% Uses Postscript fonts which greatly improves visual quality and file size!
+\RequirePackage[utf8]{inputenc}	% Allows to directly enter Umlaute in .tex files
+\RequirePackage[T1]{fontenc}	% Allows to use correct hyphenation with Umlaute
+\newcommand{\@LNTlanguagestringTUM}{Technische Universit\"at M\"unchen}
+\newcommand{\@LNTlanguagestringLNT}{Lehrstuhl f\"ur Nachrichtentechnik}
+\else
+\typeout{Setting English language...}
+\RequirePackage[english]{babel}
+\newcommand{\@LNTlanguagestringTUM}{Technische Universit\"at M\"unchen}
+\newcommand{\@LNTlanguagestringLNT}{Institute for Communications Engineering}
+\fi
+
+% Switch between LaTeX and PDFLaTeX
+\RequirePackage{ifpdf}
+
+% Other required packages:
+\RequirePackage{ifthen}
+
+% Main Theme
+\usetheme{Rochester}
+
+% Define TUM Colors
+% TUM blue and variations
+\definecolor{TUMpantone540c}{RGB}{000,051,089}
+\definecolor{TUMpantone301c}{RGB}{000,082,147}
+\definecolor{TUMpantone285c}{RGB}{000,115,207}
+\definecolor{TUMpantone542c}{RGB}{100,160,200}
+\definecolor{TUMpantone283c}{RGB}{152,198,234}
+% TUM gray
+\definecolor{TUMdgray}{RGB}{088,088,090}
+\definecolor{TUMmgray}{RGB}{156,157,159}
+\definecolor{TUMmgray}{RGB}{215,217,218}
+% Some TUM highlight colors
+\definecolor{TUMyellow}{RGB}{255,180,000}
+\definecolor{TUMorange}{RGB}{255,128,000}
+\definecolor{TUMblue}{RGB}{0,101,189}
+\definecolor{TUMpantone301}{RGB}{0,82,147}
+% Darker red and green for alert and example boxes
+\definecolor{TUMgreen}{RGB}{0,124,48}
+\definecolor{TUMred}{RGB}{196,7,27}
+% Some other Colors
+\definecolor{green4}{rgb}{0,0.57,0}
+\definecolor{blue4}{rgb}{0,0,0.57}
+\definecolor{lavender2}{rgb}{0.9,0.9,0.98}
+\definecolor{lightblue}{rgb}{0.74,0.93,1}
+\definecolor{white}{rgb}{1,1,1}
+\definecolor{lightyellow}{rgb}{0.93,0.93,0.82}
+\definecolor{plum}{rgb}{0.86,0.62,0.86}
+\definecolor{palegreen}{rgb}{0.6,1,0.6}
+\definecolor{markerred}{rgb}{1,0.85,0.85}
+\definecolor{hellgrau}{rgb}{0.95,0.95,0.95}
+% Tobi's bright TUM red and green
+% \definecolor{tumred}{RGB}{229,052,024}
+% \definecolor{tumdred}{RGB}{202,033,063}
+% \definecolor{tumgreen}{RGB}{145,172,107}
+% \definecolor{tumlgreen}{RGB}{181,202,130}
+
+% Layout-Settings
+\usecolortheme[named=TUMpantone301]{structure}
+\useinnertheme[shadow]{rounded}
+% Font Theme	
+% 	\usefonttheme{professionalfonts}		% Remove these two lines to have SANS SERIF math fonts!
+%	\usefonttheme[onlymath]{serif}			% Remove these two lines to have SANS SERIF math fonts!
+
+% Turn off navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Make blocks with rounded edges and shadow
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+% Define colors
+\setbeamercolor*{titlelike}{use=structure,fg=white,bg=structure.fg}		% Title gets blue box and white text
+\setbeamercolor{block title}{bg=TUMpantone301,fg=white}					% Blocks get blue box and white text
+\setbeamercolor{block title example}{use=example text,fg=white,bg=TUMgreen!90!black}
+\setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=TUMred!90!black}
+\setbeamercolor*{frametitle}{parent=structure}
+\setbeamercolor*{alerted text}{fg=TUMred}
+
+% Add Double Right Arrow to itemize items
+\defbeamertemplate{itemize item}{double arrow}{$\Rightarrow$}
+\setbeamertemplate{caption}[numbered]
+
+% smaller Bibliography fontsize
+\setbeamerfont{bibliography entry author}{size=\footnotesize}
+
+% Frame Title
+\setbeamertemplate{frametitle}
+{
+	\vspace{2.5mm}
+	\hspace{-7mm}\usebeamerfont*{frametitle}\insertframetitle
+	\vspace{-2mm}
+}
+
+% Include a table of contents at each \section command
+\AtBeginSection[] % Do nothing for \section*
+{
+	\begin{frame}<beamer>
+		\frametitle{Outline}
+		\tableofcontents[currentsection]
+	\end{frame}
+}
+
+% Header and Footer
+\setbeamercolor{my footer}{fg=TUMblue}
+\defbeamertemplate{headline}{lnt}	% Headline
+{
+	\color{TUMblue}
+	\begin{beamercolorbox}[wd=\paperwidth,ht=8mm,sep=1mm]{my footer}
+		\usebeamerfont{section in head/foot}%
+		\includegraphics[height=6mm]{lntlogo_blue}\hspace*{1mm}\parbox[b]{40mm}{\@LNTlanguagestringLNT}%
+		\hspace{\fill}%
+		\parbox[b]{35mm}{\hspace{\fill}\@LNTlanguagestringTUM}\hspace*{0.5mm}%
+		\includegraphics[height=6mm]{tumlogo_blue}
+	\end{beamercolorbox}
+	\setlength{\arrayrulewidth}{.25pt} 	% standard line thickness is 0.4pt
+	\begin{tabular*}{\paperwidth}[b]{c}
+		\hline
+	\end{tabular*}
+}
+
+\defbeamertemplate{footline}{lnt}	% Footline
+{
+	\color{TUMblue}
+	\setlength{\arrayrulewidth}{.25pt}	% standard line thickness is 0.4pt
+	\begin{tabular*}{\paperwidth}[b]{lcr}
+		\hline
+	\end{tabular*}\vspace*{-.3mm}
+	\begin{beamercolorbox}[wd=\paperwidth,ht=5mm,sep=1mm]{my footer}
+		\usebeamerfont{section in head/foot}
+		\ifthenelse{\equal{\beamer@shortauthor}{}} % check if author is empty
+		{\insertshorttitle} % in which case we only output the title
+		{\insertshortauthor~---~\insertshorttitle} % otherwise, author & title
+		\hfill
+		\insertframenumber/\inserttotalframenumber
+	\end{beamercolorbox}
+}
+
+\defbeamertemplate{headline}{empty}{}
+\defbeamertemplate{footline}{empty}{}
+
+% lnt-style is default:
+\setbeamertemplate{headline}[lnt] 
+\setbeamertemplate{footline}[lnt] 

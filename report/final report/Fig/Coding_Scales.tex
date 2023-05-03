@@ -1,0 +1,56 @@
+\scalebox{0.95}{
+\begin{tikzpicture}
+% [remember picture, overlay]
+\tikzmath{\x = 8;}
+
+\node (Scale) at (14.8-\x,0) {\text{$L(n,R)$}};
+\draw[-{Latex[length=5mm, width=2mm]}] (0-\x,0) -- (14-\x,0);
+% ---
+\node (CC) at (1-\x,0) {};
+\fill [black] (CC) circle (2pt);
+
+\node[rotate = 0] at (1.27-\x,.4){\text{$\textcolor{blau_2b}{2^{\sqrt{n}R}}$}};
+
+\node[rotate = -17] at (2.8-\x,-.9) {\text{\small \textcolor{cyan}{Covert Commun. (DMC)}}};
+
+
+% ---
+\node (TR) at (3-\x,0) {};
+\fill [black] (TR) circle (2pt);
+
+\node[rotate = 0] at (3.15-\x,.4){\text{$\textcolor{blau_2b}{2^{nR}}$}};
+
+\node[rotate = +17] at (5.18-\x,1.51) {\text{\small \textcolor{cyan}{Transmission (DMC\& Poisson)}}};
+\node[rotate = -17] at (3.78-\x,-.6) {\text{\small \textcolor{cyan}{DI (DMC) }}};
+
+% ---
+\node (DI) at (5-\x,0) {};
+\fill [black] (DI) circle (2pt);
+
+\node[rotate = 0] at (5.61-\x,.4){$\textcolor{blau_2b}{2^{(n\log n)R}}$};
+
+\node[rotate = -17] at (6.8-\x,-.95) {\text{\small \textcolor{cyan}{DI (Gaussian \& Poisson)}}};
+% ---
+\node (CI) at (7-\x,0) {};
+\fill [black] (CI) circle (2pt);
+
+\node[rotate = 0] at (7.3-\x,.4){\text{$\textcolor{blau_2b}{2^{2^{\sqrt{n}R}}}$}};
+
+\node[rotate = -17] at (8.45-\x,-.8) {\text{\small \textcolor{cyan}{Covert ID (BIDMC) }}};
+% ---
+\node (RI) at (9-\x,0) {};
+\fill [black] (RI) circle (2pt);
+
+\node[rotate = 0] at (9.2-\x,.4){\text{$\textcolor{blau_2b}{2^{2^{nR}}}$}};
+
+\node[rotate = -17] at (11.6-\x,-1.15) {\text{\small \textcolor{cyan}{Randomized ID (DMC \& Poisson )}}};
+% ---
+\node (RI) at (11.3-\x,0) {};
+\fill [black] (RI) circle (2pt);
+
+\node[rotate = 0] at (11.8-\x,.6){\text{$\textcolor{blau_2b}{2^{2^{2^{\iddots^{2^{nR}}}}}}$}};
+
+\node[rotate = -17] at (13.45-\x,-1.02) {\text{\small \textcolor{cyan}{DI with Feedback (Gaussian) }}};
+
+\end{tikzpicture}
+}

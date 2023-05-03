@@ -1,0 +1,31 @@
+\scalebox{.6}{
+\begin{tikzpicture}[scale=1][thick]
+\draw[dashed] (0,0) circle (5cm);
+\draw (0,3) circle (1.5cm);
+\draw (2,1.5) circle (1.5cm);
+\draw (2,-1) circle (1.5cm);
+\draw (-2,2) circle (1.5cm);
+\draw (-.5,.9) circle (1.5cm);
+\node at (-2,0) {$\vdots$};
+\node at (-.5,-1.5) {$\ldots$};
+\node at (0,3) {$\D_i$};
+\node at (2,1.5) {$\D_j$};
+\node at (2,-1) {$\D_l$};
+\node at (-2,2) {$\D_k$};
+\node at (-.5,.9) {$\D_m$};
+\draw[->] (0,5) -- ++(0,1)  node [fill=white,inner sep=2pt](a){$\Y^n=\X^n$};
+%\draw[fill=gray] (0,0) circle (1.5cm);
+\draw [fill=cyan, fill opacity=0.5, name path=i] (0,3) circle (1.5cm);
+\draw [fill=orange, fill opacity=0.5, name path=j] (2,1.5) circle (1.5cm);
+\draw [fill=yellow, fill opacity=0.5,name path=l] (2,-1) circle (1.5cm);
+\draw [fill=gray, fill opacity=0.5, name path=k] (-2,2) circle (1.5cm);
+\draw [fill=green, fill opacity=0.5, name path=k] (-.5,.9) circle (1.5cm);
+\path [name intersections={of=i and j,by=cs}];
+%\draw (cs) -- ++(1.5,2) node [fill=white,inner sep=2pt](c){$\propto \lambda_2^{(i,j)}$};
+\draw (cs)+(-.35,-.5) -- ++(1.5,2) node [fill=white,inner sep=2pt](c){$\propto \lambda_2^{(i,j)}$};
+\path [name intersections={of=l and j,by=ct}];
+\draw (ct)+(-.5,0) -- ++(4,0) node [fill=white,inner sep=1pt](d){$\propto \lambda_2^{(j,l)}$};
+\path [name intersections={of=i and k,by=cu}];
+\draw (cu)+(.2,.2) -- ++(-3,1) node [fill=white,inner sep=5pt](e){$\propto \lambda_2^{(i,k)}$};
+%\draw[dotted] (-2,-2.5) arc (-130:-160:5) ;
+\end{tikzpicture}}

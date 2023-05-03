@@ -1,0 +1,43 @@
+\scalebox{.8}{
+\begin{tikzpicture}%[remember picture, overlay]
+\node (Scale) at (13.3,0) {\text{$L(N,R)$}};
+\draw[-{Latex[length=5mm, width=2mm]}] (0,0) -- (12.5,0);
+% ---
+\node (CC) at (.5,0) {};
+\fill [black] (CC) circle (2pt);
+
+\node[rotate = 0] at (.5,.4){\text{$\textcolor{blau_2b!60}{2^{\sqrt{N}R}}$}};
+
+\node[rotate = -20] at (1.7,-.8) {\text{\small \textcolor{blau_2b!60}{Covert Commun.}}};
+% ---
+\node (TR) at (3,0) {};
+\fill [black] (TR) circle (2pt);
+
+\node[rotate = 0] at (3,.4){\text{$\textcolor{blau_2b!70}{2^{NR}}$}};
+
+\node[rotate = -20] at (4,-.7) {\text{\small \textcolor{blau_2b!70}{DI (DMC) \footnote{\tiny \textcolor{mycolor2}{M. J. Salarisedigh \textit{et al.}, "Deterministic Identification Over Channel With Power Constraints", T-IT, 2021}}}}};
+
+% ---
+\node (DI) at (5.5,0) {};
+\fill [black] (DI) circle (2pt);
+
+\node[rotate = 0] at (5.5,.4){\text{$\textcolor{blau_2b!80}{2^{(N\log N)R}}$}};
+
+\node[rotate = -20] at (7.5,-1) {\text{\small \textcolor{blau_2b!80}{DI (Gaussian \& Poisson) \footnote{\tiny \textcolor{mycolor2}{M. J. Salarisedigh \textit{et al.}, "Deterministic Identification Over Fading Channels", ITW, 2020}} \footnote{\tiny \textcolor{mycolor2}{M. J. Salarisedigh \textit{et al.}, "Deterministic Identification Over Poisson Channels", GC, 2021}}}}};
+% ---
+\node (CI) at (8,0) {};
+\fill [black] (CI) circle (2pt);
+
+\node[rotate = 0] at (8,.4){\text{$\textcolor{blau_2b!90}{2^{2^{\sqrt{N}R}}}$}};
+
+\node[rotate = -20] at (8.7,-.6) {\text{\small \textcolor{blau_2b!90}{Covert ID}}};
+% ---
+\node (RI) at (10.5,0) {};
+\fill [black] (RI) circle (2pt);
+
+\node[rotate = 0] at (10.5,.4){\text{$\textcolor{blau_2b}{2^{2^{NR}}}$}};
+
+\node[rotate = -20] at (11.6,-.8) {\text{\small \textcolor{blau_2b}{Randomized ID}}};
+
+\end{tikzpicture}
+}

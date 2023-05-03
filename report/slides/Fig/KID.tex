@@ -1,0 +1,38 @@
+\tikzstyle{farbverlauf} = [ top color=white, bottom color=white!80!gray]
+\tikzstyle{block1} = [draw,top color=white, middle color=white!80!orange, rectangle, rounded corners,
+minimum height=2em, minimum width=2.5em]
+
+\tikzstyle{block2} = [draw,top color=white, middle color=white!80!orange, rectangle, rounded corners,
+minimum height=2em, minimum width=2.5em]
+
+\tikzstyle{block3} = [draw,top color=white, middle color=cyan!30, rectangle, rounded corners,
+minimum height=2em, minimum width=2.5em]
+
+
+\tikzstyle{input} = [coordinate]
+\tikzstyle{sum} = [draw, circle,inner sep=0pt, minimum size=5mm,  thick]
+\tikzstyle{arrow}=[draw,->]
+
+\begin{tikzpicture}[auto, node distance=2cm,>=latex']
+\node[] (M) {$i$};
+\node[left=1mm of M] (Alice) {\includegraphics[height = 14mm]{Fig/Alice.jpg}};
+\node[block1,right=.5cm of M] (enc) {Enc};
+\node[block3, right=.7cm of enc] (channel) {$\text{\small Channel}$};
+
+\node[block2, right=.7cm of channel] (dec) {Dec};
+\node[below=.5cm of dec] (Target) {$\mathcal{S} = \{j_1,\ldots,j_K\}$};
+\node[right=.5cm of dec] (Output) {\text{\small Yes/No}};
+\node[right=1mm of Output] (Bob) {\includegraphics[height = 14mm]{Bob.jpg}};
+
+\draw[->] (M) -- (enc);
+\draw[->] (enc) --node[above]{$\textbf{u}_i$} (channel);
+%\draw[->] (noise) -- (channel);
+\draw[->] (channel) --node[above]{$\textbf{Y}$} (dec);
+
+\draw[->] (dec) -- (Output);
+\draw[->] (Target) -- (dec);
+
+% \node[alice, minimum size=.5cm,left = 3mm of M,label=below:{\scriptsize Alice}] (alice) {};
+% \node[bob, mirrored, minimum size=.5cm, right=3mm of Output, label=below:{\scriptsize Bob}] (bob) {};
+
+\end{tikzpicture}

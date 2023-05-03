@@ -1,0 +1,192 @@
+\usepackage[english]{LNTbeamer}
+\usepackage{tikzpeople}
+\usepackage[english]{LNTbeamer}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb,bm}
+\usepackage{physics}
+\usepackage{tikz}
+\usepackage{tikzpagenodes}
+\usepackage{mathrsfs}
+\usepackage{fontawesome}
+\usepackage{qcircuit}
+
+\usepackage{comment}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+\usepackage{pgfplots} 
+\usepackage{pgfgantt}
+\usepackage{pdflscape}
+\usepackage{pst-plot}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+
+
+\colorlet{Mycolor1}{green!40!black}
+\colorlet{Mycolor2}{red!40!black}
+\def \A{\mathcal{A}}
+\def \B{\mathcal{B}}
+\def \C{\mathcal{C}}
+\def \D{\mathcal{D}}
+\def \E{\mathcal{E}}
+\def \F{\mathcal{F}}
+\def \G{\mathcal{G}}
+\def \H{\mathcal{H}}
+\def \I{\mathcal{I}}
+\def \J{\mathcal{J}}
+\def \K{\mathcal{K}}
+\def \L{\mathcal{L}}
+\def \M{\mathcal{M}}
+\def \N{\mathcal{N}}
+\def \O{\mathcal{O}}
+\def \P{\mathcal{P}}
+\def \Q{\mathcal{Q}}
+\def \R{\mathcal{R}}
+\def \S{\mathcal{S}}
+\def \T{\mathcal{T}}
+\def \U{\mathcal{U}}
+\def \V{\mathcal{V}}
+\def \W{\mathcal{W}}
+\def \X{\mathcal{X}}
+\def \Y{\mathcal{Y}}
+\def \Z{\mathcal{Z}}
+\def \sG {\mathscr{G}}
+\def \sU {\mathscr{U}}
+\def \sT {\mathscr{T}}
+\def \fu{\mathbf{u}}
+\def \fv{\mathbf{v}}
+\def \fx{\mathbf{x}}
+\def \fy{\mathbf{y}}
+\def \fz{\mathbf{z}}
+\def \fG{\mathbf{G}}
+\def \fU{\mathbf{U}}
+\def \fV{\mathbf{V}}
+\def \fX{\mathbf{X}}
+\def \fY{\mathbf{Y}}
+\def \fZ{\mathbf{Z}}
+\def \f0{\mathbf{0}}
+\def \tX{\widetilde{X}}
+
+% Farbpalette A
+\definecolor{blau_1a}{RGB}{93,133,195}
+\definecolor{blau_2a}{RGB}{0,156,218}
+\definecolor{gruen_3a}{RGB}{80,182,149}
+\definecolor{gruen_4a}{RGB}{175,204,80}
+\definecolor{gruen_5a}{RGB}{221,223,72}
+\definecolor{orange_6a}{RGB}{255,224,92}
+\definecolor{orange_7a}{RGB}{248,186,60}
+\definecolor{rot_8a}{RGB}{238,122,52}
+\definecolor{rot_9a}{RGB}{233,80,62}
+\definecolor{lila_10a}{RGB}{201,48,142}
+\definecolor{lila_11a}{RGB}{128,69,151}
+% Farbpalette B
+\definecolor{blau_1b}{RGB}{0,90,169}
+\definecolor{blau_2b}{RGB}{0,131,204}
+\definecolor{gruen_3b}{RGB}{0,157,129}
+\definecolor{gruen_4b}{RGB}{153,192,0}
+\definecolor{gruen_5b}{RGB}{201,212,0}
+\definecolor{orange_6b}{RGB}{253,202,0}
+\definecolor{orange_7b}{RGB}{245,163,0}
+\definecolor{rot_8b}{RGB}{236,101,0}
+\definecolor{rot_9b}{RGB}{230,0,26}
+\definecolor{lila_10b}{RGB}{166,0,132}
+\definecolor{lila_11b}{RGB}{114,16,133}
+%
+\definecolor{mycolor1}{rgb}{0.0, 0.18, 0.39}
+\definecolor{mycolor2}{RGB}{87,108,67}
+\definecolor{mycolor3}{RGB}{8,133,161}
+\definecolor{mycolor4}{RGB}{80,91,161}
+\definecolor{mycolor5}{RGB}{98,122,157}
+\definecolor{mycolor6}{RGB}{255,163,67}
+\definecolor{mycolor7}{RGB}{152,205,225}
+\definecolor{mycolor8}{RGB}{242,204,48}
+\definecolor{mycolor9}{rgb}{0,.5,0}
+\definecolor{mycolor10}{rgb}{.59,.44,.09}
+%
+\definecolor{mycolor11}{RGB}{231,199,31} % Yellow
+\definecolor{mycolor12}{RGB}{8,133,161} % Cyan
+\definecolor{mycolor13}{RGB}{157,188,64} % Yellow Green
+\definecolor{mycolor14}{RGB}{194,150,130} % Light Skin
+\definecolor{mycolor15}{RGB}{98,122,157} % Blue Sky
+\definecolor{mycolor16}{RGB}{160,160,160} % Neutral
+\definecolor{mycolor17}{RGB}{115,82,68} % Dark Skin
+\definecolor{mycolor18}{RGB}{94,60,108} % Purple
+\definecolor{mycolor19}{RGB}{115,82,68} % Dark Skin
+%
+\newenvironment{myfont}{\fontfamily{Bookman}\selectfont}{\par}
+\pgfplotsset{compat=1.15}
+\pgfplotsset{soldot/.style={only marks,mark=*, line width=0.2pt, mark size=1.5pt}}
+\pgfplotsset{holdot/.style={fill=white,only marks,mark=*, line width=1.0pt, mark size=1.5pt}}
+\usepackage{ccfonts}
+% ------------------------------------------------------
+
+\usetikzlibrary{decorations.pathmorphing,calc,shapes.geometric,patterns}
+\usetikzlibrary{arrows,positioning,intersections}
+\usetikzlibrary{datavisualization.formats.functions}
+\usetikzlibrary{shapes.multipart,matrix}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{arrows, decorations.markings}
+\addtocounter{footnote}{} 
+
+
+
+\setcounter{footnote}{0}
+
+\usepackage{refcount}
+\newcounter{fncntr}
+\newcommand{\fnmark}[1]{\refstepcounter{fncntr}\label{#1}\footnotemark[\getrefnumber{#1}]}
+\newcommand{\fntext}[2]{\footnotetext[\getrefnumber{#1}]{#2}}
+
+\usepackage{MnSymbol,wasysym}
+\usepackage{marvosym}
+
+% PKG for Comments
+  \usepackage{pgfpages}
+\setbeameroption{show notes on second screen=right} % Both
+  \setbeamertemplate{note page}{\pagecolor{mycolor12!20}\insertnote}
+
+\usepackage{silence}
+\WarningFilter{ctable}{Transparency disabled:}
+\usepackage{ctable}
+
+\newcommand{\qedwhite}{\hfill \ensuremath{\Box}}
+
+\usepackage{amssymb,amsmath}
+\usepackage{amsthm}
+\usepackage{dsfont}
+\usepackage{empheq}
+% \theoremstyle{plain}
+% \newtheorem{lemma}{}
+% \newenvironment{lemmaqed}
+% {\pushQED{\qed}\lemma}
+% {\popQED\endlemma}
+
+% \theoremstyle{remark}	\newtheorem{lemma}[theorem]{Lemma}
+
+% \theoremstyle{remark}	\newtheorem{theorem}{Theorem}
+% \theoremstyle{remark}	\newtheorem{lemma}[theorem]{Lemma}
+% \theoremstyle{remark}	\newtheorem{corollary}[theorem]{Corollary}
+% \theoremstyle{remark}	\newtheorem{proposition}[theorem]{Proposition}
+% \theoremstyle{remark} \newtheorem{definition}{Definition}
+% \theoremstyle{remark} \newtheorem{remark}{Remark}
+% \theoremstyle{remark} \newtheorem{example}{Example}
+
+
+\usepackage[caption=false]{subfig}
+% \usepackage{caption}
+\captionsetup{font=small}
+\captionsetup[subfigure]{labelformat=empty}
+
+\usepackage{diffcoeff}
+
+
+
+% \usepackage{tgpagella}
+% \usepackage[T1]{fontenc}
+
+% Fonts
+\usepackage{libertine}
+\usepackage[scaled=0.8]{beramono}
