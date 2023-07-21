@@ -21,6 +21,8 @@ def plotting(data, graph,path):
     fig, ax = plt.subplots()
     ax.spines['right'].set_visible(False)
     ax.spines['top'].set_visible(False)
+    if "y_max" in graph:
+        plt.ylim(top=graph["y_max"])
     for _list in data:
         plt.plot(_list["x"],_list["y"],_list["color"], label = _list["label"])
         if "color_p" in _list:
@@ -178,5 +180,6 @@ def time_graph(data):
     y_sig = get_sigdig(np.max(data["y"]))
     graph_dict["y_major_ticks"] =  [y_sig//10 * z for z in range(11)]
     graph_dict["y_minor_ticks"] =  [y_sig//50 * z for z in range(51)]
+    graph_dict["y_max"] = np.max(data["y"])
     return graph_dict
 
